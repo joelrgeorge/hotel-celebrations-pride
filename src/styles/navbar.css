@@ -1,0 +1,126 @@
+/* Navbar Container */
+.navbar {
+  background: white; /* Clean white navbar */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0; /* Sticky to the top of the page */
+  z-index: 1000; /* Keep the navbar above other content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  width: 100%; /* Ensure it stretches across the screen */
+}
+
+/* Navbar Wrapper */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  position: relative; /* Container needs relative positioning for child positioning */
+}
+
+/* Logo */
+.navbar-logo {
+  color: #232526; /* Dark color for contrast */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+  color: #ff7b00; /* Subtle orange hover effect */
+}
+
+/* Divider */
+.navbar-divider {
+  width: 2px; /* Keeping it thick */
+  height: 60px; /* Fixed height for visibility */
+  background-color: #b0b0b0; /* Greyish color */
+  position: absolute; /* Absolute positioning to move freely */
+  left: 300px; /* Move it more to the right */
+  top: 50%; /* Vertically center the divider */
+  transform: translateY(-50%); /* Ensures vertical centering */
+}
+
+/* Menu Icon (For Mobile) */
+.menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  color: #232526;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Navigation Links */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+}
+
+.nav-item {
+  margin: 0 10px; /* Adjusted gap */
+}
+
+.nav-links {
+  color: #232526; /* Dark color for contrast */
+  text-decoration: none;
+  font-size: 1.1rem; /* Slightly smaller text */
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links:hover {
+  background-color: rgba(255, 123, 0, 0.1); /* Subtle orange highlight */
+  color: #ff7b00;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: white; /* White background for the mobile menu */
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-item {
+    margin: 20px 0;
+  }
+
+  .nav-links {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile Menu Toggle Icon Animation */
+.menu-icon.active {
+  color: #ff7b00;
+}

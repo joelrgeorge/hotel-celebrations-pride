@@ -1,0 +1,103 @@
+/* Booking Form Container */
+/* Booking Form Container */
+.booking-form {
+  width: 100%; /* Ensure it takes full width within its container */
+  max-width: 300px; /* Set a max-width for the form */
+  margin: 50px 0 50px auto; /* Align the form to the right using 'auto' for left margin */
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Form Header */
+.booking-form h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff5700;
+}
+
+/* Input and Select Fields */
+.booking-form .form-group {
+  margin-bottom: 20px;
+}
+
+.booking-form label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #ff5700;
+  outline: none;
+}
+
+/* Submit Button */
+.booking-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: #ff5700;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.booking-form button:hover {
+  background: #e14e00;
+}
+
+/* Form Footer */
+.booking-form .form-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.booking-form .form-footer a {
+  color: #ff5700;
+  text-decoration: none;
+}
+
+.booking-form .form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .booking-form {
+    padding: 15px;
+    width: 100%; /* Full width on smaller screens */
+    right: 15px; /* Adjust for small screens */
+  }
+
+  .booking-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form button {
+    font-size: 1rem;
+  }
+}

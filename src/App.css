@@ -1,0 +1,23 @@
+/* app.css */
+
+body {
+  margin: 0;
+  background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
+  background-color: #fff5e8; /* Fallback color matching the texture */
+  background-size: 200px; /* Adjust size to keep the pattern subtle */
+  color: #333; /* Ensure good text readability */
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.room-display-container {
+  width: 70%; /* Adjust to fit the left space */
+}
+
+.booking-form-container {
+  width: 30%; /* Adjust to fit the right space */
+}

@@ -1,0 +1,37 @@
+/* title.css */
+
+.title-container {
+  text-align: center;
+  margin: 30px auto; /* Slightly more breathing space */
+  padding: 25px 20px;
+  background: linear-gradient(145deg, #fffaf0, #fdf5e6); /* Subtle gradient for a more luxurious feel */
+  border-radius: 12px; /* Slightly softer corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow for better depth */
+  max-width: 900px;
+  border: 1px solid #f7e9d5; /* A soft border for a polished finish */
+}
+
+.title-heading {
+  font-size: 3rem; /* Larger and more prominent */
+  color: #d2691e; /* Elegant, earthy tone */
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif; /* Stylish serif font */
+  font-weight: bold; /* Enhanced emphasis */
+}
+
+.title-subtext {
+  font-size: 1.3rem; /* Slightly increased size for readability */
+  color: #666; /* A neutral but modern tone */
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 80%; /* Restrict width for cleaner alignment */
+  font-family: 'Merriweather', serif; /* A classic serif for a sophisticated look */
+  font-style: italic; /* Adds a refined touch */
+}
+
+/* Add subtle hover effect for the entire container (optional) */
+.title-container:hover {
+  transform: scale(1.02); /* Subtle scaling for interactivity */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

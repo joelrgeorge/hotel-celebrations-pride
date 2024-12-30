@@ -1,0 +1,215 @@
+/* Room Display Container */
+.room-display {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  position: relative; /* Make sure container is positioned for slider button positioning */
+}
+
+/* Heading */
+.room-display h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff5700;
+}
+
+/* Room Cards Grid */
+.room-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Room Card */
+.room-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect */
+.room-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Room Card Title */
+.room-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Room Card Description */
+.room-card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Room Card Button */
+.room-card button {
+  padding: 10px 20px;
+  background-color: #ff5700;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.room-card button:hover {
+  background-color: #e14e00;
+}
+
+/* Room Image */
+.room-image {
+  width: 100%; /* Make the image fill the container */
+  height: 200px; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the area without distorting */
+  border-radius: 10px;
+  margin-bottom: 15px; /* Space between image and text */
+}
+
+/* Modal */
+.modal {
+  position: relative; /* No fixed positioning */
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  width: 90%; /* Make the modal take more space */
+  max-width: 800px; /* Increase the max width */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 80vh; /* Limit the height */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  position: absolute; /* Absolute for centering */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translate(-50%, -50%); /* Adjust for perfect centering */
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Slider container */
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure positioning context for buttons */
+  margin-bottom: 20px; /* Space for the button */
+}
+
+/* Image slider area */
+.image-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Slider image */
+.slider-image {
+  width: 100%;
+  max-width: 100%; /* Limit the width to 100% */
+  height: auto; /* Maintain the aspect ratio */
+  max-height: 400px; /* Uniform max height for images */
+  object-fit: contain; /* Ensure the whole image is visible */
+  margin: 0 10px;
+}
+
+/* Slider buttons - Modern style */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #ff5700, #e14e00);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: linear-gradient(135deg, #e14e00, #c44100);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Left slider button (prev) */
+.prev-btn {
+  left: -10px;
+}
+
+/* Right slider button (next) */
+.next-btn {
+  right: -10px;
+}
+
+/* Add arrow icons if needed */
+.slider-btn::before {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.prev-btn::before {
+  content: "◄"; /* Left arrow */
+}
+
+.next-btn::before {
+  content: "►"; /* Right arrow */
+}
+
+/* Close Button (Top Right) */
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.close-modal-btn:hover {
+  color: #ff5700;
+}
+
+/* Close Button X */
+.close-modal-btn:before {
+  content: "×"; /* Unicode for 'X' symbol */
+  font-size: 40px;
+  font-weight: bold;
+}
