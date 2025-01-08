@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Fleur+De+Leah&display=swap');
+
 .hero-container {
   height: 75vh;
-  background: url('/public/img/a4.jpg') no-repeat center center/cover;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), /* Gradient overlay */
+    url('/public/img/a4.jpg') no-repeat center center/cover; /* Background image */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,8 +14,10 @@
 }
 
 .hero-title {
+  font-family: "Charm", serif;
+  font-weight: 700;
+  font-style: normal;
   font-size: 4rem;
-  font-weight: bold;
   letter-spacing: 2px;
   color: white;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -21,8 +27,10 @@
 .hero-subtitle {
   font-size: 1.8rem;
   margin-top: 15px;
-  color: #ffddc1;
-  font-weight: 300;
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  color: #fff;
+  font-style: italic;  
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 

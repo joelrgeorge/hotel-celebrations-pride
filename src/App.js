@@ -6,10 +6,10 @@ import BookingForm from "./components/BookingForm";
 import Navbar from "./components/Navbar";
 import RoomDisplay from "./components/RoomDisplay"; // Import the RoomDisplay component
 import MainTitle from "./components/MainTitle";
-import Title from "./components/title"; // Import the Title component
 import "./App.css"; // Import App.css for custom styling
 import WhoAreWe from "./components/WhoAreWe";
 import ImageCarousel from "./components/ImageCarousel";
+import Footer from "./components/Footer";
 
 function App() {
   const galleryImages = [
@@ -28,10 +28,9 @@ function App() {
           <BookingForm /> {/* Booking Form on the right */}
         </div>
       </div>
-      <Title /> {/* Ensure Title component is rendered here */}
-      <WhoAreWe />
-      <Title /> {/* Ensure Title component is rendered here */}
       <ImageCarousel images={galleryImages} />
+      <WhoAreWe />
+      <Footer />
     </div>
   );
 }

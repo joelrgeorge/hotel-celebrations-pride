@@ -1,6 +1,5 @@
 /* Navbar Container */
 .navbar {
-  background: white; /* Clean white navbar */
   height: 80px;
   display: flex;
   justify-content: center;
@@ -13,10 +12,28 @@
   width: 100%; /* Ensure it stretches across the screen */
 }
 
+ul {
+  margin-top: 0px !important; /* Replace with your desired value */
+  margin-bottom: 0px !important;
+}
+
+.navbar-container .gradient_bg{
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 100%; /* Or set the width/height as necessary */
+  height: 100%;
+  z-index: -1; /* Ensure it stays behind the content */
+}
+
+
+/*div, div::after, div::before {
+  box-sizing: content-box !important;
+}*/
+
 /* Navbar Wrapper */
 .navbar-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1200px;
@@ -45,7 +62,7 @@
   height: 60px; /* Fixed height for visibility */
   background-color: #b0b0b0; /* Greyish color */
   position: absolute; /* Absolute positioning to move freely */
-  left: 300px; /* Move it more to the right */
+  left: 400px; /* Move it more to the right */
   top: 50%; /* Vertically center the divider */
   transform: translateY(-50%); /* Ensures vertical centering */
 }
@@ -65,6 +82,7 @@
   display: flex;
   list-style: none;
   text-align: center;
+  padding-left: 600px;
 }
 
 .nav-item {

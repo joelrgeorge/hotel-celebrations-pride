@@ -37,7 +37,7 @@ const RoomDisplay = () => {
       name: "Suite",
       description: <>
       Experience the ultimate in luxury with our exclusive Suite. It boasts a separate living area, a king-sized bed, 
-      and a spa-like bathroom with a soaking tub and rain shower. <br /><br />Enjoy a personalized hospitality experience 
+      and a spa-like bathroom with a soaking tub and rain shower. <br />Enjoy a personalized hospitality experience 
       with premium amenities, a private balcony, and vibrant views.
       </>,
       price: "$250",
@@ -72,7 +72,8 @@ const RoomDisplay = () => {
 
   return (
     <div className="room-display">
-      <h2>Our Rooms</h2>
+      <p className="section-heading">Our Rooms</p>
+      <h2>An Exceptional Stay Awaits You</h2>
       <div className="room-cards">
         {rooms.map((room, index) => (
           <div className="room-card" key={index}>

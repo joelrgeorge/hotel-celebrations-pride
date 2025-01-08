@@ -1,5 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import App from './App'; // Your root component
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);

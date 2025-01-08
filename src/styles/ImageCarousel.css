@@ -1,15 +1,48 @@
 /* Image Carousel Container */
 .image-carousel-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
+  max-width: 1500px;
+  margin-bottom: 40px;
+  padding: 0px;
+  background: url('/public/img/center.svg'); /* Apply gradient and background image */
+  background-size: cover;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
   position: relative;
   overflow: hidden;
+}
+
+.gallery-heading {
+  background: #faa935;
+  font-family: "Island Moments", cursive;
+  padding: 0px 1.5rem;
+  padding-right: 1rem;
+
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: #0b1a27;
+
+  text-align: center;
+  width: max-content;
+
+  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+}
+
+.section-subtitle {
+  font-size: 1.5rem;  
+  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-top: 0px;
+  font-family: "Carattere", serif;
+  font-weight: 400;
+  color: rgb(43, 147, 226);
+  font-style: normal;
+  font-size: 36px;
+  margin-bottom: 20px;
+  padding-right: 1rem;
+  font-weight: 300;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Carousel Styling */
@@ -19,11 +52,11 @@
 }
 
 .carousel-image {
-  width: 300px;  /* Ensure all images have the same width */
-  height: 200px; /* Ensure all images have the same height */
+  width: 600px;  /* Ensure all images have the same width */
+  height: 300px; /* Ensure all images have the same height */
   object-fit: cover; /* Ensure images maintain aspect ratio */
   cursor: pointer;
-  margin: 0 10px; /* Add space between images */
+  margin: 0px; /* Add space between images */
 }
 
 /* Active image to display in carousel */
@@ -102,4 +135,14 @@
   content: "×"; /* Unicode for 'X' symbol */
   font-size: 40px;
   font-weight: bold;
+}
+
+/* Optional: Add a gradient overlay for the background image */
+.image-carousel-container .gradient_bg {
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 100%; /* Or set the width/height as necessary */
+  height: 100%;
+  z-index: -1; /* Ensure it stays behind the content */
 }

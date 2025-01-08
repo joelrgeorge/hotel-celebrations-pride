@@ -2,23 +2,23 @@
   "who_we_are": [
     {
       "id": 1,
-      "number": "14",
-      "title": "Restaurants"
+      "number": "5+",
+      "title": "Cuisnies"
     },
     {
       "id": 2,
-      "number": "20",
-      "title": "Chef In Kitchen"
+      "number": "10+",
+      "title": "Staff"
     },
     {
       "id": 3,
-      "number": "08",
-      "title": "Years Of Experience"
+      "number": "400+",
+      "title": "Satisfied Customers"
     },
     {
       "id": 4,
       "number": "200",
-      "title": "Food Dishes"
+      "title": "HandCrafted Food Dishes"
     }
   ]
 }

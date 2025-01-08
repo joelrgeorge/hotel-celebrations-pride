@@ -1,11 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
+
+
+.header-container{
+  margin-top: 100px;
+}
+
+.kitchen-heading {
+  background: #faa935;
+  font-family: "Island Moments", cursive;
+  padding: 0px 1.5rem;
+  padding-right: 1rem;
+
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: #0b2727;
+
+  text-align: center;
+  width: max-content;
+
+  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+}
+
+
+.section-subtitle {
+  font-size: 1.5rem;  
+  margin-left: 1rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-top: 20px;
+  font-family: "Carattere", serif;
+  font-weight: 400;
+  color: rgb(43, 58, 226);
+  font-style: normal;
+  font-size: 48px;
+  margin-bottom: 20px;
+  padding-right: 1rem;
+  font-weight: 300;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 .who_are_we {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
+  text-align: center; /* Centers text */
+  margin-top: 40px;
+  margin-bottom: 40px; /* Optional spacing */
+}
+
   .who_are_we .container {
     max-width: 1500px;
     min-width: 1500px;
@@ -26,13 +70,16 @@
     justify-content: center;
   }
 
+  .who_are_we .container .text_banner .card {
+    background-color: transparent; /* Or any other color you prefer */
+    border: none; /* To remove the border entirely */
+  }
+
   .who_are_we .container .text_banner .card h1 {
     color: #000000;
     font-size: 40px;
     font-weight: 200;
     font-family: "Oswald", sans-serif;
-    box-sizing: border-box;
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
@@ -42,8 +89,6 @@
     font-size: 28px;
     font-weight: 200;
     font-family: "Oswald", sans-serif;
-    box-sizing: border-box;
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
   }

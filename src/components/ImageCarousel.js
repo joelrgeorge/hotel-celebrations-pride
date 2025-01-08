@@ -31,6 +31,14 @@ const ImageCarousel = ({ images }) => {
 
   return (
     <div className="image-carousel-container">
+      {/* Title above the carousel */}
+      <div className="title-container"> {/* Wrapper to center the title and subtitle */}
+      <p className="gallery-heading">Gallery</p>
+        <h2 className="section-subtitle">
+        Explore Our Stunning Gallery
+        </h2>
+      </div>
+
       <div className="image-carousel" style={{ transform: `translateX(-${currentIndex * 320}px)` }}>
         {/* Duplicating the images to create the infinite loop effect */}
         {[...images, ...images].map((image, index) => (
