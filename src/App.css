@@ -8,17 +8,16 @@ body {
   color: #333; /* Ensure good text readability */
 }
 
-.main-content { 
+.main-content {
   display: flex;
   justify-content: space-between;
-  padding-top: 0px;
-  margin-top: 0px; /* Reduce the space above the main content */
+  padding: 0px;
 }
 
 .room-display-container {
-  width: 70%; /* Adjust to fit the left space */
+  width: 78%; /* Adjust to fit the left space */
 }
 
 .booking-form-container {
-  width: 30%; /* Adjust to fit the right space */
+  width: 22%; /* Adjust to fit the right space */
 }

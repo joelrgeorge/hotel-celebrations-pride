@@ -2,24 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
 .booking-form {
-  width: 87%; /* Ensure it takes full width within its container */
-  max-width: 400px; /* Set a max-width for the form */
-  margin: 50px 0 50px 30px; /* Align the form to the right using 'auto' for left margin */
-  padding: 20px;
+  width: 100%; /* Ensure it takes full width within its container */
+  max-width: 450px; /* Set a max-width for the form */
+  margin: 0px 0px 0px 0px; /* Align the form to the right using 'auto' for left margin */
+  padding: 10px;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+  box-shadow: none;
   font-family: 'Arial', sans-serif;
-  height: 87%;
+  height: 98%;
 }
 
 /* Form Header */
 .booking-form h2 {
   text-align: center;
-  font-size: 56px;
+  font-size: 65px;
   font-family: "Birthstone", serif;
   font-weight: 400;
   font-style: normal;
+  margin-top: 0px;
   margin-bottom: 20px;
   color: #ff5700;
 }
@@ -27,6 +28,7 @@
 /* Input and Select Fields */
 .booking-form .form-group {
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .booking-form label {
@@ -74,7 +76,8 @@
 /* Form Footer */
 .booking-form .form-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 0.9rem;
   color: #777;
 }

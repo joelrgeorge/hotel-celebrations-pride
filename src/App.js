@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const galleryImages = [
-    "/img/a1.jpg", "/img/a2.jpg", "/img/a3.jpg", "/img/a4.jpg", "/img/a5.jpg", "/img/a6.jpg", "/img/a7.jpg", "/img/a8.jpg", "/img/a9.jpg", "/img/a10.jpg", "/img/a11.png"
+    "/img/a1.jpg", "/img/a2.jpg", "/img/a3.jpg", "/img/a4.jpg", "/img/a5.jpg", "/img/a6.jpg", "/img/a7.jpg", "/img/a8.jpg", "/img/a9.jpg", "/img/a10.jpg", "/img/a11.png", "/img/holiday-inn-savannah-5627537490-4x3.avif"
   ];
   return (
     <div>
@@ -28,8 +28,8 @@ function App() {
           <BookingForm /> {/* Booking Form on the right */}
         </div>
       </div>
-      <ImageCarousel images={galleryImages} />
       <WhoAreWe />
+      <ImageCarousel images={galleryImages} />
       <Footer />
     </div>
   );

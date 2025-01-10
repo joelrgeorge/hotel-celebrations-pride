@@ -3,8 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Island+Moments&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
-
-.header-container{
+.header-container {
   margin-top: 100px;
 }
 
@@ -13,136 +12,177 @@
   font-family: "Island Moments", cursive;
   padding: 0px 1.5rem;
   padding-right: 1rem;
-
   border-radius: 50px;
   font-weight: 500;
   font-size: 2.2rem;
   color: #0b2727;
-
   text-align: center;
   width: max-content;
-
   margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
 }
 
+/* Flex container to align subtitle and button */
+.subtitle-btn-container {
+  display: flex; /* Align subtitle and button horizontally */
+  align-items: center; /* Vertically align them in the center */
+  gap: 20px; /* Adds space between subtitle and button */
+  margin-bottom: 0px;
+}
 
 .section-subtitle {
   font-size: 1.5rem;  
-  margin-left: 1rem; /* Adds space to the left of the entire element, moving it to the right */
-  margin-top: 20px;
   font-family: "Carattere", serif;
   font-weight: 400;
   color: rgb(43, 58, 226);
   font-style: normal;
   font-size: 48px;
-  margin-bottom: 20px;
+  margin: 0; /* Remove margin */
   padding-right: 1rem;
   font-weight: 300;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.explore-btn {
+  margin-top: 0; /* Remove margin-top */
+  margin-left: 840px;
+  display: flex; /* Align icon and text horizontally */
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+  background-color: #faa935;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn i {
+  font-size: 18px; /* Adjust the size of the icon */
+}
+
+.explore-btn:hover {
+  background-color: #f8981d;
+}
+
+/* Add styles for the rest of the content */
 .who_are_we {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers horizontally */
-  text-align: center; /* Centers text */
+  align-items: center;
+  text-align: center;
   margin-top: 40px;
-  margin-bottom: 40px; /* Optional spacing */
+  margin-bottom: 40px;
 }
 
+.who_are_we .container {
+  max-width: 1500px;
+  min-width: 1500px;
+  display: flex;
+}
+
+.who_are_we .container .text_banner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.who_are_we .container .text_banner .card {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.who_are_we .container .text_banner .card {
+  background-color: transparent;
+  border: none;
+}
+
+.who_are_we .container .text_banner .card h1 {
+  color: #000000;
+  font-size: 40px;
+  font-weight: 200;
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.who_are_we .container .text_banner .card p {
+  color: #000000;
+  font-size: 28px;
+  font-weight: 200;
+  font-family: "Oswald", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.who_are_we .container .image_banner {
+  position: relative;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.who_are_we .container .image_banner img {
+  width: 500px;
+  height: 635px;
+}
+
+.who_are_we .container .image_banner .gradient_bg {
+  position: absolute;
+  left: -80px;
+  top: 0;
+}
+
+@media (max-width: 1520px) {
   .who_are_we .container {
-    max-width: 1500px;
-    min-width: 1500px;
-    display: flex;
+    min-width: 100%;
+    padding: 20px;
   }
-  .who_are_we .container .text_banner {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .who_are_we .container .text_banner .card {
-    display: flex;
-    flex-direction: column;
-    height: 50%;
-    align-items: center;
-    gap: 15px;
-    justify-content: center;
-  }
+}
 
-  .who_are_we .container .text_banner .card {
-    background-color: transparent; /* Or any other color you prefer */
-    border: none; /* To remove the border entirely */
-  }
-
-  .who_are_we .container .text_banner .card h1 {
-    color: #000000;
-    font-size: 40px;
-    font-weight: 200;
-    font-family: "Oswald", sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  .who_are_we .container .text_banner .card p {
-    color: #000000;
-    font-size: 28px;
-    font-weight: 200;
-    font-family: "Oswald", sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .who_are_we .container .image_banner {
-    position: relative;
-    flex: 2;
-    display: flex;
-    justify-content: center;
-  }
+@media (max-width: 1180px) {
   .who_are_we .container .image_banner img {
-    width: 500px;
-    height: 635px;
+    height: 100%;
+    width: 100%;
   }
-  .who_are_we .container .image_banner .gradient_bg {
-    position: absolute;
-    left: -80px;
-    top: 0;
+}
+
+@media (max-width: 700px) {
+  .who_are_we .container .image_banner {
+    order: -1;
+    margin-bottom: 2rem;
   }
-  @media (max-width: 1520px) {
-    .who_are_we .container {
-      min-width: 100%;
-      padding: 20px;
-    }
+
+  .who_are_we .container .text_banner {
+    flex-direction: row;
   }
-  @media (max-width: 1180px) {
-    .who_are_we .container .image_banner img {
-      height: 100%;
-      width: 100%;
-    }
+
+  .who_are_we .container {
+    flex-direction: column;
   }
-  @media (max-width: 700px) {
-    .who_are_we .container .image_banner {
-      order: -1;
-      margin-bottom: 2rem;
-    }
-    .who_are_we .container .text_banner {
-      flex-direction: row;
-    }
-    .who_are_we .container {
-      flex-direction: column;
-    }
-    .who_are_we .container .image_banner img {
-      width: 400px;
-    }
-    .who_are_we .container .text_banner .card {
-      width: 50%;
-    }
+
+  .who_are_we .container .image_banner img {
+    width: 400px;
   }
-  @media (max-width: 400px) {
-    .who_are_we .container .text_banner {
-      flex-direction: column;
-    }
-    .who_are_we .container .text_banner .card {
-      width: 100%;
-      margin-bottom: 1.2rem;
-    }
+
+  .who_are_we .container .text_banner .card {
+    width: 50%;
   }
+}
+
+@media (max-width: 400px) {
+  .who_are_we .container .text_banner {
+    flex-direction: column;
+  }
+
+  .who_are_we .container .text_banner .card {
+    width: 100%;
+    margin-bottom: 1.2rem;
+  }
+}

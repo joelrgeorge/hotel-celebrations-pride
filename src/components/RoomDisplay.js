@@ -15,9 +15,9 @@ const RoomDisplay = () => {
       name: "Single Room",
       description: 
       <>
-      A cozy, tastefully furnished space designed for solo travelers. 
-      <br /><br />Enjoy a comfortable bed, a work desk, and modern amenities such as high-speed Wi-Fi and a flat-screen TV. 
-      <br /><br />Perfect for short getaways.
+        A cozy, tastefully furnished space designed for solo travelers. 
+        <br /><br />Enjoy a comfortable bed, a work desk, and modern amenities such as high-speed Wi-Fi and a flat-screen TV. 
+        <br /><br />Perfect for short getaways.
       </>,
       price: "$100",
       images: ["/img/a1.jpg", "/img/a2.jpg", "/img/a3.jpg", "/img/a4.jpg", "/img/a5.jpg", "/img/a6.jpg", "/img/a7.jpg"], // Array of images for the room
@@ -26,9 +26,9 @@ const RoomDisplay = () => {
       name: "Double Room",
       description: 
       <>
-      “Spacious and inviting, our Double Room is ideal for couples or friends. <br />
-      It features two comfortable beds or one large bed, 
-      a seating area, and a modern ensuite bathroom. <br /><br />Relax with premium bedding, and a stunning view from your window.”
+        Spacious and inviting, our Double Room is ideal for couples or friends. <br />
+        It features two comfortable beds or one large bed, 
+        a seating area, and a modern ensuite bathroom. <br /><br />Relax with premium bedding, and a stunning view from your window.
       </>,
       price: "$150",
       images: ["/img/a2.jpg", "/img/a3.jpg"],
@@ -36,9 +36,9 @@ const RoomDisplay = () => {
     {
       name: "Suite",
       description: <>
-      Experience the ultimate in luxury with our exclusive Suite. It boasts a separate living area, a king-sized bed, 
-      and a spa-like bathroom with a soaking tub and rain shower. <br />Enjoy a personalized hospitality experience 
-      with premium amenities, a private balcony, and vibrant views.
+        Experience the ultimate in luxury with our exclusive Suite. It boasts a separate living area, a king-sized bed, 
+        and a spa-like bathroom with a soaking tub and rain shower. <br />Enjoy a personalized hospitality experience 
+        with premium amenities, a private balcony, and vibrant views.,<br /><br />
       </>,
       price: "$250",
       images: ["/img/a3.jpg", "/img/a1.jpg"],
@@ -46,10 +46,12 @@ const RoomDisplay = () => {
   ];
 
   const openModal = (room) => {
+    console.log("Opening room modal for room:", room.name); // Debugging
     setSelectedRoom(room);
     setIsModalOpen(true);
-    setCurrentImageIndex(0); // Reset image index when opening the modal
+    setCurrentImageIndex(0);
   };
+  
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -94,11 +96,11 @@ const RoomDisplay = () => {
           isOpen={isModalOpen}
           onRequestClose={closeModal}
           contentLabel="Room Image Slider"
-          className="modal"
-          overlayClassName="overlay"
+          className="room-display room-modal"
+          overlayClassName="room-display room-overlay"
         >
           <div className="slider-container">
-            <button className="slider-btn prev-btn" onClick={prevImage}></button>
+            <button className="slider-btn prev-btn" onClick={prevImage} aria-label="Previous image"></button>
             <div className="image-slider">
               <img
                 src={selectedRoom.images[currentImageIndex]}
@@ -106,9 +108,9 @@ const RoomDisplay = () => {
                 className="slider-image"
               />
             </div>
-            <button className="slider-btn next-btn" onClick={nextImage}></button>
+            <button className="slider-btn next-btn" onClick={nextImage} aria-label="Next image"></button>
           </div>
-          <button onClick={closeModal} className="close-modal-btn"></button>
+          <button onClick={closeModal} className="close-modal-btn" aria-label="Close modal"></button>
         </Modal>
       )}
     </div>

@@ -9,9 +9,9 @@
     background: #ffffff;
     border-radius: 0px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    max-width: 1500px;
-    margin: 0px 0px 0px 15px; /* Sets margin-bottom to 0 */
-    border: 1px solid #f7e9d5;
+    max-width: none;
+    margin: 0px 0px 0px 0px; /* Sets margin-bottom to 0 */
+    border: none;
 }  
 
 .section-heading {

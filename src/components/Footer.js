@@ -5,6 +5,7 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap'; // M
 import { Link } from 'react-router-dom';
 import logo from '/public/img/logo.svg';
 
+
 const quick__links = [
   { path: "/home", display: "Home" },
   { path: "/about", display: "About" },
@@ -82,10 +83,9 @@ const Footer = () => {
             </ListGroup>
           </Col>
           <Col lg='12' className='text-center pt-5'>
-          <p style={{ color: '#ff5700', fontWeight: 'bold' }}>
-            Copyright {year}, Designed and developed by © Liege Developers.
+          <p style={{ color: '#ff5700', fontWeight: 'bold', fontFamily: 'Merriweather', fontStyle: 'normal' }}>
+          Copyright {year}. Designed and developed by © Liege Developers.
           </p>
-
           </Col>
         </Row>
       </Container>

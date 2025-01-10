@@ -20,9 +20,10 @@ const ImageCarousel = ({ images }) => {
   }, [images.length]);
 
   const openModal = (index) => {
+    console.log("Opening modal with index:", index); // Debugging
     setSelectedImage(images[index]);
     setIsModalOpen(true);
-  };
+  };  
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -33,9 +34,9 @@ const ImageCarousel = ({ images }) => {
     <div className="image-carousel-container">
       {/* Title above the carousel */}
       <div className="title-container"> {/* Wrapper to center the title and subtitle */}
-      <p className="gallery-heading">Gallery</p>
+        <p className="gallery-heading">Gallery</p>
         <h2 className="section-subtitle">
-        Explore Our Stunning Gallery
+          Explore Our Stunning Gallery
         </h2>
       </div>
 
@@ -57,8 +58,8 @@ const ImageCarousel = ({ images }) => {
         isOpen={isModalOpen}
         onRequestClose={closeModal} // Handle close with your custom function
         contentLabel="Image Modal"
-        className="modal"
-        overlayClassName="overlay"
+        className="image-carousel-modal"
+        overlayClassName="image-carousel-overlay"
       >
         {/* Modal content */}
         <div className="slider-container">
@@ -70,7 +71,7 @@ const ImageCarousel = ({ images }) => {
             />
           </div>
           {/* Close button inside modal */}
-          <button onClick={closeModal} className="close-modal-btn"></button>
+          <button onClick={closeModal} className="close-modal-btn" aria-label="Close modal"></button>
         </div>
       </Modal>
     </div>
