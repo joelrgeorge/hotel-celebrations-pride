@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .about-section {
     display: flex;
@@ -38,8 +39,8 @@
 }
 
 .about-heading {
-    font-size: 3.5rem;
-    color: #d27e1e;
+    font-size: 48px;
+    color: #ff5700;
     font-family: "Bonheur Royale", serif;
     font-weight: 500;
     font-style: normal;
@@ -49,9 +50,9 @@
 
 .about-subtext {
     font-size: 1.3rem;
-    color: #666;
+    color: #000000;
     line-height: 1.8;
-    font-family: 'Merriweather', serif;
+    font-family: 'Montserrat', serif;
     margin-left: 1rem;
 }
 

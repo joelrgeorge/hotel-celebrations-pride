@@ -1,10 +1,10 @@
-/* app.css */
+/* home.css */
 
 body {
   margin: 0;
-  background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
+  background: url("/public/img/pattern.png") repeat; /* Maintain the elegant pattern */
   background-color: #fff5e8; /* Fallback color matching the texture */
-  background-size: 200px; /* Adjust size to keep the pattern subtle */
+  background-size: 300px; /* Adjust size to keep the pattern subtle */
   color: #333; /* Ensure good text readability */
 }
 

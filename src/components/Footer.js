@@ -29,7 +29,7 @@ const Footer = () => {
             <div className='logo'>
               <img src={logo} alt='' />
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id odit distinctio laboriosam quod, corporis provident.
+              Welcome to Hotel Celebrations, where elegance meets comfort in the heart of opulence. Nestled in a serene location, our hotel offers an unparalleled experience of sophistication and warmth.
               </p>
               <div className='social__links d-flex align-items-center gap-4'>
                 {['ri-youtube-line', 'ri-github-line', 'ri-facebook-circle-fill', 'ri-instagram-line'].map((icon, index) => (
@@ -66,8 +66,8 @@ const Footer = () => {
             <h5 className='footer__link-title'>Contact</h5>
             <ListGroup className='footer__quick-links'>
               {[
-                { icon: 'ri-map-pin-line', label: 'Address:', text: 'Hennur, Bangalore' },
-                { icon: 'ri-mail-line', label: 'Email:', text: 'we-the-people@gmail.com' },
+                { icon: 'ri-map-pin-line', label: 'Address:', text: 'Jaipur, Rajasthan'},
+                { icon: 'ri-mail-line', label: 'Email:', text: 'enquiry@hotelcelebrations.com' },
                 { icon: 'ri-phone-fill', label: 'Phone:', text: '+01233456789' },
               ].map((item, index) => (
                 <ListGroupItem key={index} className='ps-0 border-0 d-flex align-items-center gap-3'>

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+section {
+    padding: 50px 0px;
+  }
+  
+  .section__subtitle {
+    background: #faa935;
+    font-family: "Island Moments", cursive;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+  
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 2.2rem; /* Increase the font size */
+    color: #0b2727;
+  
+    text-align: center;
+    width: max-content;
+  
+    margin-left: 0rem; /* Keeps the left margin exact */
+    padding-left: 1rem; /* Add some padding to the left if you want to increase the space */
+}
+
+.gallery__title{
+    font-size: 2.3rem;
+    margin-bottom: 2.5rem;
+    margin-top: 1rem;
+    font-family: "Josefin Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.masonry__image{
+    transition: 0.6s;
+}
+
+.masonry__img:hover{
+    transform: scale(1.1);
+}
+   
+@media only screen and (max-width: 992px){
+    
+    .gallery__title h2 {
+    font-size: 2rem;
+    }
+}
+
+
+@media only screen and (max-width: 576px){
+     .gallery__title h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 992px){
+    section{
+        padding: 40px 0;
+    }
+}
+    
+@media only screen and (max-width: 768px){
+    .section__subtitle {
+        font-size: 1.3rem;
+    }
+}

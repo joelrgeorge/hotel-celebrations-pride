@@ -115,9 +115,9 @@
 
 /* Close Button (Top Right) */
 .close-modal-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: fixed;
+  top: 0px;
+  right: 2px;
   padding: 10px;
   background-color: transparent;
   color: #333;
