@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/RoomDetails.css';
 
-const RoomDetails = ({ images, title, overview, description }) => {
+const RoomDetails = ({ images, title, overview, description, facilities }) => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const sliderSettings = {
@@ -47,17 +47,32 @@ const RoomDetails = ({ images, title, overview, description }) => {
           </div>
           <div className="room-details__right">
             <h2 className="room-title">{title}</h2>
-            <p className="room-overview">{overview}</p>
+            <p className="room-overview" dangerouslySetInnerHTML={{ __html: overview }}></p>
             <button className="book-now">Book Now</button>
+            <div className="facilities-wrapper">
+              <h4 className="facilities-title">Facilities</h4>
+              <ul className="facilities-list">
+                {facilities.map((facility, idx) => (
+                  <li key={idx} className="facility-item">{facility}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       ) : (
         <p>Loading slider...</p>
       )}
 
-      <div className="room-details__description">
-        <h3>Description</h3>
-        <p>{description}</p>
+      <div className="room-details__description" >
+      <h3>Description</h3>
+      <p>
+      {description.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
+    </p>
       </div>
     </div>
   );

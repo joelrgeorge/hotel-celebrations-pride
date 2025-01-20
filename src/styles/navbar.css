@@ -6,68 +6,37 @@
   align-items: center;
   font-size: 1rem;
   position: sticky;
-  top: 0; /* Sticky to the top of the page */
-  z-index: 1000; /* Keep the navbar above other content */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  width: 100%; /* Ensure it stretches across the screen */
-}
-
-ul {
-  margin-top: 0px !important; /* Replace with your desired value */
-  margin-bottom: 0px !important;
-}
-
-.navbar-container .gradient_bg{
-  position: absolute;
-  left: -80px;
   top: 0;
-  width: 100%; /* Or set the width/height as necessary */
-  height: 100%;
-  z-index: -1; /* Ensure it stays behind the content */
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
+  width: 100%;
 }
-
-
-/*div, div::after, div::before {
-  box-sizing: content-box !important;
-}*/
 
 /* Navbar Wrapper */
 .navbar-container {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: none;
   padding: 0 20px;
-  position: relative; /* Container needs relative positioning for child positioning */
+  justify-content: space-between;
 }
 
 /* Logo */
 .navbar-logo {
-  color: #232526; /* Dark color for contrast */
+  color: #232526;
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-  letter-spacing: 1px;
   transition: color 0.3s ease;
 }
 
 .navbar-logo:hover {
-  color: #ff7b00; /* Subtle orange hover effect */
+  color: #ff7b00;
 }
 
-/* Divider */
-.navbar-divider {
-  width: 2px; /* Keeping it thick */
-  height: 60px; /* Fixed height for visibility */
-  background-color: #b0b0b0; /* Greyish color */
-  position: absolute; /* Absolute positioning to move freely */
-  left: 400px; /* Move it more to the right */
-  top: 50%; /* Vertically center the divider */
-  transform: translateY(-50%); /* Ensures vertical centering */
-}
-
-/* Menu Icon (For Mobile) */
+/* Menu Icon for Mobile */
 .menu-icon {
   display: none;
   background: none;
@@ -75,70 +44,103 @@ ul {
   color: #232526;
   font-size: 2rem;
   cursor: pointer;
+  z-index: 1001; /* Ensure icon stays on top */
 }
 
-/* Navigation Links */
+/* Navigation Menu */
 .nav-menu {
-  display: flex;
+  display: flex; /* Default to flex for larger screens */
   list-style: none;
   text-align: center;
-  padding-left: 800px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
+/* Nav Items */
 .nav-item {
-  margin: 0 10px; /* Adjusted gap */
+  margin: 0 15px;
 }
 
 .nav-links {
-  color: #232526; /* Dark color for contrast */
+  color: #232526;
   text-decoration: none;
-  font-size: 1.1rem; /* Slightly smaller text */
+  font-size: 1.1rem;
   padding: 8px 12px;
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links:hover {
-  background-color: rgba(255, 123, 0, 0.1); /* Subtle orange highlight */
+  background-color: rgba(255, 123, 0, 0.1);
   color: #ff7b00;
 }
 
-/* Responsive Design */
+/* Mobile View */
 @media screen and (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
+  /* Hide navigation menu by default */
   .nav-menu {
-    display: flex;
+    display: none; /* Hidden on mobile */
     flex-direction: column;
     position: absolute;
     top: 80px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 80px);
-    background: white; /* White background for the mobile menu */
+    background: #232526;
     opacity: 0;
     transform: translateY(-100%);
-    transition: all 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 999;
   }
 
   .nav-menu.active {
+    display: flex; /* Display on mobile when active */
     opacity: 1;
     transform: translateY(0);
   }
 
+  .menu-icon {
+    display: block; /* Show the menu icon for mobile */
+  }
+
+  .navbar-logo {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+  }
+
   .nav-item {
-    margin: 20px 0;
+    margin: 10px 0;
+    padding: 10px 0;
   }
 
   .nav-links {
-    font-size: 1.5rem;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px;
+    display: block;
+  }
+
+  .nav-links:hover {
+    background-color: rgba(255, 123, 0, 0.2);
+    color: #ff7b00;
   }
 }
 
-/* Mobile Menu Toggle Icon Animation */
-.menu-icon.active {
-  color: #ff7b00;
+/* Desktop View */
+@media screen and (min-width: 769px) {
+  .nav-menu {
+    display: flex; /* Show the navigation menu by default on larger screens */
+    flex-direction: row;
+    position: static;
+    background: none;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .menu-icon {
+    display: none; /* Hide the menu icon on larger screens */
+  }
 }

@@ -1,5 +1,9 @@
 import React from "react";
 import "../styles/aboutSection.css"; // Import the updated CSS
+import { Container, Row ,Col } from 'reactstrap';
+import heroImg from '/public/img/hero-img01.jpg'
+import heroImg02 from '/public/img/hero-img02.jpg'
+import heroVideo from '/public/img/hero-video.mp4'
 
 const MainTitle = () => {
   return (
@@ -14,11 +18,34 @@ const MainTitle = () => {
         </p>
       </div>
       <div className="about-image">
-        <img
-          src="\img\holiday-inn-savannah-5627537490-4x3.avif"
-          alt="Luxurious hotel room"
-          className="about-photo"
-        />
+      <Container>
+            <Row>
+                <Col lg='2'>
+                    <div className="hero__img">
+                        <img src={heroImg} alt=""/>
+                    </div>
+                </Col>
+
+                <Col lg='2'>
+                    <div className="hero__img-box hero__video-box mt-4">
+                    <video 
+                      src={heroVideo} 
+                      muted 
+                      autoPlay 
+                      loop 
+                      playsInline
+                      className="hero-video"
+                    />
+                    </div>
+                </Col>
+
+                <Col lg='2'>
+                    <div className="hero__img-box mt-5">
+                        <img src={heroImg02} alt=""/>
+                    </div>
+                </Col>
+                </Row>
+            </Container>
       </div>
     </div>
   );

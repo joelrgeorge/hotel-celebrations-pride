@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development", // Add this line
+  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -22,9 +22,14 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|webp)$/, // Add this rule to handle images
-        type: "asset/resource", // This tells Webpack to process and serve images correctly
-        include: path.resolve(__dirname, "public"), // Ensure Webpack knows to process images in 'public'
+        test: /\.(png|jpe?g|gif|svg|webp)$/,
+        type: "asset/resource", // Handles images
+        include: path.resolve(__dirname, "public"),
+      },
+      {
+        test: /\.(mp4|webm)$/, // Add rule to handle video files
+        type: "asset/resource", // Handles video files
+        include: path.resolve(__dirname, "public"),
       },
     ],
   },
@@ -35,7 +40,7 @@ module.exports = {
   ],
   devServer: {
     static: [
-      path.join(__dirname, "public"), // Serve static files from the public folder
+      path.join(__dirname, "public"),
       path.join(__dirname, "dist"),
     ],
     compress: true,

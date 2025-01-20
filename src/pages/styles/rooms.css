@@ -39,6 +39,64 @@ section {
 .masonry__img:hover{
     transform: scale(1.1);
 }
+
+/* Adjusted Facilities Wrapper Styling */
+.facilities-wrapper {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.facilities-title {
+    font-size: 1.4rem;
+    font-family: "Josefin Sans", serif;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #0b2727;
+}
+
+.facilities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-item {
+    font-size: 1rem;
+    font-family: "Josefin Sans", serif;
+    color: #555;
+    background: #fff;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.facility-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Media Query Adjustments */
+@media only screen and (max-width: 768px) {
+    .facilities-wrapper {
+        padding: 12px 15px;
+    }
+
+    .facilities-title {
+        font-size: 1.2rem;
+    }
+
+    .facility-item {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+}
    
 @media only screen and (max-width: 992px){
     

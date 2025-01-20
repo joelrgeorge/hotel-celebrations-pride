@@ -1,0 +1,150 @@
+/* Reset global margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Make box-sizing consistent across elements */
+  }
+  
+  html, body {
+    height: 100%; /* Ensure the body and html take up full height */
+    width: 100%; /* Ensure the body and html take up full width */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contact Us Container */
+  .contact__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height of the viewport */
+    background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
+    padding: 3rem 0; /* No side padding */
+    box-sizing: border-box;
+  }
+  
+  /* Contact Form */
+  .contact__form {
+    width: 100%; /* Full width */
+    max-width: 1300px; /* Max width to keep it responsive */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    color: #fff;
+    margin-bottom: 3rem;
+  }
+  
+  /* Map Container */
+  .map-container {
+    width: 100%; /* Full width */
+    max-width: 1300px; /* Max width to keep it responsive */
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem; /* Add some space below the map */
+  }
+  
+  /* Google Map iframe */
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  /* Contact Form Elements */
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+  
+  .contact__title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fb923c;
+  }
+  
+  .contact__text {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #000000;
+    line-height: 1.5;
+  }
+  
+  .information {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #000000;
+  }
+  
+  /* Icon styling */
+  .icon {
+    width: 28px;
+    margin-right: 0.7rem;
+  }
+  
+  /* Social media section */
+  .social-media {
+    padding: 2rem 0 0 0;
+  }
+  
+  .social-media p {
+    color: #000000; /* Match the text color */
+  }
+  
+  /* Social icon container */
+  .social-icons {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+  
+  /* Individual social icon style */
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #fb923c;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 0.5rem;
+    transition: 0.3s;
+  }
+  
+  /* Form Elements */
+  .input-container {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact__input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #444;
+    color: #000000;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .contact__input:focus {
+    border-color: #fb923c;
+    outline: none;
+    background: #444;
+  }
+  
+  .contact__btn {
+    padding: 1rem 2rem;
+    background-color: #fb923c;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact__btn:hover {
+    background-color: #149279;
+  }  

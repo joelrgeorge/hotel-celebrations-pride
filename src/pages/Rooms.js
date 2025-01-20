@@ -6,6 +6,7 @@ import CommonSection from "../components/HeaderSection";
 import Footer from "../components/Footer";
 import RoomDetails from "../components/RoomDetails";
 import ImageGallery from "../components/ImageGallery";
+import USPSection from "../components/USPSection";
 import Subtitle from '../components/Subtitle';
 import NewsLetter from "../components/NewsLetter";
 
@@ -13,24 +14,27 @@ function Rooms() {
   const rooms = [
     {
       title: "Luxury Suite",
-      overview: "A haven of comfort and elegance, our Luxury Suite features modern décor, plush bedding, and stunning views. Perfect for unwinding in style.",
-      description: "The Luxury Suite offers an exquisite experience with its spacious layout, state-of-the-art amenities, and refined aesthetics. Enjoy a tranquil environment with a private balcony, deluxe bathroom, and personalized services. Whether for leisure or business, this suite ensures an unforgettable stay.",
+      overview: "A haven of comfort and elegance, our Luxury Suite features modern décor, plush bedding, and stunning views. Perfect for unwinding in style. <br /> The elegant room includes 40 inches flat screens, Tea & coffee making facilities, minibars, high-speed Wi-Fi (free), full-size windows with city views, which provides a sense of homeliness to its guests.",
+      description: "To make your stay even more enjoyable, we offer a selection of extras to enhance your experience in our double bedrooms. Unwind with complimentary access to our fitness center or indulge in a rejuvenating spa treatment. Start your day with a delicious continental breakfast served right to your room or enjoy a complimentary newspaper. \nAT Hotel Shubh Vilas, Jaipur, we believe that everyone deserves a luxurious retreat that helps them enjoy the bliss of the pink city. Therefore, not only are our services and facilities magnificent and we provide the luxurious stay to our guest but also affordable.",
+      facilities: ["🚗 Free Parking", "🍽️ In-Room Dining", "🌐 Free Wi-Fi", "🏊 Pool Access", "🏋️ Fitness Center"],
       images: ['/img/a7.jpg', '/img/a8.jpg', '/img/a9.jpg'],
-      flip: false,  // No flip for the first room
+      flip: false,
     },
     {
       title: "Ocean View Room",
       overview: "Enjoy breathtaking views of the ocean from our spacious Ocean View Room, complete with luxury bedding and elegant décor.",
       description: "The Ocean View Room offers a serene retreat with floor-to-ceiling windows, a comfortable king-size bed, and a private balcony to enjoy the scenic ocean view. Ideal for those seeking relaxation and luxury.",
       images: ['/img/a1.jpg', '/img/a2.jpg', '/img/a3.jpg'],
-      flip: true,  // Flip for the second room
+      facilities: ["🚗 Free Parking", "🍸 Bar Access", "🌐 Free Wi-Fi", "🏖️ Beach View", "📺 Smart TV"],
+      flip: true,
     },
     {
       title: "Mountain Retreat",
       overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
       description: "This room combines rustic charm with modern amenities. With a private balcony overlooking the mountains, this room provides a serene atmosphere for relaxation and rejuvenation.",
       images: ['/img/a4.jpg', '/img/a5.jpg', '/img/a6.jpg'],
-      flip: false,  // No flip for the third room
+      facilities: ["🚗 Free Parking", "🔥 Fireplace", "🌐 Free Wi-Fi", "🏞️ Mountain View", "☕ Coffee Maker"],
+      flip: false,
     },
   ];
 
@@ -47,6 +51,7 @@ function Rooms() {
             overview={room.overview}
             description={room.description}
             images={room.images}
+            facilities={room.facilities} // Pass facilities here
           />
         </div>
       ))}
@@ -64,6 +69,8 @@ function Rooms() {
           </Row>
         </Container>
       </section>
+
+      <USPSection />
       
       <NewsLetter />
       <Footer />

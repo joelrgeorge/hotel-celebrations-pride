@@ -1,3 +1,5 @@
+// Hero.js
+
 import React from "react";
 import "../styles/hero.css";
 

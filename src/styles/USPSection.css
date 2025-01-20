@@ -1,0 +1,63 @@
+.usp-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .usp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .usp-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .usp-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+  }
+  
+  .usp-features {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .usp-feature {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .usp-feature:hover {
+    transform: translateY(-10px);
+  }
+  
+  .usp-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .usp-feature h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .usp-feature p {
+    font-size: 1rem;
+    color: #666;
+  }  
