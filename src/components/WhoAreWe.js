@@ -12,18 +12,18 @@ const WhoAreWe = () => {
 
   return (
     <>
-      <div className="header-container"> {/* Wrapper to center the title and subtitle */}
-        <p className="kitchen-heading">The Kitchen</p>
-
-        {/* Wrap the subtitle and button in a container */}
-        <div className="subtitle-btn-container">
-          <h2 className="section-subtitle">Our Hotel, Your Perfect Getaway</h2>
-          <button className="explore-btn">
-            <i className="ri-restaurant-line"></i> Our Menu
-          </button>
-        </div>
-      </div>
-
+  <div className="header-container">
+    <p className="kitchen-heading">The Kitchen</p>
+    {/* The "Our Menu" button will be placed directly next to the kitchen heading */}
+    <button className="explore-btn">
+      <i className="ri-restaurant-line"></i> Our Menu
+    </button>
+  </div>
+    {/* Wrap the subtitle and button in a container */}
+    <div className="subtitle-btn-container">
+      <h2 className="section-who-subtitle">Our Hotel, Your Perfect Getaway</h2>
+    </div>
+  
       <section className="who_are_we" id="who_are_we">
         <div className="container">
           <div className="text_banner">

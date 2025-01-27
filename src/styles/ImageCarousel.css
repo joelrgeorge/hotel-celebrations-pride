@@ -33,7 +33,6 @@
 
 .section-subtitle {
   font-size: 1.5rem;  
-  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
   margin-top: 0px;
   font-family: "Carattere", serif;
   font-weight: 400;
@@ -44,6 +43,7 @@
   padding-right: 1rem;
   font-weight: 300;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
 }
 
 /* Carousel Styling */
@@ -136,4 +136,16 @@
   content: "×"; /* Unicode for 'X' symbol */
   font-size: 40px;
   font-weight: bold;
+}
+
+@media (max-width:900px) {
+  .image-carousel-container .gallery-heading {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .section-subtitle{
+    font-size: 1.25rem;
+    margin-left: 1rem;
+  }
 }

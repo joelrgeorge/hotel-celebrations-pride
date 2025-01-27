@@ -10,7 +10,7 @@ function ContactUs() {
         <div className="contact-info">
           <h3 className="contact__title">We'd love to hear from you..</h3>
           <p className="contact__text">
-            Feel free to reach out with any questions, comments, or feedback. Our Guest's honest feedbacks enables us to serve you better in the future.
+            Feel free to reach out with any questions, comments, or feedback. Our Guest's honest feedbacks enable us to serve you better in the future.
           </p>
           <div className="info">
             <div className="information">
@@ -55,6 +55,7 @@ function ContactUs() {
         </div>
       </div>
 
+      <h3 className="map-title">Where we are located</h3>
       <div className="map-container">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6145981945037!2d77.64520677515846!3d13.06018628726338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae176a5d636d47%3A0xf25f1c03741da6b7!2sEbenezer%20-%20Best%20Service%20Apartments%20and%20Suites%20in%20Kothanur%20Bangalore!5e0!3m2!1sen!2sin!4v1737202191762!5m2!1sen!2sin"

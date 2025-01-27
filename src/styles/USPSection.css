@@ -1,63 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
 .usp-section {
-    padding: 60px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-  }
-  
-  .usp-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
+  background: url("/public/img/full-bloom.png") repeat;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.usp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.usp-title {
+  font-family: "Italianno", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #fd9c0b;
+  margin-bottom: 25px;
+  position: relative; /* Required for pseudo-element positioning */
+}
+
+.usp-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Adjust the distance between the text and the underline */
+  left: 50%;
+  transform: translateX(-50%) scaleX(0); /* Start with a collapsed underline */
+  width: 60%; /* Width of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #fd9c0b; /* Same color as the title */
+  transition: transform 0.3s ease; /* Smooth animation for the underline */
+  transform-origin: center; /* Scale from the center */
+}
+
+.usp-title:hover::after {
+  transform: translateX(-50%) scaleX(1); /* Expand the underline on hover */
+}
+
+.usp-description {
+  font-size: 1.2rem;
+  color: #475569;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+/* USP Features Layout */
+.usp-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.usp-feature {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usp-feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.usp-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+}
+
+.usp-icon {
+  font-size: 2rem;
+  color: #0ea5e9;
+}
+
+.usp-feature h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.usp-feature p {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .usp-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .usp-description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 30px;
-    max-width: 800px;
-    margin: 0 auto 30px;
-  }
-  
-  .usp-features {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  
-  .usp-feature {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .usp-feature:hover {
-    transform: translateY(-10px);
-  }
-  
-  .usp-icon {
     font-size: 3rem;
-    margin-bottom: 15px;
   }
-  
-  .usp-feature h4 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  
-  .usp-feature p {
+
+  .usp-description {
     font-size: 1rem;
-    color: #666;
-  }  
+  }
+}
+
+@media (max-width: 480px) {
+  .usp-title {
+    font-size: 2.4rem;
+  }
+
+  .usp-description {
+    font-size: 0.9rem;
+  }
+}

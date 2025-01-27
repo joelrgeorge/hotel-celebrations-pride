@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Fleur+De+Leah&display=swap');
 
 .hero-container {
-  height: 75vh;
+  height: 75vh; /* Default height for larger screens */
+  min-height: 400px; /* Ensure a minimum height to maintain decent visual appearance */
   background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), /* Gradient overlay */
     url('/public/img/a4.jpg') no-repeat center center/cover; /* Background image */
@@ -72,11 +73,12 @@
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
   .hero-container {
-    height: 60vh; /* Reduce height on smaller screens */
+    height: 60vh; /* Slightly reduce height */
+    min-height: 350px; /* Set a minimum height */
   }
 
   .hero-title {
-    font-size: 3rem; /* Reduce title size */
+    font-size: 3rem; /* Adjust title size */
     letter-spacing: 1px;
   }
 
@@ -86,25 +88,26 @@
 
   .hero-buttons .btn {
     padding: 10px 24px;
-    font-size: 1.1rem; /* Reduce button size */
+    font-size: 1.1rem; /* Adjust button size */
   }
 }
 
 @media only screen and (max-width: 576px) {
   .hero-container {
-    height: 50vh; /* Reduce height on extra small screens */
+    height: 50vh; /* Further reduce height for extra small screens */
+    min-height: 300px; /* Set a minimum height */
   }
 
   .hero-title {
-    font-size: 2.5rem; /* Reduce title size further */
+    font-size: 2rem; /* Adjust title size */
   }
 
   .hero-subtitle {
-    font-size: 1.2rem; /* Adjust subtitle size further */
+    font-size: 1.2rem; /* Adjust subtitle size */
   }
 
   .hero-buttons .btn {
     padding: 8px 20px;
-    font-size: 1rem; /* Adjust button size for small screens */
+    font-size: 1rem; /* Adjust button size */
   }
 }

@@ -5,18 +5,19 @@
 .room-display {
   width: 100%;
   max-width: 2500px;
-  margin: 0px 0px;
+  margin: 0;
   padding: 20px;
   background-color: #fff;
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
   font-family: 'Arial', sans-serif;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* Heading */
 .room-display h2 {
-  margin-left: 1rem; 
+  margin-left: 1rem;
   font-family: "Carattere", serif;
   font-weight: 400;
   font-size: 2rem;
@@ -53,7 +54,6 @@
   margin-bottom: 10px;
   color: #ff5700;
   font-family: "Montserrat", serif;
-  font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
 }
@@ -98,28 +98,26 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh; /* Ensures it covers the full viewport */
-  background-color: rgba(0, 0, 0, 0.8); /* Increased opacity for a darker overlay */
-  z-index: 9999; /* Increased z-index for overlay */
-} /* Increased z-index for overlay */
-
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
 
 /* Modal */
 .room-display .room-modal {
-  position: fixed; /* Use fixed positioning for viewport-relative positioning */
-  margin: 0; /* Remove auto margin */
+  position: fixed;
   background-color: white;
   padding: 20px;
-  width: 90%; /* Adjust modal size */
+  width: 90%;
   max-width: 800px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 10000; /* Increased z-index for modal */
-  max-height: 80vh; /* Limit modal height */
-  overflow-y: auto; /* Enable scrolling if needed */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Perfect centering */
+  z-index: 10000;
+  max-height: 80vh;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Slider container */
@@ -127,8 +125,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; /* Ensure positioning context for buttons */
-  margin-bottom: 20px; /* Space for the button */
+  position: relative;
+  margin-bottom: 20px;
 }
 
 /* Image slider area */
@@ -142,10 +140,9 @@
 /* Slider image */
 .slider-image {
   width: 100%;
-  max-width: 100%; /* Limit the width to 100% */
-  height: auto; /* Maintain the aspect ratio */
-  max-height: 400px; /* Uniform max height for images */
-  object-fit: contain; /* Ensure the whole image is visible */
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   margin: 0 10px;
 }
 
@@ -220,7 +217,109 @@
 
 /* Close Button X */
 .close-modal-btn:before {
-  content: "×"; /* Unicode for 'X' symbol */
+  content: "×";
   font-size: 40px;
   font-weight: bold;
+}
+
+/* Hide booking form for larger screens */
+.mobile-booking-form {
+  display: none;
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .room-display {
+    padding: 10px;
+  }
+
+  .room-display h2 {
+    font-size: 1.25rem;
+  }
+
+  .room-cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+
+  .room-card {
+    padding: 15px;
+  }
+
+  .room-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .room-card p {
+    font-size: 0.9rem;
+  }
+
+  .room-image {
+    height: 180px;
+  }
+
+  /* Mobile-specific Booking Form */
+  .mobile-booking-form {
+    display: block;
+    width: 100vw;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .booking-form-container {
+    width: 100%;
+  }
+
+  .booking-form-container input,
+  .booking-form-container select,
+  .booking-form-container textarea {
+    width: 100%;
+  }
+
+  /* Modal */
+  .room-display .room-modal {
+    width: 95%;
+    max-width: 90%;
+  }
+
+  .slider-image {
+    max-height: 300px;
+  }
+}
+
+/* For very small screens (mobile) */
+@media (max-width: 480px) {
+  .room-cards {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  .room-card {
+    padding: 10px;
+  }
+
+  .room-card h3 {
+    font-size: 1rem;
+  }
+
+  .room-card p {
+    font-size: 0.8rem;
+  }
+
+  .room-image {
+    height: 150px;
+  }
+
+  .room-display h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Modal */
+  .room-display .room-modal {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .slider-image {
+    max-height: 250px;
+  }
 }

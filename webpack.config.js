@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    clean: true, // Ensures the output directory is cleaned before each build
   },
   module: {
     rules: [
@@ -19,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader", "postcss-loader"], // Added postcss-loader
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/,
@@ -27,8 +28,8 @@ module.exports = {
         include: path.resolve(__dirname, "public"),
       },
       {
-        test: /\.(mp4|webm)$/, // Add rule to handle video files
-        type: "asset/resource", // Handles video files
+        test: /\.(mp4|webm)$/, // Handles video files
+        type: "asset/resource",
         include: path.resolve(__dirname, "public"),
       },
     ],
@@ -45,5 +46,6 @@ module.exports = {
     ],
     compress: true,
     port: 3000,
+    hot: true, // Enables hot module replacement
   },
 };

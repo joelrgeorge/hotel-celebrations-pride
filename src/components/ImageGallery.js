@@ -1,44 +1,40 @@
 import React, { useState } from 'react';
-import galleryImages from '../../galleryImages';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-import '../styles/gallerySection.css'; // Make sure to import your CSS file
+import Masonry from 'react-responsive-masonry';
+import galleryImages from '../../galleryImages'; // Ensure this imports a valid array of image URLs
+import '../styles/gallerySection.css'; // Import the CSS
 
 const ImageGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageClick = (index) => {
-        // Set the selected image based on the index clicked
         setSelectedImage(galleryImages[index]);
     };
 
     const closePopup = () => {
-        // Clear the selected image
         setSelectedImage(null);
     };
 
     return (
-        <div>
-            <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 768: 3, 992: 4 }}>
-                <Masonry gutter="1rem">
-                    {galleryImages.map((item, index) => (
-                        <div key={index}>
-                            <img
-                                className="masonry__img"
-                                src={item}
-                                alt=""
-                                style={{ width: '100%', display: 'block', borderRadius: '10px', cursor: 'pointer' }}
-                                onClick={() => handleImageClick(index)}
-                            />
-                        </div>
-                    ))}
-                </Masonry>
-            </ResponsiveMasonry>
+        <div className="image-gallery-wrapper">
+            <Masonry columnsCount={3} gutter="1rem"> {/* Fixed columnsCount */}
+                {galleryImages.map((item, index) => (
+                    <img
+                        key={index}
+                        className="masonry__img"
+                        src={item}
+                        alt={`Gallery Image ${index + 1}`}
+                        onClick={() => handleImageClick(index)}
+                    />
+                ))}
+            </Masonry>
 
             {selectedImage && (
-                <div className="image-popup">
+                <div className="image-popup" onClick={closePopup}>
                     <div className="popup-content">
-                        <img className="popup-image" src={selectedImage} alt="" />
-                        <button className="close-button" onClick={closePopup}>X</button>
+                        <img className="popup-image" src={selectedImage} alt="Selected" />
+                        <button className="close-button" onClick={closePopup}>
+                            X
+                        </button>
                     </div>
                 </div>
             )}

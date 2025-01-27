@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/roomDisplay.css";
+import BookingForm from "../components/BookingForm";
 import Modal from "react-modal";
 
 // Ensure the modal is attached to the root element
@@ -88,6 +89,9 @@ const RoomDisplay = () => {
             <button onClick={() => openModal(room)}>View Images</button>
           </div>
         ))}
+      </div>
+      <div className="booking-form-container mobile-booking-form">
+        <BookingForm /> {/* Booking Form for smaller screens */}
       </div>
 
       {/* Modal for Image Slider */}

@@ -4,9 +4,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
 .header-container {
-  margin-top: 100px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between; /* Space out the elements between the extreme ends */
+  align-items: center;
+  gap: 20px; /* Space between heading and button */
+  padding: 0 20px;
+  width: 100%;
 }
 
+/* Kitchen heading style */
 .kitchen-heading {
   background: #faa935;
   font-family: "Island Moments", cursive;
@@ -16,35 +23,38 @@
   font-weight: 500;
   font-size: 2.2rem;
   color: #0b2727;
-  text-align: center;
+  text-align: left; /* Left-align for larger screens */
   width: max-content;
-  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-left: 1rem; /* Adds space to the left of the entire element */
 }
 
 /* Flex container to align subtitle and button */
 .subtitle-btn-container {
   display: flex; /* Align subtitle and button horizontally */
-  align-items: center; /* Vertically align them in the center */
+  align-items: left; /* Vertically align them in the center */
   gap: 20px; /* Adds space between subtitle and button */
-  margin-bottom: 0px;
+  margin-top: 0; /* Consistent margin-top */
+  padding: 0; /* Ensures no extra padding */
 }
 
-.section-subtitle {
+.section-who-subtitle {
   font-size: 1.5rem;  
+  margin-left: 2rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-top: 0px;
   font-family: "Carattere", serif;
   font-weight: 400;
-  color: rgb(43, 58, 226);
+  color: rgb(43, 147, 226);
   font-style: normal;
-  font-size: 48px;
-  margin: 0; /* Remove margin */
+  font-size: 36px;
+  margin-bottom: 20px;
   padding-right: 1rem;
   font-weight: 300;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .explore-btn {
-  margin-top: 0; /* Remove margin-top */
-  margin-left: 840px;
+  margin-top: 0; /* Ensure consistent margin-top */
+  margin-left: auto; /* Ensure it sticks to the right */
   display: flex; /* Align icon and text horizontally */
   align-items: center;
   gap: 8px; /* Space between icon and text */
@@ -57,6 +67,7 @@
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  align-self: flex-start;
 }
 
 .explore-btn i {
@@ -139,6 +150,7 @@
   top: 0;
 }
 
+/* Media Queries for responsiveness */
 @media (max-width: 1520px) {
   .who_are_we .container {
     min-width: 100%;
@@ -153,7 +165,31 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
+  .section-who-subtitle {
+    font-size: 1.2rem; /* Reduce subtitle size for smaller screens */
+  }
+
+  .kitchen-heading {
+    font-size: 1.6rem; /* Reduce kitchen heading size for smaller screens */
+  }
+
+  .explore-btn {
+    font-size: 14px; /* Reduce explore button font size for smaller screens */
+    padding: 6px 12px; /* Adjust button padding for smaller screens */
+  }
+
+  .who_are_we .container .text_banner .card {
+    width: 90%; /* Adjust card width for smaller screens */
+  }
+
+  .header-container {
+    flex-direction: row; /* Keep them in a row layout */
+    justify-content: space-between; /* Place them at the extreme ends */
+    gap: 10px; /* Space between heading and button */
+    padding: 0 10px;
+  }
+
   .who_are_we .container .image_banner {
     order: -1;
     margin-bottom: 2rem;
@@ -168,21 +204,74 @@
   }
 
   .who_are_we .container .image_banner img {
-    width: 400px;
+    max-width: 400px;
+    height: auto;
   }
 
   .who_are_we .container .text_banner .card {
     width: 50%;
   }
+
+  .explore-btn {
+    margin-left: 0; /* Remove left margin */
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
+  .section-who-subtitle {
+    font-size: 1.25rem; /* Adjust subtitle size for smaller screens */
+    margin-left: 2rem;
+  }
+
+  .who_are_we .container .text_banner .card {
+    width: 70%; /* Adjust width for smaller screens */
+  }
+
+  .who_are_we {
+    margin-top: 20px;
+    padding-top: 0px;
+  }
+}
+
+@media (max-width: 457px) {
+  .section-who-subtitle {
+    font-size: 1.25rem; /* Adjust subtitle size for very small screens */
+    margin-left: 1rem;
+  }
+
+  .kitchen-heading {
+    font-size: 24px; /* Further reduce the font size for very small screens */
+    margin-left: 0; /* Align kitchen heading in center */
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .explore-btn {
+    font-size: 10px; /* Reduce explore button font size for smaller screens */
+  }
+
+  .who_are_we {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .header-container {
+    margin-top: 10px;
+    flex-direction: row; /* Change to column layout */
+  }
+
   .who_are_we .container .text_banner {
     flex-direction: column;
   }
 
   .who_are_we .container .text_banner .card {
-    width: 100%;
+    width: 100%; /* Ensure full width for smaller screens */
     margin-bottom: 1.2rem;
+  }
+
+  .who_are_we .container .image_banner img {
+    max-width: 300px;
+    height: auto;
   }
 }

@@ -1,3 +1,5 @@
+// Rooms.js
+
 import React from "react";
 import './styles/rooms.css';
 import Navbar from "../components/Navbar";
@@ -8,7 +10,6 @@ import RoomDetails from "../components/RoomDetails";
 import ImageGallery from "../components/ImageGallery";
 import USPSection from "../components/USPSection";
 import Subtitle from '../components/Subtitle';
-import NewsLetter from "../components/NewsLetter";
 
 function Rooms() {
   const rooms = [
@@ -39,7 +40,7 @@ function Rooms() {
   ];
 
   return (
-    <div>
+    <div className="room-layout">
       <Navbar />
       <CommonSection title={"Our Rooms"} />
       
@@ -56,13 +57,11 @@ function Rooms() {
         </div>
       ))}
 
-      <section>
+      <section className="Image-Section">
         <Container>
+        <Subtitle subtitle={'Gallery'} />
+        <h2 className="gallery__title">Check out our Hotel Gallery</h2>
           <Row>
-            <Col lg='12'>
-              <Subtitle subtitle={'Gallery'} />
-              <h2 className="gallery__title">Check out our Hotel Gallery</h2>
-            </Col>
             <Col lg='12'>
               <ImageGallery />
             </Col>
@@ -71,8 +70,6 @@ function Rooms() {
       </section>
 
       <USPSection />
-      
-      <NewsLetter />
       <Footer />
     </div>
   );

@@ -1,41 +1,46 @@
+/* General Styling */
 @import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Carattere&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .about-section {
     display: flex;
-    flex-wrap: wrap; /* Ensures responsiveness */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 30px; /* Retains good padding */
+    padding: 30px;
     background: #ffffff;
     border-radius: 0px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    max-width: none;
-    margin: 0px 0px 0px 0px; /* Sets margin-bottom to 0 */
+    max-width: 1800px;
+    margin: 0;
     border: none;
-}  
+}
 
 .section-heading {
     background: #faa935;
     font-family: "Island Moments", cursive;
     padding-right: 1rem;
-  
     border-radius: 50px;
     font-weight: 500;
     font-size: 2.2rem;
     color: #0b2727;
-  
-    text-align: center;
+    text-align: left;
     width: max-content;
-  
-    margin-left: 1rem; /* Adds space to the left of the entire element, moving it to the right */
-  }
+    margin-left: 1rem;
+}
 
 .about-text {
     flex: 1;
-    min-width: 300px;
-    max-width: 600px;
+    min-width: 350px;
+    max-width: 40%;
     margin-right: 20px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 60%;
+    text-align: center;
 }
 
 .about-heading {
@@ -45,70 +50,48 @@
     font-weight: 500;
     font-style: normal;
     margin-bottom: 15px;
-    margin-left: 1rem; /* Added margin-left to align with section-heading */
+    margin-left: 1rem;
 }
 
 .about-subtext {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Adjust based on your design */
     color: #000000;
     line-height: 1.8;
     font-family: 'Montserrat', serif;
     margin-left: 1rem;
+    word-wrap: break-word;
+    word-break: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word;
+    hyphens: auto; /* Enable hyphenation for better breaks */
 }
 
-.about-image {
-    flex: 1;
-    min-width: 300px;
-    max-width: 800px;
-    text-align: center;
-}
-
-.about-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-photo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-section {
-        flex-direction: column;
-        padding: 20px 10px;
-    }
-    .about-text {
-        margin-right: 0;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    .about-heading {
-        font-size: 2.5rem;
-    }
-    .about-subtext {
-        font-size: 1.2rem;
-    }
-    .about-photo {
-        width: 80%;
-    }
-}
-
+/* Adjusting the layout and spacing of the image row */
 .about-image .row {
-    justify-content: center; /* Center the columns in the container */
-    margin: 0; /* Remove unnecessary row spacing */
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    margin-left: 5%;
 }
 
-.about-image .col-lg-2 {
-    flex: 0 0 32%; /* Set each column to take ~1/3 of the row's width */
-    max-width: 32%;
-    padding: 15px; /* Space between columns */
+.about-image .col {
+    width: 26%;
+    position: relative;
 }
 
+/* Step-like pattern for the columns */
+.about-image .col:nth-child(1) {
+    margin-top: 0;
+}
+
+.about-image .col:nth-child(2) {
+    margin-top: 30px;
+}
+
+.about-image .col:nth-child(3) {
+    margin-top: 80px;
+}
+
+/* Image and video styling */
 .hero__img img,
 .hero__img-box img,
 .hero__img-box video {
@@ -120,42 +103,192 @@
 }
 
 .hero__video-box {
-    margin-top: 20px; /* Space between video and other columns */
+    margin-top: 20px;
 }
 
 .hero__video-box video {
-    pointer-events: none; /* Prevent interaction */
-    user-select: none; /* Disable text selection (if any) */
+    pointer-events: none;
+    user-select: none;
 }
 
+@media (max-width: 1150px) {
+    .section-heading {
+        font-size: 2rem;
+    }
 
-/* Responsive Design */
+    .about-heading{
+        font-size: 36px;
+    }
+
+    .about-subtext{
+        font-size: 1rem;
+    }
+
+    .about-image .col {
+        width: 36%;
+        position: relative;
+    }
+}
+
 @media (max-width: 768px) {
-    .about-image .col-lg-2 {
-        flex: 0 0 48%; /* Two columns on smaller screens */
-        max-width: 48%;
+    .section-heading {
+        font-size: 1.7rem;
+    }
+
+    .about-heading{
+        font-size: 28px;
+    }
+
+    .about-subtext{
+        font-size: 11px;
+    }
+
+    .about-image .col {
+        width: 44%;
+        position: relative;
+    }
+
+    .hero__img img,
+    .hero__img-box img,
+    .hero__img-box video {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    border: 2px solid #faa935;
+    object-fit: cover;
+}
+}
+
+@media (min-width: 600px) and (max-width: 730px) {
+    /* Adjust about-section to ensure proper flex layout */
+    .about-section {
+        display: flex; /* Keep the flex layout */
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px; /* Adjust padding for this screen size */
     }
 
     .about-text {
-        margin-bottom: 20px;
+        flex: 1;
+        min-width: 45%; /* Adjust width so it doesn't occupy too much space */
+        max-width: 50%; /* Ensure it doesn't stretch too wide */
+        margin-right: 20px;
+        padding-left: 0;
+    }
+
+    .about-image {
+        flex: 1;
+        min-width: 45%; /* Adjust width */
+        max-width: 50%; /* Prevent from getting too wide */
+        display: flex;
+        justify-content: center; /* Center the images */
+        padding-left: 0;
+    }
+
+    .about-heading {
+        font-size: 32px; /* Adjust font size */
+    }
+
+    .about-subtext {
+        font-size: 12px; /* Adjust font size */
+    }
+
+    .about-image .col {
+        width: 100%; /* Ensure images stack within this container */
+        margin-bottom: 15px; /* Add margin for spacing */
     }
 
     .hero__img img,
     .hero__img-box img,
     .hero__img-box video {
-        height: 250px; /* Reduce height on smaller screens */
+        width: 100%; /* Make images and video take full width */
+        height: 250px; /* Adjust height */
+        border-radius: 10px;
     }
 }
 
-@media (max-width: 576px) {
-    .about-image .col-lg-2 {
-        flex: 0 0 100%; /* Full-width columns on very small screens */
-        max-width: 100%;
+/* Responsive Design for Small Screens (Mobile - <= 425px) */
+@media (max-width: 600px) {
+    .about-section {
+        display: block; /* Stack sections vertically */
+        padding: 15px;  /* Reduce padding for mobile */
     }
 
+    .section-heading {
+        background: #faa935;
+        font-family: "Island Moments", cursive;
+        padding-right: 1rem;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 24px;
+        color: #0b2727;
+        text-align: left;
+        width: max-content;
+        margin-left: 0rem;
+    }    
+
+    /* Ensure the about-text takes full width and is centered */
+    .about-text {
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 0px;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .about-heading {
+        font-size: 24px;
+        color: #ff5700;
+        font-family: "Bonheur Royale", serif;
+        font-weight: 500;
+        font-style: normal;
+        margin-bottom: 15px;
+        margin-left: 0rem;
+    }
+
+    .about-subtext {
+        font-size: 11px;
+        color: #000000;
+        line-height: 1.8;
+        font-family: 'Montserrat', serif;
+        margin-left: 0rem;
+    }
+
+    /* Force the images and video to stack vertically */
+    .about-image {
+        display: block;  /* Force block layout for stacking */
+        width: 100%; /* Full width */
+        margin-top: 20px;
+    }
+
+    /* Ensure about-image elements stack properly */
+    .about-image .row {
+        display: block; /* Stack images in row vertically */
+        justify-content: center; /* Center items */
+        margin-left: 0; /* Remove left margin */
+    }
+
+    .about-image .col {
+        width: 100% !important; /* Override grid-based width */
+        margin-bottom: 20px; /* Space between images/videos */
+        text-align: center; /* Center the content */
+    }
+
+    .about-image .col:nth-child(3) {
+        margin-top: 30px;
+    }
+
+    /* Ensure hero images fit the screen width */
     .hero__img img,
     .hero__img-box img,
     .hero__img-box video {
-        height: 200px; /* Further reduce height for small screens */
+        width: 80%; /* Make sure they fill the available width */
+        height: 300px; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center align the media */
+    }
+
+    .hero__video-box {
+        margin-top: 20px;
     }
 }

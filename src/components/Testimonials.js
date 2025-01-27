@@ -9,10 +9,10 @@ const Testimonials = () => {
         const settings= {
             dots:true,
             infinite:true,
-            autopolay:true,
+            autoplay:true,
             speed:1000,
             swipeToSlide:true,
-            autopolaySpeed:2000,
+            autoplaySpeed:2000,
             slidesToShow:3,
 
             responsive:[
@@ -45,8 +45,8 @@ const Testimonials = () => {
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
-                <img src={user1} className='w-25 h-25 rounded-2' alt="" />
-                <div>
+            <img src={user1} className="testimonial-img rounded-2" alt="" />
+            <div>
                     <h6 className="mb-0 mt-3">Ajith Sinha</h6>
                     <p>Customer
                     </p>
@@ -61,8 +61,8 @@ const Testimonials = () => {
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
-                <img src={user2} className='w-25 h-25 rounded-2' alt="" />
-                <div>
+            <img src={user2} className="testimonial-img rounded-2" alt="" />
+            <div>
                     <h6 className="mb-0 mt-3">Ashwin Roy</h6>
                     <p>Customer
                     </p>
@@ -77,8 +77,8 @@ const Testimonials = () => {
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
-                <img src={user3} className='w-25 h-25 rounded-2' alt="" />
-                <div>
+            <img src={user3} className="testimonial-img rounded-2" alt="" />
+            <div>
                     <h6 className="mb-0 mt-3">Rachel Matthews</h6>
                     <p>Customer
                     </p>
@@ -92,8 +92,8 @@ const Testimonials = () => {
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
-                <img src={user2} className='w-25 h-25 rounded-2' alt="" />
-                <div>
+            <img src={user1} className="testimonial-img rounded-2" alt="" />
+            <div>
                     <h6 className="mb-0 mt-3">Aniket Kotari </h6>
                     <p>Customer
                     </p>

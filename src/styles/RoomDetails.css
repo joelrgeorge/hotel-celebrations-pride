@@ -139,25 +139,6 @@
     direction: ltr; /* Ensure text content reads left-to-right */
   }  
   
-  /* Media Queries for Responsiveness */
-  @media (max-width: 768px) {
-    .room-details__top {
-      flex-direction: column;
-      align-items: center; /* Ensure centered layout */
-    }
-  
-    .image-slider {
-      max-height: 300px;
-    }
-  
-    .room-title {
-      font-size: 1.8rem;
-    }
-  
-    .room-overview {
-      font-size: 1rem;
-    }
-  }
   
   @media (max-width: 480px) {
     .room-title {
