@@ -1,36 +1,17 @@
-/* Room Display Container */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
-
-.room-display {
-  width: 100%;
-  max-width: 2500px;
-  margin: 0;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 0;
-  box-shadow: none;
-  font-family: 'Arial', sans-serif;
-  position: relative;
-  box-sizing: border-box;
-}
-
-/* Heading */
-.room-display h2 {
-  margin-left: 1rem;
-  font-family: "Carattere", serif;
-  font-weight: 400;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #ff5700;
-}
-
-/* Room Cards Grid */
+/* General Room Cards Layout */
 .room-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
   gap: 20px;
   padding: 10px;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* For screens where the top row should have only 2 columns */
+.room-cards.top-row {
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for top row */
 }
 
 /* Room Card */
@@ -41,30 +22,11 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.8); /* Subtle white card background */
 }
 
-/* Hover Effect */
 .room-card:hover {
   transform: translateY(-5px);
-}
-
-/* Room Card Title */
-.room-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ff5700;
-  font-family: "Montserrat", serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
-/* Room Card Description */
-.room-card p {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-  font-style: italic;
-  color: #000000;
-  margin-bottom: 10px;
 }
 
 /* Room Card Button */
@@ -82,6 +44,24 @@
   background-color: #e14e00;
 }
 
+/* Room Card Title */
+.room-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #ff5700;
+  font-family: "Montserrat", serif;
+  font-weight: 300;
+}
+
+/* Room Card Description */
+.room-card p {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+  color: #333;
+  margin-bottom: 10px;
+}
+
 /* Room Image */
 .room-image {
   width: 100%;
@@ -91,235 +71,115 @@
   margin-bottom: 15px;
 }
 
-/* Modal Overlay */
+/* ========== MODAL STYLES ========== */
 .room-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Modal */
-.room-display .room-modal {
-  position: fixed;
-  background-color: white;
+/* Modal Content */
+.room-modal {
+  background: white;
   padding: 20px;
-  width: 90%;
+  border-radius: 10px;
   max-width: 800px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 10000;
-  max-height: 80vh;
-  overflow-y: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 90%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
-/* Slider container */
+/* Image Slider */
 .slider-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
   position: relative;
-  margin-bottom: 20px;
 }
 
-/* Image slider area */
-.image-slider {
+.image-home-slider {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  margin-bottom: 0.1rem; /* Default margin for larger screens */
+  padding-bottom: 50%; /* Maintain 16:9 aspect ratio */
 }
 
-/* Slider image */
 .slider-image {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  margin: 0 10px;
+  border-radius: 8px;
 }
 
-/* Slider buttons - Modern style */
+/* Navigation Buttons */
 .slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(135deg, #ff5700, #e14e00);
-  color: white;
+  background: none;
   border: none;
-  border-radius: 50%;
-  font-size: 24px;
+  font-size: 2rem;
+  color: #ff5700;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  z-index: 100;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: color 0.3s ease;
 }
 
 .slider-btn:hover {
-  background: linear-gradient(135deg, #e14e00, #c44100);
-  transform: translateY(-50%) scale(1.1);
+  color: #e14e00;
 }
 
-/* Left slider button (prev) */
-.prev-btn {
-  left: -10px;
-}
-
-/* Right slider button (next) */
-.next-btn {
-  right: -10px;
-}
-
-/* Add arrow icons if needed */
-.slider-btn::before {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-.prev-btn::before {
-  content: "◄"; /* Left arrow */
-}
-
-.next-btn::before {
-  content: "►"; /* Right arrow */
-}
-
-/* Close Button (Top Right) */
+/* Close Button */
 .close-modal-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  padding: 10px;
-  background-color: transparent;
-  color: #333;
+  background: none;
   border: none;
-  font-size: 30px;
+  font-size: 1.5rem;
+  color: #333;
   cursor: pointer;
-  z-index: 2000;
 }
 
 .close-modal-btn:hover {
   color: #ff5700;
 }
 
-/* Close Button X */
-.close-modal-btn:before {
-  content: "×";
-  font-size: 40px;
-  font-weight: bold;
-}
+/* ========== RESPONSIVE STYLES ========== */
 
-/* Hide booking form for larger screens */
-.mobile-booking-form {
-  display: none;
-}
-
-/* For screens smaller than 768px */
+/* Medium Screens (Tablets) */
 @media (max-width: 768px) {
-  .room-display {
-    padding: 10px;
-  }
-
-  .room-display h2 {
-    font-size: 1.25rem;
-  }
-
   .room-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
   }
 
-  .room-card {
-    padding: 15px;
+  .room-cards.top-row {
+    grid-template-columns: repeat(2, 1fr); /* Still 2 columns for top row */
   }
 
-  .room-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .room-card p {
-    font-size: 0.9rem;
-  }
-
-  .room-image {
-    height: 180px;
-  }
-
-  /* Mobile-specific Booking Form */
-  .mobile-booking-form {
-    display: block;
-    width: 100vw;
-    padding: 10px;
-    box-sizing: border-box;
-    margin: 0 auto;
-  }
-
-  .booking-form-container {
-    width: 100%;
-  }
-
-  .booking-form-container input,
-  .booking-form-container select,
-  .booking-form-container textarea {
-    width: 100%;
-  }
-
-  /* Modal */
-  .room-display .room-modal {
-    width: 95%;
-    max-width: 90%;
-  }
-
-  .slider-image {
-    max-height: 300px;
+  .room-cards.bottom-row {
+    grid-template-columns: repeat(2, 1fr); /* Still 2 columns for top row */
   }
 }
 
-/* For very small screens (mobile) */
+/* Small Screens (Mobile) */
 @media (max-width: 480px) {
   .room-cards {
-    grid-template-columns: 1fr; /* Single column */
+    grid-template-columns: 1fr; /* Single column for mobile */
   }
 
-  .room-card {
-    padding: 10px;
+  .room-cards.top-row {
+    grid-template-columns: 1fr; /* Single column for mobile */
   }
 
-  .room-card h3 {
-    font-size: 1rem;
-  }
-
-  .room-card p {
-    font-size: 0.8rem;
-  }
-
-  .room-image {
-    height: 150px;
-  }
-
-  .room-display h2 {
-    font-size: 1.25rem;
-  }
-
-  /* Modal */
-  .room-display .room-modal {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .slider-image {
-    max-height: 250px;
+  .room-cards.bottom-row {
+    grid-template-columns: 1fr; /* Single column for mobile */
   }
 }

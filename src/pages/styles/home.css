@@ -1,88 +1,113 @@
-/* home.css */
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
-body {
-  margin: 0;
-  background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
-  background-color: #fff5e8; /* Fallback color matching the texture */
-  color: #333; /* Ensure good text readability */
-}
-.home{
-  background: url("/public/img/moroccan-flower.png") repeat;
-}
-
-/* Main Content Flexbox Layout */
+/* Main Content Layout */
 .main-content {
   display: flex;
-  justify-content: space-between;
-  padding: 0px;
+  flex-direction: column;
+  gap: 10px; /* Space only between top and bottom sections */
+  width: 100%;
 }
 
-/* Room Display and Booking Form Containers */
+/* Room Display Container (Top Row + Booking Form) */
 .room-display-container {
-  width: 78%; /* Adjust to fit the left space */
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensure it takes full width */
+  align-items: stretch;
+  gap: 0px; /* Ensure no unwanted spacing */
 }
 
+/* Booking Form Container */
 .booking-form-container {
-  width: 22%; /* Adjust to fit the right space */
+  display: flex;
+  flex: 1;
+  max-width: 500px; /* Slightly wider */
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%; /* Ensure it takes up 50% of space */
 }
 
-/* Hide desktop booking form on smaller screens */
-.desktop-booking-form {
-  display: block; /* Show on larger screens */
+/* Booking Form */
+.booking-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 15px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-  /* Stack main content vertically on smaller screens */
-  .main-content {
-    flex-direction: column; /* Change from horizontal to vertical */
-    align-items: center; /* Center the content */
-  }
+/* Top Row */
+.top-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1.5; /* More space for the top row */
+  width: 50%; /* Ensure it takes up 50% of space */
+}
 
-  /* Adjust Room Display Container */
+/* Bottom Row Container */
+.room-display-container-bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Bottom Row */
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
   .room-display-container {
-    width: 100%; /* Take full width on small screens */
-    margin-bottom: 20px; /* Add margin between the room display and booking form */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reintroduce spacing for mobile */
   }
 
-  /* Adjust Booking Form Container */
   .booking-form-container {
-    width: 100%; /* Take full width on small screens */
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
   }
 
-  /* Hide the desktop booking form for smaller screens */
-  .desktop-booking-form {
-    display: none;
+  .booking-form {
+    width: 100%;
+    max-width: none;
   }
 
-  /* Show mobile booking form */
-  .mobile-booking-form {
-    display: block; /* Show the mobile form */
-    width: 100%; /* Make sure it spans the full width */
-    padding: 10px;
-    box-sizing: border-box; /* Ensure padding doesn't affect width */
+  .top-row {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .bottom-row {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Adjustments for even smaller screens (e.g., mobile) */
-@media (max-width: 480px) {
-  /* Further reduce text sizes */
-  body {
-    font-size: 14px; /* Slightly smaller font size for better readability */
-  }
-
-  /* Modify Room Display Layout */
-  .room-display-container {
-    width: 100%; /* Take full width */
-  }
-
-  /* Ensure Booking Form is Full Width */
-  .booking-form-container {
-    width: 100%; /* Full width on small screens */
-  }
-
-  /* Adjust mobile booking form layout */
-  .mobile-booking-form {
-    padding: 10px 15px; /* Slightly larger padding for mobile */
+@media screen and (max-width: 600px) {
+  .booking-form {
+    width: 100%;
+    padding: 15px;
   }
 }
