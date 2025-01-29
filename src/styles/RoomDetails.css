@@ -192,7 +192,7 @@
   }
 
   .room-title {
-    font-size: 1.8rem;
+    font-size: 3.2rem;
   }
 
   .room-overview {
@@ -207,7 +207,7 @@
 
 @media (max-width: 480px) {
   .room-title {
-    font-size: 1.5rem;
+    font-size: 2.6rem;
   }
 
   .room-overview {

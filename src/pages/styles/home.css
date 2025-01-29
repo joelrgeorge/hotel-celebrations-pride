@@ -1,11 +1,21 @@
 /* General Styles */
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
+body {
+  margin: 0;
+  background: url("/public/img/moroccan-flower.png") repeat; /* Maintain the elegant pattern */
+  background-color: #fff5e8; /* Fallback color matching the texture */
+  color: #333; /* Ensure good text readability */
+}
+.home{
+  background: url("/public/img/moroccan-flower.png") repeat;
+}
+
 /* Main Content Layout */
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space only between top and bottom sections */
+  gap: 0px; /* Space only between top and bottom sections */
   width: 100%;
 }
 

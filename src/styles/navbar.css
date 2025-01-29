@@ -1,4 +1,5 @@
-/* Navbar Container */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
 .navbar {
   height: 80px;
   display: flex;
@@ -23,9 +24,12 @@
 }
 
 /* Logo */
-.navbar-logo {
+.logo-text {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
   color: #232526;
-  font-size: 1.8rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
@@ -36,6 +40,10 @@
   color: #ff7b00;
 }
 
+.navbar-logo-img{
+  width: 90px;
+  height: 70px;
+}
 /* Menu Icon for Mobile */
 .menu-icon {
   display: none;

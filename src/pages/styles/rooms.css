@@ -3,6 +3,7 @@
 
 .Image-Section {
     padding: 20px 100px;
+    background: white;
   }
 
   .room-layout{
@@ -23,7 +24,7 @@
     text-align: center;
     width: max-content;
   
-    margin-left: 0rem; /* Keeps the left margin exact */
+    margin-left: 1rem; /* Keeps the left margin exact */
     padding-left: 1rem; /* Add some padding to the left if you want to increase the space */
 }
 

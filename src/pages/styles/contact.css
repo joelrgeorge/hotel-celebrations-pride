@@ -1,0 +1,10 @@
+.Contact-Section{
+    padding: 20px;
+    background: white;
+}
+
+@media (max-width) {
+    .Contact-Section{
+        margin-top: 10px;
+    }
+}

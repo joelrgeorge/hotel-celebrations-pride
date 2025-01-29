@@ -13,8 +13,9 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/" className="navbar-logo">
-          Hotel Celebrations
+        <Link to="/" className="navbar-logo flex items-center gap-1">
+        <img src="/favicon.ico" alt="Logo" className="navbar-logo-img" />
+          <span className="logo-text">Hotel Celebrations Pride</span>
         </Link>
 
         {/* Menu Icon for Mobile */}

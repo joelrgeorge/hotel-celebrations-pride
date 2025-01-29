@@ -21,93 +21,93 @@ html, body {
   align-items: center;
   min-height: 100vh;
   background: white;
-  background-blend-mode: overlay;
-  padding: 3rem 1rem;
+  padding: 0rem 1rem;
 }
 
 /* Contact Form */
 .contact__form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
   width: 100%;
   max-width: 1300px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin-bottom: 3rem;
 }
 
-.social-icons svg {
-  display: block;
-  vertical-align: middle;
-  font-size: 1.5rem; /* Adjust size if needed */
-  margin: 6px; /* Add spacing */
+.contact-info, .form-container {
+  flex: 1;
 }
 
-@media (max-width: 768px) {
-  .contact__form {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
+.divider {
+  width: 3px;
+  background: linear-gradient(to bottom, #2712e7, #fb923c); /* Gradient color effect */
+  height: 100%;
+  margin: 0 2rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 5px; /* Rounded corners for a smoother look */
+  transition: transform 0.3s ease, height 0.3s ease; /* Smooth transitions */
 }
 
-@media (max-width: 350px) {
-  .contact__form {
-    padding: 1rem;
-    gap: 1.5rem;
-  }
+/* On Hover */
+.divider:hover {
+  transform: scaleX(1.1); /* Slightly enlarge the divider on hover */
+  height: 110%; /* Slightly extend the divider */
 }
 
-/* Contact Info Section */
-.contact-info {
-  margin-bottom: 2rem;
-}
-
-.contact__title {
+/* Titles */
+.contact__title, .form-title {
   font-family: "Style Script", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: calc(1.5rem + 1vw); /* Responsive font size */
   font-weight: 600;
+  font-size: 36px; /* Bigger to ensure visibility */
   color: #149279;
   margin-bottom: 1rem;
   text-align: center;
+  display: inline-block; /* Ensures correct spacing */
+  position: relative;
+  padding-bottom: 5px; /* Space for underline */
 }
 
-.contact__text {
-  font-size: calc(0.9rem + 0.4vw); /* Responsive font size */
+/* Animated Underline */
+.contact__title::after, 
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #fb923c;
+  transition: width 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.contact__title:hover::after, 
+.form-title:hover::after {
+  width: 100%; /* Expands fully */
+}
+
+.contact__text, .information p, .social-media p {
+  font-size: calc(0.9rem + 0.4vw);
   color: #444;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .information p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: calc(0.8rem + 0.3vw); /* Responsive font size */
-  color: #333;
-  margin-bottom: 1rem;
 }
 
 .information p svg {
-  font-size: calc(1rem + 0.3vw); /* Responsive icon size */
+  font-size: calc(1rem + 0.3vw);
   color: #fb923c;
 }
 
-/* Social Media Section */
-.social-media {
-  text-align: center;
-}
-
-.social-media p {
-  font-size: calc(0.9rem + 0.4vw); /* Responsive font size */
-  color: #444;
-  margin-bottom: 1rem;
-}
-
+/* Social Icons */
 .social-icons {
   display: flex;
   justify-content: center;
@@ -123,7 +123,14 @@ html, body {
   text-align: center;
   line-height: 36px;
   font-size: 1.2rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-icons svg {
+  display: block;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  margin: 6px;
 }
 
 .social-icons a:hover {
@@ -132,36 +139,15 @@ html, body {
 }
 
 /* Form Section */
-.form-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-title {
-  font-family: "Birthstone", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: calc(1.8rem + 1vw); /* Responsive font size */
-  font-weight: 600;
-  color: #149279;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.input-container {
-  margin-bottom: 1rem;
-}
-
 .contact__input {
   width: 100%;
-  padding: calc(0.7rem + 0.2vw); /* Responsive padding */
+  padding: calc(0.7rem + 0.2vw);
   border-radius: 8px;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #ddd;
-  color: #333;
-  font-size: calc(0.9rem + 0.3vw); /* Responsive font size */
+  font-size: calc(0.9rem + 0.3vw);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 .contact__input:focus {
@@ -171,21 +157,41 @@ html, body {
 }
 
 .contact__btn {
-  padding: calc(0.7rem + 0.2vw) calc(1.2rem + 0.4vw); /* Responsive padding */
-  background: linear-gradient(45deg, #fb923c, #149279);
+  padding: calc(0.7rem + 0.2vw) calc(1.2rem + 0.4vw);
+  background: #fb923c;
   border: none;
   border-radius: 30px;
   color: #fff;
-  font-size: calc(0.9rem + 0.3vw); /* Responsive font size */
+  font-size: calc(0.9rem + 0.3vw);
   font-weight: 500;
   cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .contact__btn:hover {
   transform: scale(1.05);
   background: linear-gradient(45deg, #149279, #fb923c);
+}
+
+.contact_subtitle{
+  align-self: self-start;
+  margin-left: 0px;
+
+  background: #faa935;
+  font-family: "Island Moments", cursive;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 2.2rem; /* Increase the font size */
+  color: #0b2727;
+  
+  text-align: center;
+  width: max-content;
+
+  padding-left: 1rem; /* Add some padding to the left if you want to increase the space */
+
 }
 
 /* Map Section */
@@ -206,14 +212,56 @@ html, body {
   border: 0;
 }
 
-@media (max-width: 350px) {
-  .map-container {
-    height: 250px;
+.map-title {
+  font-family: "Birthstone", serif;
+  font-weight: 600;
+  font-size: calc(1.8rem + 1vw);
+  color: #149279;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .divider {
+    height: 500px;
+    width: 3px;
+    margin: 0 2rem;
   }
 
-  .contact__btn {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+  .contact__title::after, .form-title::after {
+    display: block; /* Ensure it renders */
+  }  
+}
+
+/* Divider between contact info and form */
+@media (min-width: 1023px) {
+  .contact__form {
+    height: 500px;
+  }
+
+  .contact__title::after, .form-title::after {
+    display: block; /* Ensure it renders */
+  }  
+}
+
+/* Mobile & Smaller Screens */
+@media (max-width: 768px) {
+
+  .contact_subtitle{
+    margin-left: 1rem;
+    font-size: 1.3rem;
+  }
+  
+  .contact__form {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .divider {
+    width: 100%;
+    height: 3px;
+    margin: 2rem 0;
   }
 
   .contact__input {
@@ -221,82 +269,19 @@ html, body {
     padding: 0.6rem;
   }
 
-  .social-icons a {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 1rem;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.contact__form,
-.map-container {
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Map Section */
-.map-title {
-  font-family: "Birthstone", serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: calc(1.8rem + 1vw); /* Responsive font size */
-  font-weight: 600;
-  color: #149279;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/* Additional responsiveness for smaller devices */
-@media (max-width: 350px) {
-  .contact__form {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .contact__title,
-  .form-title,
-  .map-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .contact__text,
-  .information p,
-  .social-media p {
-    font-size: 0.9rem;
-  }
-
-  .contact__input {
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
-
   .contact__btn {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 0.5rem 1rem;
   }
-
-  .social-icons a {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 1rem;
+  
+  .social-icons svg {
+    display: block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    margin: 6px;
   }
-
-  .map-container {
-    height: 300px;
-  }
+  
+  .contact__title::after, .form-title::after {
+    display: block; /* Ensure it renders */
+  }  
 }

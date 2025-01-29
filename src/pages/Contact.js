@@ -5,24 +5,29 @@ import Footer from "../components/Footer";
 import Subtitle from "../components/Subtitle";
 import Testimonials from "../components/Testimonials";
 import CommonSection from "../components/HeaderSection";
+import Review from "../components/Review";
 import ContactUs from "../components/ContactUs";
 import "./styles/contact.css";
 
 function Contact() {
   return (
-    <div>
+    <div> 
       <Navbar />
       <CommonSection title={"Contact Us"} />
+      <section className="Contact-Section">
+      <Subtitle subtitle={'Contact Form'} />
+      </section>
       <ContactUs />
       <section>
         <Container className="feedback-container"> {/* Added className here */}
           <Row>
             <Col lg="12">
-              <Subtitle className="testimonial-subtitle" subtitle={"Guest Feedback"} />
+              <Subtitle subtitle={"Guest Feedback"} />
               <h2 className="testimonial__title">What our fans say about us</h2>
             </Col>
             <Col lg="12">
               <Testimonials />
+              <Review />
             </Col>
           </Row>
         </Container>

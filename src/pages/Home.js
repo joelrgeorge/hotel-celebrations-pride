@@ -31,8 +31,8 @@ function Home() {
           <BottomRow /> {/* Bottom Row with the rest of the rooms */}
         </div>
       </div>
-      <WhoAreWe />
       <ImageCarousel images={galleryImages} />
+      <WhoAreWe />
       <Footer />
     </div>
   );

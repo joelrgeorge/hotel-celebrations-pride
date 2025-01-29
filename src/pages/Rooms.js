@@ -64,10 +64,11 @@ function Rooms() {
           />
         </div>
       ))}
-
+      
+      <USPSection />
       <section className="Image-Section">
+      <Subtitle subtitle={'Gallery'} />
         <Container>
-        <Subtitle subtitle={'Gallery'} />
         <h2 className="gallery__title">Check out our Hotel Gallery</h2>
           <Row>
             <Col lg='12'>
@@ -76,8 +77,6 @@ function Rooms() {
           </Row>
         </Container>
       </section>
-
-      <USPSection />
       <Footer />
     </div>
   );

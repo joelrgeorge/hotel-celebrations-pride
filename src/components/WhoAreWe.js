@@ -1,6 +1,8 @@
 import React from 'react'; 
 import data from '../restApi.json'; // Import the JSON data
 import "../styles/WhoAreWe.css";
+import ImageGallery from "./ImageGallery";
+import { Container, Row, Col } from 'reactstrap';
 import 'remixicon/fonts/remixicon.css';
 
 const WhoAreWe = () => {
@@ -47,6 +49,16 @@ const WhoAreWe = () => {
             ))}
           </div>
         </div>
+      </section>
+      <section className="Image-Section">
+        <Container>
+        <h2 className="gallery__title">Check out our Restaurant Gallery</h2>
+          <Row>
+            <Col lg='12'>
+              <ImageGallery />
+            </Col>
+          </Row>
+        </Container>
       </section>
     </>
   );
