@@ -11,7 +11,7 @@ const ComponentName = () => {
                 <img className="w-39 h-28" src="/favicon.ico" alt="logo" />
                 <span
                 style={{
-                  fontSize: '1rem',
+                  fontSize: '12px',
                   fontWeight: 'bold',
                   color: '#111827',
                   letterSpacing: '0.05em',
@@ -70,23 +70,23 @@ const ComponentName = () => {
             </div>
 
             <div>
-                <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Company</p>
+                <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Quick Links</p>
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> About </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Home </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Features </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Rooms </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Works </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Contact </a>
                     </li>
 
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Career </a>
+                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Hall </a>
                     </li>
                 </ul>
             </div>
@@ -95,14 +95,6 @@ const ComponentName = () => {
                 <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">Help</p>
 
                 <ul className="mt-6 space-y-4">
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Customer Support </a>
-                    </li>
-
-                    <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Delivery Details </a>
-                    </li>
-
                     <li>
                         <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-blue-600 focus:text-blue-600"> Terms & Conditions </a>
                     </li>
@@ -122,14 +114,24 @@ const ComponentName = () => {
                         <input type="email" name="email" id="email" placeholder="Enter your email" className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600" />
                     </div>
 
-                    <button type="submit" className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md hover:bg-blue-700 focus:bg-blue-700">Subscribe</button>
+                    <button
+                        type="submit"
+                        className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 rounded-md"
+                        style={{ backgroundColor: "#fd9c0b" }}
+                        onMouseEnter={(e) => (e.target.style.backgroundColor = "#e88c09")} 
+                        onMouseLeave={(e) => (e.target.style.backgroundColor = "#fd9c0b")}
+                    >
+                    Subscribe
+                    </button>
                 </form>
             </div>
         </div>
 
         <hr className="mt-16 mb-10 border-gray-200" />
 
-        <p className="text-sm text-center text-gray-600">© Copyright 2025, All Rights Reserved. Developed by Liege Developers Inc.</p>
+        <p className="text-sm text-center" style={{ color: "#ff5700" }}>
+            © Copyright 2025. All Rights Reserved. Developed by Liege Developers Inc.
+        </p>
     </div>
 </section>
 

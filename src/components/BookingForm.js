@@ -5,6 +5,7 @@ const BookingForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", // Added phone number
     checkIn: "",
     checkOut: "",
     roomType: "",
@@ -24,7 +25,7 @@ const BookingForm = () => {
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
-      <h2>Book Your Stay</h2>
+      <h2>Enquire with Us..</h2>
 
       <div className="form-group">
         <label htmlFor="name">Full Name</label>
@@ -48,6 +49,20 @@ const BookingForm = () => {
           value={formData.email}
           onChange={handleChange}
           placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="Enter your phone number"
+          pattern="^\+?[0-9\s-]{7,15}$" // Allows international formats
           required
         />
       </div>

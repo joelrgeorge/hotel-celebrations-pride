@@ -1,7 +1,7 @@
 import React from 'react'; 
 import data from '../restApi.json'; // Import the JSON data
 import "../styles/WhoAreWe.css";
-import ImageGallery from "./ImageGallery";
+import ImageGallery02 from "./ImageGallery02";
 import { Container, Row, Col } from 'reactstrap';
 import 'remixicon/fonts/remixicon.css';
 
@@ -55,7 +55,7 @@ const WhoAreWe = () => {
         <h2 className="gallery__title">Check out our Restaurant Gallery</h2>
           <Row>
             <Col lg='12'>
-              <ImageGallery />
+              <ImageGallery02 />
             </Col>
           </Row>
         </Container>

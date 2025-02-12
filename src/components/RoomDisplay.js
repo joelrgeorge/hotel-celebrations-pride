@@ -39,7 +39,7 @@ const rooms = [
     images: ["/img/a2.jpg", "/img/a3.jpg"],
   },
   {
-    name: "Suite",
+    name: "Premium Suite",
     description: (
       <>
         Experience the ultimate in luxury with our exclusive Suite. It boasts a
@@ -55,7 +55,7 @@ const rooms = [
     images: ["/img/a3.jpg", "/img/a1.jpg"],
   },
   {
-    name: "Suite",
+    name: "Luxury Suite",
     description: (
       <>
         Experience the ultimate in luxury with our exclusive Suite. It boasts a
@@ -68,10 +68,10 @@ const rooms = [
       </>
     ),
     price: "$250",
-    images: ["/img/a3.jpg", "/img/a1.jpg"],
+    images: ["/img/Room 4/IMG_7404.jpg", "/img/Room 4/IMG_7408.jpg"],
   },
   {
-    name: "Suite",
+    name: "Banquet Hall",
     description: (
       <>
         Experience the ultimate in luxury with our exclusive Suite. It boasts a
@@ -84,7 +84,7 @@ const rooms = [
       </>
     ),
     price: "$250",
-    images: ["/img/a3.jpg", "/img/a1.jpg"],
+    images: ["/img/Banq. Hall/IMG_7524.jpg", "/img/Banq. Hall/IMG_7519.jpg"],
   },
 ];
 

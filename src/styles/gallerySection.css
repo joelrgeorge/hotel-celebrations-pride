@@ -1,13 +1,19 @@
-/* Base Styling for the Images */
 .masonry__img {
-  width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  width: 100%; /* Ensure images fill the column */
   display: block;
+  border-radius: 8px; /* Optional: rounded corners for a modern look */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.masonry-item {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
 .masonry__img:hover {
-  transform: scale(1.05); /* Add zoom-in effect */
+  transform: scale(1.05);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -69,6 +75,6 @@
 
 @media only screen and (max-width: 768px) {
   .image-gallery-wrapper {
-    padding: 10px;
+    padding: 0 50px;
   }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/aboutSection.css"; // Import the updated CSS
 import { Container, Row, Col } from 'reactstrap';
-import heroImg from '/public/img/hero-img01.jpg'
-import heroImg02 from '/public/img/hero-img02.jpg'
-import heroVideo from '/public/img/hero-video.mp4'
+import heroImg from '/public/img/HERO/hero-img01.jpg'
+import heroImg02 from '/public/img/HERO/hero-img02.jpg'
+import heroVideo from '/public/img/HERO/hero-video.mp4'
 
 const MainTitle = () => {
   return (

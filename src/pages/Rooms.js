@@ -41,7 +41,7 @@ function Rooms() {
       title: "Super Deluxe Suite",
       overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
       description: "This room combines rustic charm with modern amenities. With a private balcony overlooking the mountains, this room provides a serene atmosphere for relaxation and rejuvenation.",
-      images: ['/img/Room 3/IMG_7313.jpg','/img/Room 3/IMG_7317.jpg','/img/Room 3/IMG_7284.jpg','/img/Room 3/IMG_7285.jpg','/img/Room 3/IMG_7366.jpg','/img/Room 3/IMG_7287.jpg','/img/Room 3/IMG_7291.jpg','/img/Room 3/IMG_7293.jpg','/img/Room 3/IMG_7296.jpg','/img/Room 3/IMG_7383.jpg','/img/Room 3/IMG_7390.jpg'],
+      images: ['/img/Room 4/IMG_7404.jpg','/img/Room 4/IMG_7405.jpg','/img/Room 4/IMG_7408.jpg','/img/Room 4/IMG_7422.jpg','/img/Room 4/IMG_7398.jpg','/img/Room 4/IMG_7411.jpg','/img/Room 4/IMG_7442.jpg','/img/Room 4/IMG_7392.jpg',,'/img/Room 4/IMG_7416.jpg','/img/Room 4/IMG_7430.jpg','/img/Room 4/IMG_7436.jpg'],
       facilities: ["🚗 Free Parking", "🔥 Fireplace", "🌐 Free Wi-Fi", "🏞️ Mountain View", "☕ Coffee Maker"],
       flip: true,
     },
