@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .about-section {
+    background: url("/public/img/textures/full-bloom.png") repeat; /* Maintain the elegant pattern */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 30px;
-    background: #ffffff;
     border-radius: 0px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     max-width: 1800px;

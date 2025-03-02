@@ -56,7 +56,16 @@ const Navbar = () => {
             >
               Contact
             </Link>
-          </li>
+            </li>
+            <li className="nav-item">
+            <Link
+              to="/banquet"
+              className="nav-links"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Hall
+            </Link>
+            </li>
         </ul>
       </div>
     </nav>

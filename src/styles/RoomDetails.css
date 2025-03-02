@@ -7,6 +7,7 @@
   font-family: "Arial", sans-serif;
   color: #333;
   box-sizing: border-box;
+  background: #fff;
 }
 
 /* Top Section with Flexbox */
@@ -39,7 +40,7 @@
 
 /* Image inside the slider */
 .slider-image {
-  width: 100%;
+  width: 120%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
@@ -117,7 +118,7 @@
   background-color: #f0f0f0;
   border-radius: 10px;
   text-align: justify;
-  margin-top: 1rem;
+  margin-top: 5px;
 }
 
 .room-details__description h3 {
@@ -133,7 +134,7 @@
 
 /* Facilities Section */
 .facilities-wrapper {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .facilities-title {

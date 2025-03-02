@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import galleryImages02 from "../../galleryImages"; 
+import galleryImages from "../../galleryImages"; 
 import "../styles/gallerySection.css"; 
 
 const fixedHeights = ["200px", "250px", "300px", "350px", "400px"];
@@ -48,7 +48,7 @@ const ImageGallery = () => {
         }}
       >
         <Masonry gutter="1rem">
-          {galleryImages02.map((item, index) => (
+          {galleryImages.map((item, index) => (
             <div key={index} className="masonry-item">
               <img
                 className="masonry__img"

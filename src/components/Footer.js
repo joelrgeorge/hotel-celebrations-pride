@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  // Make sure Link is imported
 
-const ComponentName = () => {        
+const Footer = () => {        
     return (
-    <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
+        <section 
+        className="py-10 text-white sm:pt-16 lg:pt-24" 
+        style={{ 
+            backgroundImage: "url('/img/textures/oriental-texture.png')",
+        }}
+    >
+    
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
             <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
@@ -22,7 +28,9 @@ const ComponentName = () => {
               </span>
             </Link>
 
-                <p className="text-base leading-relaxed text-gray-600 mt-7">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                <p className="text-base leading-relaxed text-gray-600 mt-7">Hotel Celebrations Pride is celebrated for its modern amenities and personalized service, 
+                establishing it as one of the finest hotels in Gandhi Path West, Vaishali Nagar committed to 
+                setting higher benchmarks in the hospitality industry.</p>
 
                 <ul className="flex items-center space-x-3 mt-9">
                     <li>
@@ -129,12 +137,22 @@ const ComponentName = () => {
 
         <hr className="mt-16 mb-10 border-gray-200" />
 
-        <p className="text-sm text-center" style={{ color: "#ff5700" }}>
-            © Copyright 2025. All Rights Reserved. Developed by Liege Developers Inc.
+        <p
+            className="text-sm text-center"
+            style={{
+                color: "#ff5700",
+                fontSize: "15px",
+                fontFamily: "'DM Serif Text', serif",
+                fontWeight: 400,
+                fontStyle: "regular"
+            }}
+        >
+        © All Rights Reserved. Developed by Liege Developers Inc.
         </p>
-    </div>
-</section>
 
+    </div>
+    </section>
     )
 }
-export default ComponentName;
+
+export default Footer;

@@ -1,134 +1,114 @@
-import React, { useState } from "react";
-import "../styles/bookingForm.css";
+import React, { useState, useEffect } from "react";
+import "../styles/BookingForm.css";
 
 const BookingForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "", // Added phone number
-    checkIn: "",
-    checkOut: "",
-    roomType: "",
-    guests: 1,
-  });
+  const [isFormVisible, setFormVisible] = useState(false); // Start hidden on mobile
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const toggleForm = () => {
+    setFormVisible(!isFormVisible);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your booking is confirmed.`);
-    console.log("Booking Details:", formData);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setFormVisible(true); // Always visible on desktop
+      } else {
+        setFormVisible(false); // Only show on mobile when icon is clicked
+      }
+    };
+
+    handleResize(); // Ensure correct state on first load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const redirectToSubdomain = (event) => {
+    event.preventDefault();
+    window.location.href = "http://form.ebenezerservicedapartments.com";
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-      <h2>Enquire with Us..</h2>
+    <>
+      {window.innerWidth <= 900 && !isFormVisible && (
+        <div className="floating-icon" onClick={toggleForm}>
+          📝
+        </div>
+      )}
 
-      <div className="form-group">
-        <label htmlFor="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter your full name"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="phone">Phone Number</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Enter your phone number"
-          pattern="^\+?[0-9\s-]{7,15}$" // Allows international formats
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="checkIn">Check-In Date</label>
-        <input
-          type="date"
-          id="checkIn"
-          name="checkIn"
-          value={formData.checkIn}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="checkOut">Check-Out Date</label>
-        <input
-          type="date"
-          id="checkOut"
-          name="checkOut"
-          value={formData.checkOut}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="roomType">Room Type</label>
-        <select
-          id="roomType"
-          name="roomType"
-          value={formData.roomType}
-          onChange={handleChange}
-          required
+      {window.innerWidth > 900 || isFormVisible ? (
+        <div
+          className={`${
+            window.innerWidth > 900
+              ? "embedded-booking-form"
+              : "booking-form-container show"
+          }`}
         >
-          <option value="" disabled>
-            Select a room type
-          </option>
-          <option value="single">Single Room</option>
-          <option value="double">Double Room</option>
-          <option value="suite">Suite</option>
-        </select>
-      </div>
+          <div className="form-wrapper">
+            {/* Heading and subheading */}
+            <div className="form-header">
+              <h2>Check with Us</h2>
+            </div>
 
-      <div className="form-group">
-        <label htmlFor="guests">Number of Guests</label>
-        <input
-          type="number"
-          id="guests"
-          name="guests"
-          value={formData.guests}
-          onChange={handleChange}
-          min="1"
-          max="10"
-          required
-        />
-      </div>
-
-      <button type="submit">Confirm Booking</button>
-
-      <div className="form-footer">
-        Need assistance? <a href="#contact">Contact us</a>.
-      </div>
-    </form>
+            <form
+              action="http://form.ebenezerservicedapartments.com/submit_booking"
+              method="post"
+              onSubmit={redirectToSubdomain}
+            >
+              {window.innerWidth <= 900 && (
+                <span className="close-form" onClick={toggleForm}>
+                  &times;
+                </span>
+              )}
+              <input
+                type="text"
+                name="name"
+                className="form-element"
+                placeholder="Name"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                className="form-element"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="date"
+                name="checkin"
+                className="form-element"
+                required
+              />
+              <input
+                type="date"
+                name="checkout"
+                className="form-element"
+                required
+              />
+              <input
+                type="number"
+                name="guests"
+                className="form-element"
+                placeholder="Guests"
+                min="1"
+                max="2"
+                required
+              />
+              <input
+                type="number"
+                name="children"
+                className="form-element"
+                placeholder="Children"
+                min="1"
+                max="2"
+                required
+              />
+              <input type="submit" value="Check Availibility" className="form-element" />
+            </form>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 

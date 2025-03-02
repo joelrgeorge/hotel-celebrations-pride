@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 .usp-section {
-  background: url("/public/img/full-bloom.png") repeat;
+  background: url("/public/img/textures/full-bloom.png") repeat;
   padding: 80px 0;
   text-align: center;
 }

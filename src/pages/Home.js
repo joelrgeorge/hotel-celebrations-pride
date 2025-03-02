@@ -1,8 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
-import BookingForm from "../components/BookingForm";
 import Navbar from "../components/Navbar";
-import { TopRow, BottomRow } from "../components/RoomDisplay"; // Import TopRow and BottomRow
+import RoomDisplay from "../components/RoomDisplay"; // Import TopRow and BottomRow
 import MainTitle from "../components/MainTitle";
 import "./styles/home.css"; // Import App.css for custom styling
 import WhoAreWe from "../components/WhoAreWe";
@@ -19,18 +18,7 @@ function Home() {
       <Navbar />
       <Hero />
       <MainTitle />
-      <div className="main-content">
-        <div className="room-display-container">
-          <TopRow /> {/* Top Row with the first two rooms */}
-          <div className="booking-form-container">
-            <BookingForm /> {/* Booking Form for larger screens */}
-          </div>
-        </div>
-
-        <div className="room-display-container-bottom">
-          <BottomRow /> {/* Bottom Row with the rest of the rooms */}
-        </div>
-      </div>
+      <RoomDisplay />
       <ImageCarousel images={galleryImages} />
       <WhoAreWe />
       <Footer />

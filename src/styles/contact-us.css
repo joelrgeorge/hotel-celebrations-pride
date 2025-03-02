@@ -251,9 +251,15 @@ html, body {
     margin-left: 1rem;
     font-size: 1.3rem;
   }
+
+  .form-container{
+    max-width: 1300px;
+    width: 100%;
+  }
   
   .contact__form {
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     padding: 1.5rem;
   }
@@ -270,6 +276,7 @@ html, body {
   }
 
   .contact__btn {
+    align-items: center;
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
   }

@@ -1,11 +1,16 @@
-import React from "react"
-import "../styles/headerSection.css"
+import React from "react";
+import "../styles/headerSection.css";
+import { Container, Row, Col } from 'reactstrap';
 
-import {Container, Row,Col } from 'reactstrap';
-
-const CommonSection = ({title}) => {
+const CommonSection = ({ title, backgroundImage }) => {
     return (
-        <section className="common__section">
+        <section 
+            className="common__section"
+            style={{
+                background: `linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${backgroundImage}) no-repeat center center`,
+                backgroundSize: "cover"
+            }}
+        >
             <Container>
                 <Row>
                     <Col lg="12">
@@ -15,6 +20,6 @@ const CommonSection = ({title}) => {
             </Container>
         </section>
     );
-}
+};
 
 export default CommonSection;

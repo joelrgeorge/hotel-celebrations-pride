@@ -1,6 +1,7 @@
 // Hero.js
 
 import React from "react";
+import BookingForm from "../components/BookingForm";
 import "../styles/hero.css";
 
 const Hero = () => {
@@ -13,6 +14,7 @@ const Hero = () => {
           <button className="btn book-now">Book Now</button>
           <button className="btn explore">Explore</button>
         </div>
+        <BookingForm />
       </div>
     </div>
   );

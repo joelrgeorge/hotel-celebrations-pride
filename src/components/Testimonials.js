@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import '../styles/testimonials.css';
-import user1 from '/public/img/user1.jpg';
-import user2 from '/public/img/user2.jpg';
-import user3 from '/public/img/user3.jpg';
+import user1 from '/public/img/users/user1.jpg';
+import user2 from '/public/img/users/user2.jpg';
+import user3 from '/public/img/users/user3.jpg';
 
 const Testimonials = () => {
         const settings= {

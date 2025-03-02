@@ -1,20 +1,217 @@
-/* Booking Form Container */
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&family=Carattere&family=DM+Serif+Text:ital@0;1&display=swap');
 
-.booking-form {
-  width: 100%; /* Ensure it takes full width within its container */
-  max-width: 450px; /* Set a max-width for the form */
-  margin: 0px 0px 0px 0px; /* Align the form to the right using 'auto' for left margin */
-  padding: 10px;
-  background: #fff;
-  border-radius: 0px;
-  box-shadow: none;
-  font-family: 'Arial', sans-serif;
-  height: 98%;
+/* Horizontal Embedded Form - Desktop */
+.embedded-booking-form {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.3); /* Much more transparent */
+  backdrop-filter: blur(10px); /* Keeps that glassmorphism effect */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+
+  position: relative;
+  top: 40px; /* Moves the form lower */
 }
 
-/* Form Header */
-.booking-form h2 {
+.embedded-booking-form form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.form-element {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-element:focus {
+  border-color: #efc853;
+  box-shadow: 0px 0px 8px rgba(239, 200, 83, 0.3);
+  outline: none;
+}
+
+/* Floating Icon - Mobile */
+.floating-icon {
+  display: block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: #efc853;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  z-index: 1001;
+}
+
+.floating-icon:hover {
+  background: #d4a21f;
+  transform: scale(1.1);
+}
+
+.embedded-booking-form input[type="submit"] {
+  flex: 0 0 10%;
+  min-width: 120px;
+  padding: 12px;
+  font-size: 14px;
+  background: linear-gradient(45deg, #efc853, #d4a21f);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+.embedded-booking-form input[type="submit"]:hover {
+  background: linear-gradient(45deg, #d4a21f, #b5841d);
+  transform: scale(1.05);
+}
+
+.form-header h2{
+  visibility: hidden;
+}
+
+
+/* ====== Desktop-Specific Styles ====== */
+@media (min-width: 901px) {
+  /* Desktop input tweaks */
+  .embedded-booking-form input[type="text"],
+  .embedded-booking-form input[type="email"],
+  .embedded-booking-form input[type="date"],
+  .embedded-booking-form input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .embedded-booking-form input[type="text"] {
+    max-width: 240px !important;
+    flex: 0 0 auto;  
+  }
+
+  .embedded-booking-form input[type="email"] {
+    max-width: 240px !important;
+    flex: 0 0 auto;  
+  }
+
+  .embedded-booking-form input[type="date"] {
+    max-width: 140px !important;
+    flex: 0 0 auto; /* Stops flexbox from stretching them */
+    }
+
+  .embedded-booking-form input[name="guests"],
+  .embedded-booking-form input[name="children"] {
+    max-width: 120px !important;
+    flex: 0 0 auto;
+    }
+
+    .embedded-booking-form input[type="submit"] {
+      flex: 0 0 10%;
+      min-width: 120px;
+      height: 45px; /* Explicit height helps with vertical alignment */
+      padding: 0; /* Resetting padding so text-align works */
+      font-size: 14px;
+      background: linear-gradient(45deg, #efc853, #d4a21f);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+    
+      display: flex; /* Align both horizontally and vertically */
+      justify-content: center;
+      align-items: center;
+    }    
+
+  .embedded-booking-form input[type="submit"]:hover {
+    background: linear-gradient(45deg, #d4a21f, #b5841d);
+    transform: scale(1.05);
+  }
+}
+
+/* ====== Mobile-Specific Styles ====== */
+@media (max-width: 900px) {
+  .booking-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .booking-form-container.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .form-popup {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px; /* Keeps it contained */
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers form fields */
+    justify-content: center; /* Optional */
+    margin: 0 auto; /* Ensures horizontal centering */
+    position: relative;
+    text-align: center;
+  }
+
+  .form-element {
+    width: 80%; /* Shorter fields */
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  
+  .form-wrapper {
+  display: flex;
+  flex-direction: column; /* Stack heading and form vertically */
+  align-items: center; /* Center them horizontally */
+  width: 100%; /* Ensures full width alignment */
+  }
+
+  .form-header {
+  display: block;
+  text-align: center;
+  margin-bottom: 15px;
+  }
+
+  .form-header h2 {
+  visibility: visible;
   text-align: center;
   font-size: 65px;
   font-family: "Birthstone", serif;
@@ -23,120 +220,103 @@
   margin-top: 0px;
   margin-bottom: 0px;
   color: #ff5700;
-}
+  }
 
-/* Input and Select Fields */
-.booking-form .form-group {
-  margin-bottom: 20px;
-  margin-right: 20px;
-}
-
-.booking-form label {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.booking-form input,
-.booking-form select {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
-}
-
-.booking-form input:focus,
-.booking-form select:focus {
-  border-color: #ff5700;
-  outline: none;
-}
-
-/* Submit Button */
-.booking-form button {
-  width: 100%;
-  padding: 12px;
+  .form-header p {
   font-size: 1.2rem;
-  font-weight: bold;
-  color: #fff;
-  background: #ff5700;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  color: #666;
+  }
 
-.booking-form button:hover {
-  background: #e14e00;
-}
+  .embedded-booking-form input[type="submit"] {
+    width: 80%;
+    background: linear-gradient(45deg, #efc853, #d4a21f);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
 
-/* Form Footer */
-.booking-form .form-footer {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-  color: #777;
-}
+  .embedded-booking-form input[type="submit"]:hover {
+    background: linear-gradient(45deg, #d4a21f, #b5841d);
+    transform: scale(1.05);
+  }
 
-.booking-form .form-footer a {
-  color: #ff5700;
-  text-decoration: none;
-}
+  /* Square Close Button - Top Right Above Inputs */
+  .close-form {
+    position: absolute;
+    top: 5px; /* Pushed further up */
+    right: 5px;
+    font-size: 18px;
+    color: #333;
+    background: #efc853;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    margin-bottom: 20px; /* Pushes form content down */
+  }
 
-.booking-form .form-footer a:hover {
-  text-decoration: underline;
-}
+  .close-form:hover {
+    background: #d4a21f;
+    transform: scale(1.1);
+  }
 
-@media (max-width: 1180px) {
-  .booking-form h2 {
-    font-size: 48px;
-    margin-bottom: 10px;
+  .form-popup input[type="text"],
+  .form-popup input[type="email"],
+  .form-popup input[type="date"],
+  .form-popup input[type="number"] {
+    width: 80%; /* Mobile-specific styles stay untouched */
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .form-popup input[type="submit"] {
+    width: 80%;
+    font-size: 16px;
+    padding: 12px;
   }
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .booking-form {
+@media (max-width: 1113px) and (min-width: 901px) {
+  .embedded-booking-form {
+    max-width: 100%;
     padding: 15px;
-    width: 100%; /* Set to 65% on small screens */
-    max-width: none; /* Remove max-width for mobile screens */
-    margin: 0 auto; /* Center the form */
+    margin-bottom: 50px; /* Add space below */
   }
 
-  .booking-form h2 {
-    font-size: 36px !important;
+  .embedded-booking-form form {
+    gap: 8px; /* Slightly reduced gap for better fitting */
   }
 
-  .booking-form input,
-  .booking-form select,
-  .booking-form button {
-    font-size: 1rem;
-    padding: 12px; /* Slightly larger padding for touch interactions */
+  .embedded-booking-form input[type="text"],
+  .embedded-booking-form input[type="email"],
+  .embedded-booking-form input[type="date"],
+  .embedded-booking-form input[type="number"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 13px;
+    max-width: 200px; /* Gradually reduce max-width */
   }
 
-  .booking-form .form-group {
-    margin-bottom: 15px;
+  .embedded-booking-form input[name="guests"],
+  .embedded-booking-form input[name="children"] {
+    max-width: 100px; /* Adjust guests & children inputs */
   }
 
-  .booking-form button {
-    padding: 15px; /* Larger button padding for smaller screens */
-  }
-
-  .booking-form .form-footer {
-    font-size: 0.8rem;
-  }
-}
-
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-  .booking-form {
-    padding: 15px;
-    width:100%; /* Set to 65% on small screens */
-    max-width: none; /* Remove max-width for mobile screens */
-    margin: 0 auto; /* Center the form */
+  .embedded-booking-form input[type="submit"] {
+    flex: 0 0 auto;
+    min-width: 100px; /* Reduce width gradually */
+    font-size: 13px;
+    padding: 10px;
+    height: 40px; /* Slightly smaller */
   }
 }

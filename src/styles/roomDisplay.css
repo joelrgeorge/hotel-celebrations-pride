@@ -1,185 +1,278 @@
-/* General Room Cards Layout */
-.room-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
-  gap: 20px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* For screens where the top row should have only 2 columns */
-.room-cards.top-row {
-  grid-template-columns: repeat(2, 1fr); /* 2 columns for top row */
-}
-
-/* Room Card */
-.room-card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-  background: rgba(255, 255, 255, 0.8); /* Subtle white card background */
-}
-
-.room-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Room Card Button */
-.room-card button {
-  padding: 10px 20px;
-  background-color: #ff5700;
-  color: white;
+.room-display-container {
+  background: url("/public/img/textures/hotel-wallpaper.png") repeat; /* Maintain the elegant pattern */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px;
+  border-radius: 0px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  max-width: 1800px;
+  margin: 0;
   border: none;
-  border-radius: 5px;
+}
+
+.section-heading {
+  background: #faa935;
+  font-family: "Island Moments", cursive;
+  padding-right: 1rem;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: #0b2727;
+  text-align: left;
+  width: max-content;
+  margin-left: 1rem;
+}
+
+.about-text {
+  flex: 1;
+  min-width: auto;
+  max-width: 100%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+/* Grid Layout */
+.room-top-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.room-middle-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.room-bottom-row {
+  display: flex;
+  justify-content: center;
+  padding: 20px 15%;
+  gap: 25px;
+}
+
+/* Room Tile */
+.room-tile {
+  position: relative;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+  min-height: 0px;
+  max-height: 400px;
+  height: auto;
+  border: 2px solid #ddd;
+  width: 100%;
+  background: white;
 }
 
-.room-card button:hover {
-  background-color: #e14e00;
-}
-
-/* Room Card Title */
-.room-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ff5700;
-  font-family: "Montserrat", serif;
-  font-weight: 300;
-}
-
-/* Room Card Description */
-.room-card p {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-  font-style: italic;
-  color: #333;
-  margin-bottom: 10px;
+/* Hover Effect - Make Background Fully White */
+.room-tile:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background: white;
 }
 
 /* Room Image */
 .room-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  display: block;
+  transition: opacity 0.3s ease-in-out;
 }
 
-/* ========== MODAL STYLES ========== */
+.room-tile:hover .room-image {
+  opacity: 0;
+}
+
 .room-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Title & Price (Initially Bottom) */
+.room-tall-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 10px 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.room-tile:hover .room-tall-overlay {
+  transform: translateY(-260px); /* Adjusted height so it's not too high */
+}
+
+.room-tile:hover .room-overlay {
+  transform: translateY(-250px); /* Adjusted height so it's not too high */
+}
+
+/* Room Name & Price */
+.room-name {
+  font-size: 16px;
+  color: #333;
+}
+
+.room-price {
+  font-size: 16px;
+  color: #E44D26;
+}
+
+.room-info {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 15px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.room-tall-info {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 15px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Reveal Description on Hover */
+.room-tile:hover .room-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal Description on Hover */
+.room-tile:hover .room-tall-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.room-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.room-amenities {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+}
+
+.room-amenities li {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Modal */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay background */
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Modal Content */
-.room-modal {
+.modal-content {
   background: white;
   padding: 20px;
-  border-radius: 10px;
-  max-width: 800px;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-/* Image Slider */
-.slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.image-home-slider {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: #f8f8f8;
-  margin-bottom: 0.1rem; /* Default margin for larger screens */
-  padding-bottom: 50%; /* Maintain 16:9 aspect ratio */
-}
-
-.slider-image {
-  max-width: 100%;
-  height: auto;
   border-radius: 8px;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
 }
 
-/* Navigation Buttons */
-.slider-btn {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #ff5700;
-  cursor: pointer;
-  transition: color 0.3s ease;
+.modal-room-name {
+  font-family: "Playfair Display", serif; /* Change the font */
+  font-size: 28px; /* Make it stand out */
+  font-weight: bold;
+  text-align: center; /* Center it */
+  margin-bottom: 15px; /* Adds space below */
+  color: #333; /* Adjust color */
 }
 
-.slider-btn:hover {
-  color: #e14e00;
+.modal-room-price {
+  font-family: "Poppins", sans-serif; /* Sleek modern font */
+  font-size: 22px; /* Make it noticeable */
+  font-weight: 600;
+  text-align: center; /* Keep it centered */
+  color: #e44d26; /* Stylish color */
+  margin-top: 20px; /* Space above */
 }
 
-/* Close Button */
-.close-modal-btn {
+.close-modal {
   position: absolute;
   top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #333;
+  right: 15px;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.close-modal-btn:hover {
-  color: #ff5700;
-}
-
-/* ========== RESPONSIVE STYLES ========== */
-
-/* Medium Screens (Tablets) */
-@media (max-width: 768px) {
-  .room-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
-  }
-
-  .room-cards.top-row {
-    grid-template-columns: repeat(2, 1fr); /* Still 2 columns for top row */
-  }
-
-  .room-cards.bottom-row {
-    grid-template-columns: repeat(2, 1fr); /* Still 2 columns for top row */
+@media (min-width: 601px) and (max-width: 900px) {
+  .room-price, .room-name{
+    font-size: 9px;
   }
 }
-
-/* Small Screens (Mobile) */
-@media (max-width: 480px) {
-  .room-cards {
-    grid-template-columns: 1fr; /* Single column for mobile */
+  
+/* Responsive */
+@media (max-width: 600px) {
+  .room-display-container{
+    margin: 0 auto;
+    align-items: center;
   }
-
-  .room-cards.top-row {
-    grid-template-columns: 1fr; /* Single column for mobile */
+  .room-top-row,
+  .room-middle-row,
+  .room-bottom-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
   }
-
-  .room-cards.bottom-row {
-    grid-template-columns: 1fr; /* Single column for mobile */
+  .room-tile {
+    width: 90%; /* Centers and keeps room tiles from touching edges */
+    margin: 0 auto; /* Centers the room tile */
+  }
+  .room-description {
+    font-size: 11px;
+    margin-bottom:0px;
+  }
+  .room-amenities {
+    font-size: 11px;
+    margin-bottom: 0px;
   }
 }

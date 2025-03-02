@@ -7,7 +7,7 @@
   }
 
   .room-layout{
-    background: url("/public/img/moroccan-flower.png") repeat;
+    background: url("/public/img/textures/moroccan-flower.png") repeat;
   }
   
   .section__subtitle {
@@ -79,6 +79,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-3px);
 }
+
+.facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.facility-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.2rem;
+}
+
 
 /* Media Query Adjustments */
 @media only screen and (max-width: 768px) {

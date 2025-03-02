@@ -5,7 +5,7 @@
   margin-top: 40px;
   margin-bottom: 40px;
   padding: 0px;
-  background: url('/public/img/center.svg'); /* Apply gradient and background image */
+  background: url('/public/img/textures/center.svg'); /* Apply gradient and background image */
   background-size: cover;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -19,20 +19,17 @@
   font-family: "Island Moments", cursive;
   padding: 0px 1.5rem;
   padding-right: 1rem;
-
   border-radius: 50px;
   font-weight: 500;
   font-size: 2.2rem;
   color: #0b1a27;
-
   text-align: center;
   width: max-content;
-
-  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-left: 3rem;
 }
 
 .section-subtitle {
-  font-size: 1.5rem;  
+  font-size: 1.5rem;
   margin-top: 0px;
   font-family: "Carattere", serif;
   font-weight: 400;
@@ -43,45 +40,42 @@
   padding-right: 1rem;
   font-weight: 300;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-left: 3rem; /* Adds space to the left of the entire element, moving it to the right */
+  margin-left: 3rem;
 }
 
 /* Carousel Styling */
 .image-carousel {
   display: flex;
-  transition: transform 1s ease-in-out; /* Smooth transition for sliding */
+  transition: transform 1s ease-in-out;
 }
 
 .carousel-image {
-  width: 600px;  /* Ensure all images have the same width */
-  height: 400px; /* Ensure all images have the same height */
-  object-fit: cover; /* Ensure images maintain aspect ratio */
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
   cursor: pointer;
-  margin: 0px; /* Add space between images */
+  margin: 0px;
 }
 
 /* Active image to display in carousel */
 .carousel-image.active {
-  transform: scale(1.05); /* Slight zoom on the active image */
+  transform: scale(1.05);
 }
 
-/* Modal */
 .image-carousel-modal {
-  position: relative; /* No fixed positioning */
-  margin: 20px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   width: 90%;
   max-width: 800px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  overflow: hidden;
-  max-height: 80vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-height: 62vh; /* Default for large screens */
+  display: block;
 }
 
 /* Overlay */
@@ -106,53 +100,93 @@
 /* Slider image */
 .slider-image {
   width: 100%;
-  max-width: 100%; /* Limit the width to 100% */
-  height: auto; /* Maintain the aspect ratio */
-  max-height: 400px; /* Uniform max height for images */
-  object-fit: contain; /* Ensure the whole image is visible */
-  margin: 0 10px;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Close Button (Top Right) */
+/* Close Button */
 .close-modal-btn {
-  position: fixed;
-  top: 0px;
-  right: 2px;
-  padding: 10px;
-  background-color: transparent;
-  color: #333;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  background-color: red;
+  color: white;
   border: none;
-  font-size: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  z-index: 2000;
 }
 
 .close-modal-btn:hover {
-  color: #ff5700;
+  background-color: darkred;
 }
 
 /* Close Button X */
 .close-modal-btn:before {
-  content: "×"; /* Unicode for 'X' symbol */
-  font-size: 40px;
+  content: "×";
+  font-size: 24px;
   font-weight: bold;
+  line-height: 1;
 }
 
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .image-carousel-container .gallery-heading {
     margin-left: 1rem;
     font-size: 1.6rem;
   }
 
-  .section-subtitle{
+  .section-subtitle {
     font-size: 1.25rem;
     margin-left: 1rem;
   }
-  
+
   .carousel-image {
     width: 600px;
-    height:300px
+    height: 300px;
   }
 }
 
- 
+/* For tablets (between 901px and 768px) */
+@media (max-width: 1024px) {
+  .image-carousel-modal {
+    max-height: 70vh
+    ;
+  }
+}
+
+/* For tablets (between 901px and 768px) */
+@media (max-width: 900px) {
+  .image-carousel-modal {
+    max-height: 70vh
+    ;
+  }
+}
+
+/* For tablets (between 901px and 768px) */
+@media (max-width: 900px) {
+  .image-carousel-modal {
+    max-height: 68vh;
+  }
+}
+
+/* For smaller tablets & large phones (between 767px and 600px) */
+@media (max-width: 769px) {
+  .image-carousel-modal {
+    max-height: 61vh;
+  }
+}
+
+/* For mobile devices (below 600px) */
+@media (max-width: 600px) {
+  .image-carousel-modal {
+    max-height: 34vh;
+  }
+}
