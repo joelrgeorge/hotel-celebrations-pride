@@ -61,17 +61,16 @@ const Footer = () => {
 
                 <ul className="mt-6 space-y-4">
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-orange-400 focus:text-orange"> Terms & Conditions </a>
+                        <Link to="/TnC" className="flex text-base text-black transition-all duration-200 hover:text-orange-400 focus:text-orange"> Terms And Conditions </Link>
                     </li>
-
                     <li>
-                        <a href="#" title="" className="flex text-base text-black transition-all duration-200 hover:text-orange-400 focus:text-orange"> Privacy Policy </a>
+                        <Link to="/PrivacyPolicy" className="flex text-base text-black transition-all duration-200 hover:text-orange-400 focus:text-orange"> Privacy Policy </Link>
                     </li>
                 </ul>
             </div>
 
             <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
-                <p className="text-sm font-semibold tracking-widest text-black       uppercase">Subscribe to newsletter</p>
+                <p className="text-sm font-semibold tracking-widest text-black uppercase">Subscribe to newsletter</p>
 
                 <form action="#" method="POST" className="mt-6">
                     <div>
