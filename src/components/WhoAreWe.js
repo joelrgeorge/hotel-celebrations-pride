@@ -1,7 +1,7 @@
 import React from 'react'; 
 import data from '../restApi.json'; // Import the JSON data
 import "../styles/WhoAreWe.css";
-import ImageGallery02 from "./ImageGallery02";
+import ImageGallery02 from "./gallery/ImageGallery02";
 import { Container, Row, Col } from 'reactstrap';
 import 'remixicon/fonts/remixicon.css';
 

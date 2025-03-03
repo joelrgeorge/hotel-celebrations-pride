@@ -3,7 +3,7 @@
 
 .Image-Section {
     padding: 20px 100px;
-    background: white;
+    background: url("/public/img/textures/hotel-wallpaper.png") repeat;
   }
 
   .room-layout{

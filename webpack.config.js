@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack"); // Import Webpack
 
 module.exports = {
   mode: "development",
@@ -20,15 +21,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"], // Added postcss-loader
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/,
-        type: "asset/resource", // Handles images
+        type: "asset/resource",
         include: path.resolve(__dirname, "public"),
       },
       {
-        test: /\.(mp4|webm)$/, // Handles video files
+        test: /\.(mp4|webm)$/,
         type: "asset/resource",
         include: path.resolve(__dirname, "public"),
       },
@@ -37,6 +38,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+
+    // 🔹 Inject environment variables into the frontend
+    new webpack.DefinePlugin({
+      "process.env.REACT_APP_API_URL": JSON.stringify(process.env.REACT_APP_API_URL),
+      "process.env.REACT_APP_SUBMIT_FORM_URL": JSON.stringify(process.env.REACT_APP_SUBMIT_FORM_URL),
+      "process.env.REACT_APP_SUBMIT_CONTACT_URL": JSON.stringify(process.env.REACT_APP_SUBMIT_CONTACT_URL),
     }),
   ],
   devServer: {

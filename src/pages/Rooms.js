@@ -3,12 +3,12 @@ import './styles/rooms.css';
 import Navbar from "../components/Navbar";
 import { Container, Row, Col } from 'reactstrap';
 import { FaParking, FaConciergeBell, FaWifi, FaSwimmingPool, FaDumbbell, FaCocktail, FaTv, FaFire } from "react-icons/fa";
-import CommonSection from "../components/HeaderSection";
+import CommonSection from "../components/shared/HeaderSection";
 import Footer from "../components/Footer";
 import RoomDetails from "../components/RoomDetails";
-import ImageGallery from "../components/ImageGallery";
+import ImageGallery from "../components/gallery/ImageGallery";
 import USPSection from "../components/USPSection";
-import Subtitle from '../components/Subtitle';
+import Subtitle from '../components/shared/Subtitle';
 
 function Rooms() {
 const rooms = [

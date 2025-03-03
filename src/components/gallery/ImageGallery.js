@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import galleryImages03 from "../../galleryImages03"; 
-import "../styles/gallerySection.css"; 
+import galleryImages from "../../../gallery/galleryImages"; 
+import "../../styles/gallerySection.css"; 
 
 const fixedHeights = ["200px", "250px", "300px", "350px", "400px"];
 
-const HallGallery = () => {
+const ImageGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -15,7 +15,7 @@ const HallGallery = () => {
   };
 
   const handleImageClick = (index) => {
-    setSelectedImage(galleryImages03[index]);
+    setSelectedImage(galleryImages[index]);
   };
 
   const closePopup = () => {
@@ -48,7 +48,7 @@ const HallGallery = () => {
         }}
       >
         <Masonry gutter="1rem">
-          {galleryImages03.map((item, index) => (
+          {galleryImages.map((item, index) => (
             <div key={index} className="masonry-item">
               <img
                 className="masonry__img"
@@ -76,4 +76,4 @@ const HallGallery = () => {
   );
 };
 
-export default HallGallery;
+export default ImageGallery;

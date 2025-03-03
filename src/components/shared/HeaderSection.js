@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/headerSection.css";
+import "../../styles/headerSection.css";
 import { Container, Row, Col } from 'reactstrap';
 
 const CommonSection = ({ title, backgroundImage }) => {

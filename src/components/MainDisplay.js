@@ -5,7 +5,7 @@ import heroImg from '/public/img/HERO/hero-img01.jpg'
 import heroImg02 from '/public/img/HERO/hero-img02.jpg'
 import heroVideo from '/public/img/HERO/hero-video.mp4'
 
-const MainTitle = () => {
+const MainDisplay = () => {
   return (
     <div className="about-section">
       <div className="about-text">
@@ -51,4 +51,4 @@ const MainTitle = () => {
   );
 };
 
-export default MainTitle;
+export default MainDisplay;

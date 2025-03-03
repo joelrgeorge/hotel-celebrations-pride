@@ -1,6 +1,7 @@
 import React from "react";
 import './app.css';
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/feature/ScrollToTop"; // Import the ScrollToTop component
 import Home from "./pages/Home"; // Import Home component
 import Rooms from "./pages/Rooms"; // Import Rooms component
 import Contact from "./pages/Contact"; // Import Rooms component
@@ -9,6 +10,8 @@ import Banq_Hall from "./pages/Banq. Hall"; // Import Rooms component
 
 function App() {
   return (
+    <>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/rooms" element={<Rooms />} />
@@ -16,6 +19,7 @@ function App() {
       <Route path="/banquet" element={<Banq_Hall />} />
 
     </Routes>
+    </>
   );
 }
 

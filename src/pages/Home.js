@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import RoomDisplay from "../components/RoomDisplay"; // Import TopRow and BottomRow
-import MainTitle from "../components/MainTitle";
+import MainDisplay from "../components/MainDisplay";
 import "./styles/home.css"; // Import App.css for custom styling
 import WhoAreWe from "../components/WhoAreWe";
 import ImageCarousel from "../components/ImageCarousel";
@@ -17,7 +17,7 @@ function Home() {
     <div className="home">
       <Navbar />
       <Hero />
-      <MainTitle />
+      <MainDisplay />
       <RoomDisplay />
       <ImageCarousel images={galleryImages} />
       <WhoAreWe />

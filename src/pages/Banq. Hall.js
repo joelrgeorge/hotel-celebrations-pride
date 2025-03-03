@@ -3,11 +3,11 @@ import './styles/rooms.css';
 import Navbar from "../components/Navbar";
 import { Container, Row, Col } from 'reactstrap';
 import { FaParking, FaConciergeBell, FaWifi, FaSwimmingPool, FaDumbbell, FaCocktail, FaTv, FaFire, FaMugHot } from "react-icons/fa";
-import CommonSection from "../components/HeaderSection";
+import CommonSection from "../components/shared/HeaderSection";
 import Footer from "../components/Footer";
 import RoomDetails from "../components/RoomDetails";
-import HallGallery from "../components/HallGallery";
-import Subtitle from '../components/Subtitle';
+import HallGallery from "../components/gallery/HallGallery";
+import Subtitle from '../components/shared/Subtitle';
 
 function Banq_Hall() {
   const rooms = [
