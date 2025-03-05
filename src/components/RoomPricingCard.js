@@ -5,15 +5,18 @@ const RoomPricingCard = ({ room, onClose }) => {
   const [occupants, setOccupants] = useState(1);
   const [children, setChildren] = useState(0);
   const [nights, setNights] = useState(1);
+  const [ac, setAc] = useState('no');
 
   const pricePerAdult = room?.price ? parseInt(room.price.replace(/\D/g, '')) : 0;
   const pricePerChild = pricePerAdult * 0.4;
-  const totalCost =
-    pricePerAdult * nights + pricePerChild * Math.min(children, 3) * nights;
+  const baseCost = pricePerAdult * nights + pricePerChild * Math.min(children, 3) * nights;
+  const acCost = ac === 'yes' ? baseCost * 0.07 : 0;
+  const totalCost = baseCost + acCost;
 
   const handleOccupantsChange = (value) => setOccupants(Math.max(1, Number(value)));
   const handleChildrenChange = (value) => setChildren(Math.min(3, Math.max(0, Number(value))));
   const handleNightsChange = (value) => setNights(Math.max(1, Number(value)));
+  const handleAcChange = (value) => setAc(value);
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -52,6 +55,13 @@ const RoomPricingCard = ({ room, onClose }) => {
                 value={nights}
                 onChange={(e) => handleNightsChange(e.target.value)}
               />
+            </div>
+            <div className="ac-selection">
+                <label>AC</label>
+                <select value={ac} onChange={(e) => handleAcChange(e.target.value)}>
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
             </div>
             <div className="total-cost">Total: {totalCost} INR</div>
           </div>

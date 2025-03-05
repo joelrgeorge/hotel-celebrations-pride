@@ -10,12 +10,18 @@ export default function TermsAndConditions() {
   const handleAccept = () => {
     navigate("/"); // Change "/home" if needed
   };
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <Card className="max-w-3xl w-full p-6 bg-white shadow-lg rounded-2xl">
+      <Card className="max-w-3xl w-full p-6 bg-white shadow-lg rounded-2xl text-center">
         <CardContent>
+          {/* Logo */}
+          <div className="flex justify-center mb-4">
+            <img src="/favicon.ico" alt="Logo" className="w-20 h-16" />
+          </div>
+
           <h1 className="text-2xl font-bold mb-4">Terms and Conditions</h1>
-          <ScrollArea className="h-80 overflow-y-auto p-2 border rounded-lg">
+          <ScrollArea className="h-80 overflow-y-auto p-2 border rounded-lg text-left">
             <p className="mb-4">
               Welcome to Hotel Celebrations Pride! These terms and conditions outline the
               rules and regulations for the use of our services.

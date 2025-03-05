@@ -78,7 +78,7 @@ const RoomDisplay = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   return (
-    <div className="room-display-container">
+    <div id="room-display" className="room-display-container">
       <div className="about-text">
         <p className="section-heading">Our Rooms</p>
       </div>

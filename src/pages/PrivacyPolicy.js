@@ -13,10 +13,15 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
-      <Card className="w-full max-w-2xl">
+      <Card className="w-full max-w-2xl text-center">
         <CardContent>
+          {/* Logo */}
+          <div className="flex justify-center mb-4">
+            <img src="/favicon.ico" alt="Logo" className="w-20 h-16" />
+          </div>
+
           <h2 className="text-2xl font-bold mb-4">Privacy Policy</h2>
-          <ScrollArea className="h-64 border p-2 rounded-lg">
+          <ScrollArea className="h-64 border p-2 rounded-lg text-left">
             <p>
               Your privacy is important to us. This policy explains how we
               collect, use, and protect your personal information when you use
