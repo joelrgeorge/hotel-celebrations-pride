@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   const galleryImages = [
-    "/img/a1.jpg", "/img/a2.jpg", "/img/a3.jpg", "/img/a4.jpg", "/img/a5.jpg", "/img/a6.jpg", "/img/a7.jpg", "/img/a8.jpg", "/img/a9.jpg", "/img/a10.jpg", "/img/a11.png", "/img/holiday-inn-savannah-5627537490-4x3.avif"
+    "/img/a1.webp", "/img/a2.webp", "/img/a3.webp", "/img/a4.webp", "/img/a5.webp", "/img/a6.webp", "/img/a7.webp", "/img/a8.webp", "/img/a9.webp", "/img/a10.webp", "/img/a11.webp"
   ];
 
   return (

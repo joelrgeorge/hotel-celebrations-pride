@@ -58,7 +58,7 @@ function ContactUs() {
           <div className="info">
             <div className="information">
               <p>
-                <RiMapPin2Fill /> 123 Example St, City, Country
+                <RiMapPin2Fill /> G-5, Amrapali Nagar, Lalarpura Gandhi Path <br />West Vaishali Nagar, Jaipur
               </p>
             </div>
             <div className="information">
@@ -68,7 +68,7 @@ function ContactUs() {
             </div>
             <div className="information">
               <p>
-                <RiPhoneFill /> (+123) 456-7890
+                <RiPhoneFill /> (+91) 9610277070
               </p>
             </div>
           </div>

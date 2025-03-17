@@ -14,7 +14,7 @@ const rooms = [
       "Air conditioning and heating",
       "Smart TV and high-speed Wi-Fi"
     ],
-    image: "/img/a1.jpg"
+    image: "/img/a1.webp"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const rooms = [
       "Spacious seating area",
       "Air conditioning and smart TV"
     ],
-    image: "/img/a2.jpg"
+    image: "/img/a2.webp"
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const rooms = [
       "Elegant decor and spacious layout",
       "High-speed Wi-Fi and smart TV"
     ],
-    image: "/img/a3.jpg"
+    image: "/img/a3.webp"
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const rooms = [
       "Premium bathroom with luxury fittings",
       "Enhanced decor and spacious layout"
     ],
-    image: "/img/Room 4/IMG_7399.jpg"
+    image: "/img/Room 4/IMG_7399.webp"
   },
   {
     id: 5,

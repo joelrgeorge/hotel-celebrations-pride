@@ -15,7 +15,7 @@ function Contact() {
       <Navbar />
       <CommonSection 
       title={"Contact Us"} 
-      backgroundImage={"/img/a7.jpg"}  // Specify the background image URL here
+      backgroundImage={"/img/a7.webp"}  // Specify the background image URL here
       />
       <section className="Contact-Section">
       <Subtitle subtitle={'Contact Form'} />

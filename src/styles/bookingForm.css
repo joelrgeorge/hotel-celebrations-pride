@@ -227,22 +227,25 @@
   color: #666;
   }
 
+  /* Fix ONLY for the form submit button */
   .embedded-booking-form input[type="submit"] {
-    width: 80%;
-    background: linear-gradient(45deg, #efc853, #d4a21f);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  -webkit-appearance: none; /* Removes default styling without affecting other buttons */
+  appearance: none;
+  background: linear-gradient(45deg, #efc853, #d4a21f) !important;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
   }
 
   .embedded-booking-form input[type="submit"]:hover {
-    background: linear-gradient(45deg, #d4a21f, #b5841d);
-    transform: scale(1.05);
+  background: linear-gradient(45deg, #d4a21f, #b5841d) !important;
+  transform: scale(1.05);
   }
+
 
   /* Square Close Button - Top Right Above Inputs */
   .close-form {

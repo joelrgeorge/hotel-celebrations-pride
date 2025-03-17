@@ -122,7 +122,7 @@ app.post("/submit_form", async (req, res) => {
     // Send confirmation email to Customer
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // Customer's email
+      to: process.env.SMTP_USER, 
       subject: "Booking Enquiry - Hotel Celebrations Pride",
       html: emailContent,
       attachments: [{
