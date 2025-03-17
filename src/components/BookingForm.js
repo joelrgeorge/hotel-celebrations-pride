@@ -6,6 +6,7 @@ console.log("Loaded Submit Form URL:", submitUrl);
 
 const BookingForm = () => {
   const [isFormVisible, setFormVisible] = useState(window.innerWidth > 900);
+  const [loading, setLoading] = useState(false); // Loader state added
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,6 +28,7 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loader
 
     console.log("Sending form data:", formData);
 
@@ -47,16 +49,15 @@ const BookingForm = () => {
       console.log("Server response status:", response.status);
 
       if (response.ok) {
-        // Redirect to Thank You page
         window.location.href = "/static/thankyou.html";
       } else {
         console.error("Server Error");
-        document.body.innerHTML = ""; // Make the page blank on error
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      document.body.innerHTML = ""; // Make the page blank on error
     }
+
+    setLoading(false); // Stop loader after request finishes
   };
 
   return (
@@ -86,7 +87,16 @@ const BookingForm = () => {
               <input type="date" name="checkout" className="form-element" required value={formData.checkout} onChange={handleChange} />
               <input type="number" name="guests" className="form-element" placeholder="Guests" min="1" max="2" required value={formData.guests} onChange={handleChange} />
               <input type="number" name="children" className="form-element" placeholder="Children" min="0" max="2" required value={formData.children} onChange={handleChange} />
-              <input type="submit" value="Check Availability" className="form-element" />
+
+              {/* Button with loader */}
+              <button type="submit" className={`booking-btn ${loading ? "loading" : ""}`} disabled={loading}>
+                Check Availability
+                {loading && (
+                  <div className="loader-overlay">
+                    <span className="loader"></span>
+                  </div>
+                )}
+              </button>
             </form>
           </div>
         </div>

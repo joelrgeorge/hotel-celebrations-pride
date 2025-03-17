@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/contact-us.css"; // Ensure the correct path to your CSS
 import Subtitle from "./shared/Subtitle";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
@@ -8,8 +8,11 @@ const contactSubmitUrl = process.env.REACT_APP_SUBMIT_CONTACT_URL || "http://loc
 console.log("Loaded Contact Submit URL:", contactSubmitUrl);
 
 function ContactUs() {
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // <-- Start loading
     
     const formData = {
       name: e.target.name.value,
@@ -33,11 +36,10 @@ function ContactUs() {
         },
         body: JSON.stringify(formData),
       });
-    
+
       console.log("Server response status:", response.status);
-    
+
       if (response.ok) {
-        // ✅ Redirect to the success page after successful submission
         window.location.href = "/static/ContactSuccess.html"; 
       } else {
         console.error("Server Error");
@@ -47,7 +49,9 @@ function ContactUs() {
       console.error("Contact form submission error:", error);
       alert("An error occurred. Please try again later.");
     }
-    };
+
+    setLoading(false); // <-- Stop loading
+  };
     
   return (
     <div className="contact__container">
@@ -101,8 +105,9 @@ function ContactUs() {
             <div className="input-container">
               <textarea name="message" placeholder="Message" className="contact__input" required></textarea>
             </div>
-            <input type="submit" value="Send" className="contact__btn" />
-          </form>
+            <button type="submit" className="contact__btn" disabled={loading}>
+              {loading ? <span className="loader"></span> : "Send"}
+            </button>          </form>
         </div>
       </div>
 
