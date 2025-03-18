@@ -38,10 +38,10 @@ const Testimonials = () => {
     return (
     <Slider {...settings}>
         <div className="testimonial py-4 px-3">
-            <p>A professional and effective service. 
-                Messages were crisp and clear. Consultant was obliging
-                 and understood any queries and changes we wanted.
-                  Nothing seemed to be too much trouble.</p>
+            <p>I had an amazing experience staying at this hotel! The room was cozy yet modern, with everything I needed for 
+                a relaxing getaway. The air conditioning worked perfectly, and the bathroom was spotless. 
+                I especially loved the soft lighting, which gave the room a warm and inviting feel. 
+                Will definitely be back!</p>
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
@@ -54,10 +54,10 @@ const Testimonials = () => {
             </div>
         </div>
         <div className="testimonial py-4 px-3">
-            <p>The all inclusive airfares, transfers, accommodation 
-                 etc were greatly appreciated. Nicole helped us understand 
-                 how to redeem a Jetstar Covid.19 voucher and we really appreciated that. 
-                 </p>
+            <p>TI had an amazing experience staying at this hotel! The room was cozy yet modern, with everything I needed 
+                for a relaxing getaway. The air conditioning worked perfectly, and the bathroom was spotless. I especially 
+                loved the soft lighting, which gave the room a warm and inviting feel. Will definitely be back!
+            </p>
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
@@ -70,10 +70,10 @@ const Testimonials = () => {
             </div>
         </div>
         <div className="testimonial py-4 px-3">
-            <p>This experience and service in booking and taking this holiday package 
-                was 1st class. It was easy to book, the emailed vouchers
-                 we received were clear and all were honoured. 
-                 </p>
+            <p>The attention to detail in this hotel is impressive. My room was beautifully decorated, and the ambiance was peaceful. 
+                The staff were extremely courteous and always ready to assist. The bed was so comfortable that I slept like a baby. 
+                Plus, the room service was prompt and delicious. Absolutely worth every penny!
+            </p>
 
             <div className="d-flex align-items-center gap-4 mt-3">
 
@@ -86,9 +86,9 @@ const Testimonials = () => {
             </div>
         </div>
         <div className="testimonial py-4 px-3">
-            <p>Our holiday was great value for the money spent. 
-                Easy online service and telephone service if needed 
-                and thanks for the opportunity to provide feedback. Greatly recommend 10/10.</p>
+            <p>Stayed here for a weekend, and it was one of the best hotel experiences I've had. The room was well-designed, super clean, 
+                and had a luxurious feel. The view from my balcony was stunning, and the complimentary toiletries were a nice touch. 
+                I highly recommend this hotel to anyone looking for a relaxing stay.</p>
 
             <div className="d-flex align-items-center gap-4 mt-3">
 

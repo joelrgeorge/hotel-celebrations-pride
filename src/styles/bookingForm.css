@@ -4,11 +4,9 @@
 .embedded-booking-form {
   display: flex;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  background: transparent;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
   max-width: 1700px; /* 🔥 Widened for desktop */
   position: relative;
   top: 40px;
@@ -22,6 +20,7 @@
   gap: 10px;
 }
 
+/* ===== Form Elements ===== */
 .form-element {
   flex: 1;
   padding: 12px;
@@ -29,17 +28,19 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
-}
-
-/* 🔥 Widen Guests & Children fields */
-.form-element[type="number"] {
-  min-width: 90px; /* Adjusted for better readability */
+  background: white;
+  cursor: pointer;
 }
 
 .form-element:focus {
   border-color: #efc853;
   box-shadow: 0px 0px 8px rgba(239, 200, 83, 0.3);
   outline: none;
+}
+
+/* 🔥 Widen Guests & Children dropdowns */
+select.form-element {
+  min-width: 100px;
 }
 
 /* ===== Floating Icon - Mobile ===== */
@@ -85,7 +86,6 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,13 +157,17 @@
   transform: scale(1.1);
 }
 
+/* ===== Form Header Fix (Ensures Visibility) ===== */
+.form-header h2 {
+  visibility: hidden;
+}
 
 /* ===== Desktop-Specific Styles ===== */
-@media (min-width: 901px) {
+@media (min-width: 1183px) {
   .embedded-booking-form input[type="text"],
   .embedded-booking-form input[type="email"],
   .embedded-booking-form input[type="date"],
-  .embedded-booking-form input[type="number"] {
+  .embedded-booking-form select {
     flex: 1;
     padding: 12px;
     font-size: 14px;
@@ -178,12 +182,85 @@
     padding: 10px;
     height: 40px;
   }
+}
 
-  /* ===== Form Header Fix (Ensures Visibility) ===== */
-  .form-header h2{
+@media (min-width: 900px) and (max-width: 1182px) {
+  .booking-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .booking-form-container.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .form-popup {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-popup input[type="submit"] {
+    width: 80%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .form-element {
+    width: 80%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .form-header {
+    display: none;
+  }
+
+  .form-header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+
+  /* 🔥 FIX: Button is now **centered** on smaller screens */
+  .booking-btn {
+    width: auto;
+    min-width: 160px;
+    margin: 0 auto;
+    text-align: center;
   }
 }
+
 
 /* ===== Mobile-Specific Styles (Fixed Button Centering) ===== */
 @media (max-width: 900px) {

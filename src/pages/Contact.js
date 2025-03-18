@@ -30,10 +30,10 @@ function Contact() {
             </Col>
             <Col lg="12">
               <Testimonials />
-              <Review />
             </Col>
           </Row>
         </Container>
+        <Review />
       </section>
       <Footer />
     </div>

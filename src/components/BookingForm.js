@@ -12,8 +12,8 @@ const BookingForm = () => {
     email: "",
     checkin: "",
     checkout: "",
-    guests: 1,
-    children: 0,
+    guests: "",
+    children: "",
   });
 
   useEffect(() => {
@@ -85,8 +85,21 @@ const BookingForm = () => {
               <input type="email" name="email" className="form-element" placeholder="Email" required value={formData.email} onChange={handleChange} />
               <input type="date" name="checkin" className="form-element" required value={formData.checkin} onChange={handleChange} />
               <input type="date" name="checkout" className="form-element" required value={formData.checkout} onChange={handleChange} />
-              <input type="number" name="guests" className="form-element" placeholder="Guests" min="1" max="2" required value={formData.guests} onChange={handleChange} />
-              <input type="number" name="children" className="form-element" placeholder="Children" min="0" max="2" required value={formData.children} onChange={handleChange} />
+
+              {/* Guests Dropdown */}
+              <select name="guests" className="form-element" required value={formData.guests} onChange={handleChange}>
+                <option value="" disabled>Guests</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+
+              {/* Children Dropdown */}
+              <select name="children" className="form-element" required value={formData.children} onChange={handleChange}>
+                <option value="" disabled>Children</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
 
               {/* Button with loader */}
               <button type="submit" className={`booking-btn ${loading ? "loading" : ""}`} disabled={loading}>

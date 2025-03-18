@@ -281,7 +281,6 @@ html, body {
   
   .contact__form {
     flex-direction: column;
-    align-items: center;
     gap: 2rem;
     padding: 1.5rem;
   }

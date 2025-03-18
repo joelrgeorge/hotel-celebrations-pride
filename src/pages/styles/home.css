@@ -28,6 +28,11 @@ body {
   gap: 0px; /* Ensure no unwanted spacing */
 }
 
+@media (min-width: 900px) and (max-width: 1182px) {
+  .hero-container{
+    height: 90vh;
+  }
+}
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .room-display-container {
