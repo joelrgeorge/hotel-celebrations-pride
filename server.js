@@ -1,18 +1,10 @@
-const dotenv = require("dotenv");
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 const nodemailer = require("nodemailer");
-const React = require("react");
-const ReactDOMServer = require("react-dom/server");
-const ManagerEmail = require("./src/templates/ManagerEmail.cjs");
-const CustomerEmail = require("./src/templates/CustomerEmail.cjs");
-const ManagerContact = require("./src/templates/ManagerContact.cjs");
-const CustomerContact = require("./src/templates/CustomerContact.cjs");
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,11 +14,34 @@ const mongoURI = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONG
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
+  .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => {
-    console.error("MongoDB Connection Error:", err);
+    console.error("❌ MongoDB Connection Error:", err);
     process.exit(1);
   });
+
+// Define Mongoose Schemas & Models Once (Prevents OverwriteModelError)
+const bookingSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  checkin: String,
+  checkout: String,
+  guests: Number,
+  children: Number,
+  createdAt: { type: Date, default: Date.now },
+});
+
+const contactSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  phone: String,
+  message: String,
+  createdAt: { type: Date, default: Date.now },
+});
+
+// Prevent OverwriteModelError
+const Booking = mongoose.models.Enquiries || mongoose.model("Enquiries", bookingSchema);
+const ContactMessage = mongoose.models.Contacts || mongoose.model("Contacts", contactSchema);
 
 // Middleware
 app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000", credentials: true }));
@@ -44,10 +59,8 @@ const smtpTransporter = nodemailer.createTransport({
   },
 });
 
-// Function to generate email HTML from React component
-const generateEmailHTML = (Component, props) => {
-  return ReactDOMServer.renderToStaticMarkup(React.createElement(Component, props));
-};
+// Set Contact Us link for local testing
+const contactUsLink = "http://localhost:3000/contact"; // Change when deploying!
 
 // Booking Form Submission with Email Notification
 app.post("/submit_form", async (req, res) => {
@@ -58,25 +71,18 @@ app.post("/submit_form", async (req, res) => {
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    console.log("Booking request received:", req.body);
+    console.log("📩 Booking request received:", req.body);
 
     // Save booking to MongoDB
-    const newBooking = new mongoose.model("Enquiries", new mongoose.Schema({
-      name: String,
-      email: String,
-      checkin: String,
-      checkout: String,
-      guests: Number,
-      children: Number,
-      createdAt: { type: Date, default: Date.now },
-    }));
+    await Booking.create({ name, email, checkin, checkout, guests, children });
+    console.log("✅ Booking saved to MongoDB");
 
-    await newBooking.create({ name, email, checkin, checkout, guests, children });
-    console.log("Booking saved to MongoDB");
+    // Generate email content
+    const CustomerEmail = require("./src/templates/CustomerEmail.cjs");
+    const ManagerEmail = require("./src/templates/ManagerEmail.cjs");
 
-    // Generate email HTML
-    const managerEmailHTML = generateEmailHTML(ManagerEmail, req.body);
-    const customerEmailHTML = generateEmailHTML(CustomerEmail, req.body);
+    const managerEmailHTML = ManagerEmail(req.body);
+    const customerEmailHTML = CustomerEmail({ ...req.body, contactUsLink });
 
     // Send email to Manager
     await smtpTransporter.sendMail({
@@ -84,8 +90,9 @@ app.post("/submit_form", async (req, res) => {
       to: process.env.SMTP_USER, // Admin email
       subject: "New Booking Received",
       html: managerEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
     });
-    console.log("Booking Enquiry email sent to Manager");
+    console.log("📧 Booking Enquiry email sent to Manager");
 
     // Send confirmation email to Customer
     await smtpTransporter.sendMail({
@@ -93,12 +100,13 @@ app.post("/submit_form", async (req, res) => {
       to: email,
       subject: "Booking Confirmation - Hotel Celebrations Pride",
       html: customerEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
     });
-    console.log("Booking confirmation email sent to customer");
+    console.log("📩 Booking confirmation email sent to customer");
 
     return res.sendFile(path.join(__dirname, "public", "static", "thankyou.html"));
   } catch (error) {
-    console.error("Error handling booking request:", error);
+    console.error("❌ Error handling booking request:", error);
     return res.status(500).send("Internal Server Error");
   }
 });
@@ -112,23 +120,18 @@ app.post("/submit_contact", async (req, res) => {
       return res.status(400).json({ error: "Missing required fields." });
     }
 
-    console.log("Contact request received:", req.body);
+    console.log("📩 Contact request received:", req.body);
 
     // Save contact message to MongoDB
-    const newMessage = new mongoose.model("Contacts", new mongoose.Schema({
-      name: String,
-      email: String,
-      phone: String,
-      message: String,
-      createdAt: { type: Date, default: Date.now },
-    }));
+    await ContactMessage.create({ name, email, phone, message });
+    console.log("✅ Contact message saved to MongoDB");
 
-    await newMessage.create({ name, email, phone, message });
-    console.log("Contact message saved to MongoDB");
+    // Generate email content
+    const ManagerContact = require("./src/templates/ManagerContact.cjs");
+    const CustomerContact = require("./src/templates/CustomerContact.cjs");
 
-    // Generate email HTML
-    const managerContactEmailHTML = generateEmailHTML(ManagerContact, req.body);
-    const customerContactEmailHTML = generateEmailHTML(CustomerContact, req.body);
+    const managerContactEmailHTML = ManagerContact(req.body);
+    const customerContactEmailHTML = CustomerContact({ ...req.body, contactUsLink });
 
     // Send email to Manager
     await smtpTransporter.sendMail({
@@ -136,8 +139,9 @@ app.post("/submit_contact", async (req, res) => {
       to: process.env.SMTP_USER, // Admin email
       subject: "New Contact Inquiry",
       html: managerContactEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
     });
-    console.log("Contact Inquiry email sent to Manager");
+    console.log("📧 Contact Inquiry email sent to Manager");
 
     // Send confirmation email to Customer
     await smtpTransporter.sendMail({
@@ -145,15 +149,16 @@ app.post("/submit_contact", async (req, res) => {
       to: email,
       subject: "Thank You for Contacting Us",
       html: customerContactEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
     });
-    console.log("Contact confirmation email sent to customer");
+    console.log("📩 Contact confirmation email sent to customer");
 
     return res.sendFile(path.join(__dirname, "public", "static", "ContactSuccess.html"));
   } catch (error) {
-    console.error("Error handling contact request:", error);
+    console.error("❌ Error handling contact request:", error);
     return res.status(500).send("Internal Server Error");
   }
 });
 
 // Start Server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
