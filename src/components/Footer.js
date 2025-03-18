@@ -103,7 +103,7 @@ const Footer = () => {
                 fontStyle: "regular"
             }}
         >
-        © All Rights Reserved. Developed by Liege Developers Inc.
+        © All Rights Reserved. Developed by Liege Developers™.
         </p>
 
     </div>

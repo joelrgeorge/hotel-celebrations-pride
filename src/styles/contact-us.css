@@ -190,7 +190,7 @@ html, body {
   text-align: center;
   width: max-content;
 
-  padding-left: 1rem; /* Add some padding to the left if you want to increase the space */
+  padding-left: 0rem; /* Add some padding to the left if you want to increase the space */
 
 }
 

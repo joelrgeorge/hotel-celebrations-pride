@@ -13,7 +13,7 @@
   .section__subtitle {
     background: #faa935;
     font-family: "Island Moments", cursive;
-    padding-right: 1rem;
+    padding-right: 0rem;
     padding-top: 0rem;
   
     border-radius: 50px;
@@ -25,7 +25,7 @@
     width: max-content;
   
     margin-left: 1rem; /* Keeps the left margin exact */
-    padding-left: 1rem; /* Add some padding to the left if you want to increase the space */
+    padding-left: 0rem; /* Add some padding to the left if you want to increase the space */
 }
 
 .gallery__title{

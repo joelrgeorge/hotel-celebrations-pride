@@ -645,4 +645,84 @@
     font-size: 11px;
     margin-bottom: 0px;
   }
+
+  .room-info {
+    padding: 3px;
+    bottom: 0px;
+    left: 10px;
+  }
+
+  .room-tall-info {
+    padding: 5px;
+    bottom: 0px;
+    left: 15px;    
+  }
+
+  .room-tile:hover .room-tall-overlay {
+    transform: translateY(-150px); /* Adjusted height so it's not too high */
+  }
+  
+  .room-tile:hover .room-overlay {
+    transform: translateY(-140px); /* Adjusted height so it's not too high */
+  }
+
+  /* Reveal Description on Hover */
+  .room-tile:hover .room-info {
+    opacity: 1;
+    transform: translateY(-10%);
+  }
+
+  /* Reveal Description on Hover */
+  .room-tile:hover .room-tall-info {
+    opacity: 1;
+    transform: translateY(-10%);
+  }
+}
+
+@media (min-width: 300px) and (max-width: 425px) {
+  .room-description {
+    font-size: 9px;
+    margin-bottom:0px;
+  }
+  .room-amenities {
+    font-size: 7px;
+    margin-bottom: 0px;
+  }
+
+  
+  .room-price, .room-name{
+    font-size: 12px;
+  }
+
+  .room-info {
+    padding: 3px;
+    bottom: 0px;
+    left: 10px;
+  }
+
+  .room-tall-info {
+    padding: 5px;
+    bottom: 0px;
+    left: 15px;    
+  }
+
+  .room-tile:hover .room-tall-overlay {
+    transform: translateY(-120px); /* Adjusted height so it's not too high */
+  }
+  
+  .room-tile:hover .room-overlay {
+    transform: translateY(-110px); /* Adjusted height so it's not too high */
+  }
+
+  /* Reveal Description on Hover */
+  .room-tile:hover .room-info {
+    opacity: 1;
+    transform: translateY(-10%);
+  }
+
+  /* Reveal Description on Hover */
+  .room-tile:hover .room-tall-info {
+    opacity: 1;
+    transform: translateY(-10%);
+  }
 }
