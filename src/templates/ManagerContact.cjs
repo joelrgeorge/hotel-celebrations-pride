@@ -49,7 +49,6 @@ const ManagerContact = ({ name, email, phone, message }) => {
       </head>
       <body>
         <div class="footer">
-          <strong>Hotel Celebrations Pride</strong>
           <img src="cid:logo" alt="Hotel Logo" class="hotel-logo" />
         </div>
         <div class="container">

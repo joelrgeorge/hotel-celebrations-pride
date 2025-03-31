@@ -62,7 +62,7 @@ Hotel Celebrations Pride is a **luxury hotel booking** platform built using mode
 <table>
   <tr align="center">
     <td><img src="./screenshots/tablet/hero.png" width="300"/></td>    
-    <td><img src="./screenshots/tablet/home-display.png" width="300"/></td>
+    <td><img src="./screenshots/tablet/home-room-display.png" width="300"/></td>
     <td><img src="./screenshots/tablet/room-tiles.png" width="300"/></td>
   </tr>
   <tr align="center">
