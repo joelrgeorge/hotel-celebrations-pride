@@ -50,14 +50,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Nodemailer Transporter
 const smtpTransporter = nodemailer.createTransport({
-  service: "gmail",
   host: process.env.SMTP_HOST,
   port: process.env.SMTP_PORT,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
-});
+})
 
 // Set Contact Us link for local testing
 const contactUsLink = "http://localhost:3000/contact"; // Change when deploying!
@@ -84,10 +83,20 @@ app.post("/submit_form", async (req, res) => {
     const managerEmailHTML = ManagerEmail(req.body);
     const customerEmailHTML = CustomerEmail({ ...req.body, contactUsLink });
 
-    // Send email to Manager
+     // Send email to Admin
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
       to: process.env.SMTP_USER, // Admin email
+      subject: "New Booking Received",
+      html: managerEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+    });
+    console.log("📧 Booking Enquiry email sent to Admin");
+
+    // Send email to Manager
+    await smtpTransporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_MANAGER, // Admin email
       subject: "New Booking Received",
       html: managerEmailHTML,
       attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
@@ -133,10 +142,20 @@ app.post("/submit_contact", async (req, res) => {
     const managerContactEmailHTML = ManagerContact(req.body);
     const customerContactEmailHTML = CustomerContact({ ...req.body, contactUsLink });
 
-    // Send email to Manager
+   // Send email to Admin
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
       to: process.env.SMTP_USER, // Admin email
+      subject: "New Contact Inquiry",
+      html: managerContactEmailHTML,
+      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+    });
+    console.log("📧 Contact Inquiry email sent to Manager");
+
+    // Send email to Manager
+    await smtpTransporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.SMTP_MANAGER, // Admin email
       subject: "New Contact Inquiry",
       html: managerContactEmailHTML,
       attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],

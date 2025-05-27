@@ -12,24 +12,25 @@ const Footer = () => {
     
     <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
-            <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <Link to="/" className="flex items-center gap-2">
-                <img className="w-39 h-28" src="/favicon.ico" alt="logo" />
+        <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-0">
+        <Link to="/" className="flex items-center gap-2 justify-start">
+            <img className="w-20 h-23" src="/favicon.ico" alt="logo" />
                 <span
                 style={{
-                  fontSize: '13px',
-                  fontWeight: 'bold',
-                  color: '#111827',
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
+                    fontSize: '17px',
+                    fontWeight: 'bold',
+                    color: '#111827',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
                 }}
-              >Hotel Celebrations Pride 
-              </span>
-            </Link>
-
-                <p className="text-base leading-relaxed text-gray-800 mt-7">Hotel Celebrations Pride is celebrated for its modern amenities and personalized service, 
-                establishing it as one of the finest hotels in Gandhi Path West, Vaishali Nagar committed to 
-                setting higher benchmarks in the hospitality industry.</p>
+                >
+                Hotel Celebrations Pride
+                </span>
+        </Link>
+        
+            <p className="text-base leading-relaxed text-gray-800 mt-7"><b>Hotel Celebrations Pride</b> is celebrated 
+            for its modern amenities and personalized service, establishing it as one of the finest hotels in 
+            Gandhi Path West, Vaishali Nagar committed to setting higher benchmarks in the hospitality industry.</p>
 
             </div>
 
