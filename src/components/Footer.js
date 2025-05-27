@@ -17,14 +17,13 @@ const Footer = () => {
                 <img className="w-39 h-28" src="/favicon.ico" alt="logo" />
                 <span
                 style={{
-                  fontSize: '12px',
+                  fontSize: '13px',
                   fontWeight: 'bold',
                   color: '#111827',
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
                 }}
-              >
-                Hotel Celebrations Pride 
+              >Hotel Celebrations Pride 
               </span>
             </Link>
 

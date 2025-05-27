@@ -13,10 +13,10 @@ import Subtitle from '../components/shared/Subtitle';
 function Rooms() {
 const rooms = [
   {
-    title: "Deluxe Room",
+    title: "Superior Room",
     overview: "A haven of comfort and elegance, our Deluxe Room features modern décor, plush bedding, and stunning views. Perfect for unwinding in style.",
     description: "The Deluxe Room offers unparalleled comfort with modern amenities and scenic views.",
-    price: "₹1800",
+    price: "₹2500",
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },
       { icon: <FaConciergeBell />, label: "In-Room Dining" },
@@ -28,10 +28,10 @@ const rooms = [
     flip: false,
   },
   {
-    title: "Executive Suite",
+    title: "Deluxe Family Suite",
     overview: "Enjoy breathtaking views of the ocean from our spacious suite, complete with luxury bedding and elegant décor.",
     description: "The Executive Suite offers luxury and stunning ocean views for a relaxing escape.",
-    price: "₹2100",
+    price: "₹4500",
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },
       { icon: <FaCocktail />, label: "Bar Access" },
@@ -44,7 +44,7 @@ const rooms = [
   {
     title: "Premium Room",
     overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
-    price: "₹2700",
+    price: "₹3200",
     images: ['/img/Room 3/IMG_7313.webp','/img/Room 3/IMG_7317.webp','/img/Room 3/IMG_7284.webp','/img/Room 3/IMG_7285.webp','/img/Room 3/IMG_7366.webp','/img/Room 3/IMG_7287.webp','/img/Room 3/IMG_7291.webp','/img/Room 3/IMG_7293.webp','/img/Room 3/IMG_7296.webp','/img/Room 3/IMG_7383.webp','/img/Room 3/IMG_7390.webp'],
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },
@@ -55,9 +55,9 @@ const rooms = [
     flip: false,
   },
   {
-    title: "Family Suite",
+    title: "Executive Family Suite",
     overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
-    price: "₹3200",
+    price: "₹3800",
     images: ['/img/Room 4/IMG_7404.webp','/img/Room 4/IMG_7405.webp','/img/Room 4/IMG_7408.webp','/img/Room 4/IMG_7422.webp','/img/Room 4/IMG_7398.webp','/img/Room 4/IMG_7411.webp','/img/Room 4/IMG_7442.webp','/img/Room 4/IMG_7392.webp','/img/Room 4/IMG_7416.webp','/img/Room 4/IMG_7430.webp','/img/Room 4/IMG_7436.webp'],
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },

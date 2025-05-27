@@ -4,8 +4,8 @@ import "../styles/roomDisplay.css";
 const rooms = [
   {
     id: 1,
-    name: "Deluxe Room",
-    price: "1800 INR/night",
+    name: "Superior Room",
+    price: "2500 INR/night",
     description: "A cozy and comfortable space, perfect for couples or solo travelers, offering modern essentials and a homely vibe.",
     amenities: [
       "King-sized bed",
@@ -18,8 +18,8 @@ const rooms = [
   },
   {
     id: 2,
-    name: "Executive Suite",
-    price: "2100 INR/night",
+    name: "Deluxe Family Suite",
+    price: "4500 INR/night",
     description: "Ideal for small groups or families, this room offers ample sleeping arrangements and a well-furnished space.",
     amenities: [
       "Double bed and single bed",
@@ -33,7 +33,7 @@ const rooms = [
   {
     id: 3,
     name: "Premium Room",
-    price: "2700 INR/night",
+    price: "3200 INR/night",
     description: "A more spacious and upgraded version of the 1BHK, offering enhanced comfort and top-tier amenities.",
     amenities: [
       "King-sized bed with premium bedding",
@@ -46,8 +46,8 @@ const rooms = [
   },
   {
     id: 4,
-    name: "Family Suite",
-    price: "3200 INR/night",
+    name: "Executive Family Suite",
+    price: "3800 INR/night",
     description: "Designed for larger families, this suite provides the ultimate blend of space, comfort, and luxury.",
     amenities: [
       "Multiple bedding options for families",
@@ -61,7 +61,7 @@ const rooms = [
   {
     id: 5,
     name: "Hall",
-    price: "5000 INR/night",
+    price: "5000 INR/4 hrs",
     description: "A versatile and elegant space for hosting events like conferences, parties, engagements, and weddings.",
     amenities: [
       "Spacious hall with customizable seating",

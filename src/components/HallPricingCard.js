@@ -37,10 +37,10 @@ const HallPricingCard = ({ room, onClose }) => {
             </div>
             
             <div>
-              <label>Nights</label>
+              <label>Hours</label>
               <input
                 type="number"
-                min="1"
+                min="4"
                 value={nights}
                 onChange={(e) => handleNightsChange(e.target.value)}
               />
