@@ -5,7 +5,7 @@ import ScrollToTop from "./components/feature/ScrollToTop"; // Import the Scroll
 import Home from "./pages/Home"; // Import Home component
 import Rooms from "./pages/Rooms"; // Import Rooms component
 import Contact from "./pages/Contact"; // Import Rooms component
-import Banq_Hall from "./pages/Banq. Hall"; // Import Rooms component'
+import Banq_Hall from "./pages/Banq_Hall"; // Import Rooms component'
 import TnC from "./pages/TnC";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
