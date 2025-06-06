@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "dev": "concurrently \"npm run server\" \"npm run client\"",
-  "server": "nodemon server.js",
-  "client": "NODE_ENV=development webpack serve",
-  "build": "NODE_ENV=production webpack --mode production",
-  "start": "NODE_ENV=production node server.js"
-},
+    "build": "webpack --mode production",
+    "start": "npm run build && cross-env NODE_ENV=production node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "webpack serve"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -46,6 +46,8 @@
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "concurrently": "^8.2.2",
+    "copy-webpack-plugin": "^13.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",

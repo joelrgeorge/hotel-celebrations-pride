@@ -1,23 +1,27 @@
+// webpack.config.js
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack"); // Import Webpack
+const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
+
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-  mode: "development",
+  mode: isProd ? "production" : "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    clean: true, // Ensures the output directory is cleaned before each build
+    clean: true,
+    publicPath: "/", // important for routing & asset loading
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: "babel-loader",
       },
       {
         test: /\.css$/,
@@ -39,12 +43,21 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-
-    // 🔹 Inject environment variables into the frontend
     new webpack.DefinePlugin({
       "process.env.REACT_APP_API_URL": JSON.stringify(process.env.REACT_APP_API_URL),
       "process.env.REACT_APP_SUBMIT_FORM_URL": JSON.stringify(process.env.REACT_APP_SUBMIT_FORM_URL),
       "process.env.REACT_APP_SUBMIT_CONTACT_URL": JSON.stringify(process.env.REACT_APP_SUBMIT_CONTACT_URL),
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "public",
+          to: ".",
+          globOptions: {
+            ignore: ["**/index.html"], // ✅ Avoid conflict with HtmlWebpackPlugin
+          },
+        },
+      ],
     }),
   ],
   devServer: {
@@ -54,6 +67,8 @@ module.exports = {
     ],
     compress: true,
     port: 3000,
-    hot: true, // Enables hot module replacement
+    hot: true,
+    historyApiFallback: true, // important for SPA routing in dev
   },
+  devtool: isProd ? "source-map" : "eval-source-map",
 };

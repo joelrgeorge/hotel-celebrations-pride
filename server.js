@@ -46,7 +46,9 @@ const ContactMessage = mongoose.models.Contacts || mongoose.model("Contacts", co
 // Middleware
 app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:3000", credentials: true }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
+
+// Serve your legacy/static assets (thankyou.html, contact success, favicon, etc.) under "/static"
+app.use('/static', express.static(path.join(__dirname, "public", "static")));
 
 // Nodemailer Transporter
 const smtpTransporter = nodemailer.createTransport({
@@ -56,7 +58,7 @@ const smtpTransporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
-})
+});
 
 // Set Contact Us link for local testing
 const contactUsLink = "http://localhost:3000/contact"; // Change when deploying!
@@ -72,47 +74,45 @@ app.post("/submit_form", async (req, res) => {
 
     console.log("📩 Booking request received:", req.body);
 
-    // Save booking to MongoDB
     await Booking.create({ name, email, checkin, checkout, guests, children });
     console.log("✅ Booking saved to MongoDB");
 
-    // Generate email content
     const CustomerEmail = require("./src/templates/CustomerEmail.cjs");
     const ManagerEmail = require("./src/templates/ManagerEmail.cjs");
 
     const managerEmailHTML = ManagerEmail(req.body);
     const customerEmailHTML = CustomerEmail({ ...req.body, contactUsLink });
 
-     // Send email to Admin
+    const logoPath = path.join(__dirname, "public", "favicon.ico");
+
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // Admin email
+      to: process.env.SMTP_USER,
       subject: "New Booking Received",
       html: managerEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📧 Booking Enquiry email sent to Admin");
 
-    // Send email to Manager
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_MANAGER, // Admin email
+      to: process.env.SMTP_MANAGER,
       subject: "New Booking Received",
       html: managerEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📧 Booking Enquiry email sent to Manager");
 
-    // Send confirmation email to Customer
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
       to: email,
       subject: "Booking Confirmation - Hotel Celebrations Pride",
       html: customerEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📩 Booking confirmation email sent to customer");
 
+    // Redirect or send thank you page from static assets
     return res.sendFile(path.join(__dirname, "public", "static", "thankyou.html"));
   } catch (error) {
     console.error("❌ Error handling booking request:", error);
@@ -131,44 +131,41 @@ app.post("/submit_contact", async (req, res) => {
 
     console.log("📩 Contact request received:", req.body);
 
-    // Save contact message to MongoDB
     await ContactMessage.create({ name, email, phone, message });
     console.log("✅ Contact message saved to MongoDB");
 
-    // Generate email content
     const ManagerContact = require("./src/templates/ManagerContact.cjs");
     const CustomerContact = require("./src/templates/CustomerContact.cjs");
 
     const managerContactEmailHTML = ManagerContact(req.body);
     const customerContactEmailHTML = CustomerContact({ ...req.body, contactUsLink });
 
-   // Send email to Admin
+    const logoPath = path.join(__dirname, "public", "favicon.ico");
+
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // Admin email
+      to: process.env.SMTP_USER,
       subject: "New Contact Inquiry",
       html: managerContactEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📧 Contact Inquiry email sent to Manager");
 
-    // Send email to Manager
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.SMTP_MANAGER, // Admin email
+      to: process.env.SMTP_MANAGER,
       subject: "New Contact Inquiry",
       html: managerContactEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📧 Contact Inquiry email sent to Manager");
 
-    // Send confirmation email to Customer
     await smtpTransporter.sendMail({
       from: process.env.SMTP_USER,
       to: email,
       subject: "Thank You for Contacting Us",
       html: customerContactEmailHTML,
-      attachments: [{ filename: "logo.png", path: path.join(__dirname, "public", "favicon.ico"), cid: "logo" }],
+      attachments: [{ filename: "logo.png", path: logoPath, cid: "logo" }],
     });
     console.log("📩 Contact confirmation email sent to customer");
 
@@ -179,14 +176,13 @@ app.post("/submit_contact", async (req, res) => {
   }
 });
 
-// Serve built frontend in production only
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "dist")));
+// Serve React SPA build from /dist on root
+app.use(express.static(path.join(__dirname, 'dist')));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
-  });
-}
+// SPA fallback: serve index.html for all other routes (except API and /static)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 // Start Server
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
