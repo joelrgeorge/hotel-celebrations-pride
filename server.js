@@ -179,5 +179,14 @@ app.post("/submit_contact", async (req, res) => {
   }
 });
 
+// Serve built frontend in production only
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  });
+}
+
 // Start Server
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
