@@ -62,6 +62,7 @@
     word-wrap: break-word;
     word-break: break-word; /* Break long words if necessary */
     overflow-wrap: break-word;
+    -webkit-hyphens: auto; 
     hyphens: auto; /* Enable hyphenation for better breaks */
 }
 
@@ -108,6 +109,7 @@
 
 .hero__video-box video {
     pointer-events: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
