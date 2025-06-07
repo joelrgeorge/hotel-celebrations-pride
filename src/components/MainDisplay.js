@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/aboutSection.css"; // Import the updated CSS
 import { Container, Row, Col } from 'reactstrap';
-import heroImg from '../assets/img/HERO/hero-img01.jpg';
-import heroImg02 from '../assets/img/HERO/hero-img02.jpg';
+import heroImg from '../assets/img/HERO/hero-img01.JPG';
+import heroImg02 from '../assets/img/HERO/hero-img02.JPG';
 import heroVideo from '../assets/img/HERO/hero-video.mp4';
 
 const MainDisplay = () => {
