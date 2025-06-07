@@ -14,7 +14,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
     clean: true,
-    publicPath: "/", // important for routing & asset loading
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -28,14 +28,12 @@ module.exports = {
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|webp)$/,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: "asset/resource",
-        include: path.resolve(__dirname, "public"),
       },
       {
-        test: /\.(mp4|webm)$/,
+        test: /\.(mp4|webm|ogg)$/i,
         type: "asset/resource",
-        include: path.resolve(__dirname, "public"),
       },
     ],
   },
@@ -54,7 +52,7 @@ module.exports = {
           from: "public",
           to: ".",
           globOptions: {
-            ignore: ["**/index.html"], // ✅ Avoid conflict with HtmlWebpackPlugin
+            ignore: ["**/index.html"],
           },
         },
       ],
@@ -68,7 +66,7 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
-    historyApiFallback: true, // important for SPA routing in dev
+    historyApiFallback: true,
   },
   devtool: isProd ? "source-map" : "eval-source-map",
 };
