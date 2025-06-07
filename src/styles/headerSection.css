@@ -2,7 +2,7 @@
 
 .common__section {
     background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)),
-    Url('/public/img/Banq. Hall/IMG_7524.jpg') no-repeat center center;
+    Url('/public/img/Banq_Hall/IMG_7524.jpg') no-repeat center center;
     background-size: cover;
     height: 300px;
     display: flex;

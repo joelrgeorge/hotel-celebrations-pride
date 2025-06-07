@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import "../styles/imageCarousel.css"; // Include the CSS for styling
+import "../styles/ImageCarousel.css"; // Include the CSS for styling
 
 // Ensure the modal is attached to the root element
 Modal.setAppElement("#root");
