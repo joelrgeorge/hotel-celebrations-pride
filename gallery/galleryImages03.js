@@ -8,7 +8,7 @@ import galleryImg08 from '../public/img/Banq_Hall/IMG_7526.jpg'
 import galleryImg09 from '../public/img/Banq_Hall/IMG_7537.jpg'
 import galleryImg10 from '../public/img/Banq_Hall/IMG_7519.jpg'
 import galleryImg11 from '../public/img/Banq_Hall/IMG_7522.jpg'
-import galleryImg12 from '../public/img/Banq_Hall/IMG_7538.jpg'
+import galleryImg12 from '../public/img/Banq_Hall/IMG_7540.jpg'
 import galleryImg13 from '../public/img/Banq_Hall/IMG_7524.jpg'
 
 const galleryImages03 = [
