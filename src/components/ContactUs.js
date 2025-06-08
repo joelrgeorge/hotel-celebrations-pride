@@ -4,7 +4,7 @@ import Subtitle from "./shared/Subtitle";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { RiMapPin2Fill, RiMailFill, RiPhoneFill } from "react-icons/ri";
 
-const contactSubmitUrl = process.env.REACT_APP_SUBMIT_CONTACT_URL || "http://localhost:5000/submit_contact";
+const contactSubmitUrl = process.env.REACT_APP_SUBMIT_CONTACT_URL || "/submit_contact";
 console.log("Loaded Contact Submit URL:", contactSubmitUrl);
 
 function ContactUs() {

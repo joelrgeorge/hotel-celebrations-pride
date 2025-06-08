@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/bookingForm.css";
 
-const submitUrl = process.env.REACT_APP_SUBMIT_FORM_URL || "http://localhost:5000/submit_form";
+const submitUrl = process.env.REACT_APP_SUBMIT_FORM_URL || "/submit_form";
 console.log("Loaded Submit Form URL:", submitUrl);
 
 const BookingForm = () => {
