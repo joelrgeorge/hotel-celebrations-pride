@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://your-github-username.github.io/ebenezer-hotel-site/">
+  <a href="https://hotel-celebrations-pride.onrender.com/">
     <img src="https://img.shields.io/badge/Live%20Demo-%230A66C2.svg?&style=for-the-badge" alt="Live Demo"/>
   </a>
 </p>
