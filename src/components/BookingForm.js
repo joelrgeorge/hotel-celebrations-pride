@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/bookingForm.css";
 
-const submitUrl = "/submit_form";
+const submitUrl = "/api/book-room";
 console.log("Loaded Submit Form URL:", submitUrl);
 
 const BookingForm = () => {

@@ -64,7 +64,7 @@ const smtpTransporter = nodemailer.createTransport({
 const contactUsLink = "http://localhost:3000/contact"; // Change when deploying!
 
 // Booking Form Submission with Email Notification
-app.post("/submit_form", async (req, res) => {
+app.post("/api/book-room", async (req, res) => {
   try {
     const { name, email, checkin, checkout, guests, children } = req.body;
 
@@ -121,7 +121,7 @@ app.post("/submit_form", async (req, res) => {
 });
 
 // Contact Form Submission Endpoint
-app.post("/submit_contact", async (req, res) => {
+app.post("/api/contact-message", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
@@ -185,4 +185,4 @@ app.get('*', (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`🚀 Server running on http://0.0.0.0:${PORT}`));
