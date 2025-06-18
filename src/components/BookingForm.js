@@ -6,6 +6,7 @@ console.log("Loaded Submit Form URL:", submitUrl);
 
 const BookingForm = () => {
   const [isFormVisible, setFormVisible] = useState(window.innerWidth > 900);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const [loading, setLoading] = useState(false); // Loader state added
   const [formData, setFormData] = useState({
     name: "",
@@ -17,9 +18,12 @@ const BookingForm = () => {
   });
 
   useEffect(() => {
-    const handleResize = () => setFormVisible(window.innerWidth > 900);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 900);
+    // Do NOT change visibility here!
+  };
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleChange = (e) => {
@@ -62,14 +66,14 @@ const BookingForm = () => {
 
   return (
     <>
-      {window.innerWidth <= 900 && !isFormVisible && (
+      {isMobile && !isFormVisible && (
         <div className="floating-icon" onClick={() => setFormVisible(true)}>
           📝
         </div>
       )}
 
       {isFormVisible && (
-        <div className={window.innerWidth > 900 ? "embedded-booking-form" : "booking-form-container show"}>
+        <div className={isMobile ? "booking-form-container show" : "embedded-booking-form"}>
           <div className="form-wrapper">
             <div className="form-header">
               <h2>Check with Us</h2>
