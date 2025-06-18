@@ -34,7 +34,10 @@ module.exports = {
       {
         test: /\.(mp4|webm|ogg)$/i,
         type: "asset/resource",
-      },
+        generator: {
+          filename: "videos/[name][hash][ext][query]",
+        },
+      }
     ],
   },
   plugins: [

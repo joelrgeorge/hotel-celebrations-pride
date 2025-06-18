@@ -22,7 +22,7 @@ function Banq_Hall() {
         { icon: <FaSwimmingPool />, label: "Pool Access" },
         { icon: <FaDumbbell />, label: "Fitness Center" }
       ],
-      images: ['/img/Banq. Hall/IMG_7514.jpg', '/img/Banq. Hall/IMG_7517.jpg', '/img/Banq. Hall/IMG_7521.jpg', '/img/Banq. Hall/IMG_7513.jpg','/img/Banq. Hall/IMG_7537.jpg'],
+      images: ['/img/Banq_Hall/IMG_7514.jpg', '/img/Banq_Hall/IMG_7517.jpg', '/img/Banq_Hall/IMG_7521.jpg', '/img/Banq_Hall/IMG_7513.jpg','/img/Banq_Hall/IMG_7537.jpg'],
       flip: false,
     },
   ];
@@ -32,7 +32,7 @@ function Banq_Hall() {
       <Navbar />
       <CommonSection 
         title={"Our Hall"} 
-        backgroundImage={"/img/Banq. Hall/IMG_7524.jpg"}  
+        backgroundImage={"/img/Banq_Hall/IMG_7524.jpg"}  
       />
       
       {rooms.map((room, index) => (

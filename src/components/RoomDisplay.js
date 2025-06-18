@@ -70,7 +70,7 @@ const rooms = [
       "On-site catering options available",
       "Stage and presentation equipment"
     ],
-    image: "/img/Banq. Hall/IMG_7522.jpg"
+    image: "/img/Banq_Hall/IMG_7522.jpg"
   }
 ];
 
