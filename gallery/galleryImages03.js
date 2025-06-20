@@ -10,9 +10,13 @@ import galleryImg10 from '../public/img/Banq_Hall/IMG_7519.jpg'
 import galleryImg11 from '../public/img/Banq_Hall/IMG_7522.jpg'
 import galleryImg12 from '../public/img/Banq_Hall/IMG_7540.jpg'
 import galleryImg13 from '../public/img/Banq_Hall/IMG_7524.jpg'
+import galleryImg14 from '../public/img/Banq_Hall/IMG_7541.jpg'
+import galleryImg15 from '../public/img/Banq_Hall/IMG_7542.jpg'
+import galleryImg16 from '../public/img/Banq_Hall/IMG_7543.jpg'
+import galleryImg17 from '../public/img/Banq_Hall/IMG_7544.jpg'
 
 const galleryImages03 = [
-    galleryImg01,
+    galleryImg17,
     galleryImg07,
     galleryImg10,
     galleryImg11,
@@ -24,6 +28,10 @@ const galleryImages03 = [
     galleryImg09,
     galleryImg12,
     galleryImg13,
+    galleryImg14,
+    galleryImg15,
+    galleryImg16,
+    galleryImg01
 ]
 
 export default galleryImages03;

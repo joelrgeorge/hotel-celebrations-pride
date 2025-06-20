@@ -2,18 +2,23 @@ import React, { useState } from 'react';
 import '../styles/RoomPricingCard.css';
 
 const HallPricingCard = ({ room, onClose }) => {
-  const [occupants, setOccupants] = useState(1);
+  const [occupants, setOccupants] = useState(10); // ✅ Add this back
   const [ac, setAc] = useState('no');
-  const [nights, setNights] = useState(1);
-  
+  const [nights, setNights] = useState(4); // Default to 4 hours
 
   const pricePerAdult = room?.price ? parseInt(room.price.replace(/\D/g, '')) : 0;
-  const baseCost = pricePerAdult * nights;
+
+  // ✅ Multiplier based only on hours
+  const blocks = Math.floor(Math.max(nights - 1, 0) / 4);
+  const multiplier = Math.pow(2, blocks); // 1 if 4 or less
+  const adjustedPrice = pricePerAdult * multiplier;
+
+  const baseCost = adjustedPrice; // 🚫 Not multiplied by occupants
   const acCost = ac === 'yes' ? baseCost * 0.07 : 0;
   const totalCost = baseCost + acCost;
 
   const handleOccupantsChange = (value) => setOccupants(Math.max(1, Number(value)));
-  const handleNightsChange = (value) => setNights(Math.max(1, Number(value)));
+  const handleNightsChange = (value) => setNights(Math.max(4, Number(value)));
   const handleAcChange = (value) => setAc(value);
 
   return (
@@ -26,32 +31,36 @@ const HallPricingCard = ({ room, onClose }) => {
           {/* Left Column: Pricing Details */}
           <div className="pricing-details">
             <h2>Room Pricing</h2>
+
             <div>
-              <label>Adults</label>
+              <label>Members</label>
               <input
                 type="number"
-                min="1"
+                min="10"
                 value={occupants}
                 onChange={(e) => handleOccupantsChange(e.target.value)}
               />
             </div>
-            
+
             <div>
               <label>Hours</label>
               <input
                 type="number"
                 min="4"
+                step="1"
                 value={nights}
                 onChange={(e) => handleNightsChange(e.target.value)}
               />
             </div>
+
             <div className="ac-selection">
-                <label>AC</label>
-                <select value={ac} onChange={(e) => handleAcChange(e.target.value)}>
-                  <option value="no">No</option>
-                  <option value="yes">Yes</option>
-                </select>
+              <label>AC</label>
+              <select value={ac} onChange={(e) => handleAcChange(e.target.value)}>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
             </div>
+
             <div className="total-cost">Total: {totalCost} INR</div>
           </div>
 
