@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "../styles/roomDisplay.css";
+import { getImageUrl } from "../utils/imageKit";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const rooms = [
   {
@@ -14,7 +17,7 @@ const rooms = [
       "Air conditioning and heating",
       "Smart TV and high-speed Wi-Fi"
     ],
-    image: "/img/a1.webp"
+    image: "a1.webp"
   },
   {
     id: 2,
@@ -28,7 +31,7 @@ const rooms = [
       "Spacious seating area",
       "Air conditioning and smart TV"
     ],
-    image: "/img/a2.webp"
+    image: "a2.webp"
   },
   {
     id: 3,
@@ -42,7 +45,7 @@ const rooms = [
       "Elegant decor and spacious layout",
       "High-speed Wi-Fi and smart TV"
     ],
-    image: "/img/a3.webp"
+    image: "a3.webp"
   },
   {
     id: 4,
@@ -56,7 +59,7 @@ const rooms = [
       "Premium bathroom with luxury fittings",
       "Enhanced decor and spacious layout"
     ],
-    image: "/img/Room 4/IMG_7399.webp"
+    image: "Room 4/IMG_7399.webp"
   },
   {
     id: 5,
@@ -70,7 +73,7 @@ const rooms = [
       "On-site catering options available",
       "Stage and presentation equipment"
     ],
-    image: "/img/Banq_Hall/IMG_7522.jpg"
+    image: "Banq_Hall/IMG_7522.jpg"
   }
 ];
 
@@ -87,7 +90,12 @@ const RoomDisplay = () => {
       <div className="room-top-row">
         {rooms.slice(0, 3).map((room) => (
           <div key={room.id} className="room-tile" onClick={() => setSelectedRoom(room)}>
-            <img src={room.image} alt={room.name} className="room-image" />
+            <LazyLoadImage
+              className="room-image"
+              src={getImageUrl(room.image, 400)} // width=400px, quality defaults to 80
+              alt={room.name}
+              effect="blur"
+            />
             <div className="room-overlay">
               <h3 className="room-name">{room.name}</h3>
               <span className="room-price">{room.price}</span>
@@ -108,7 +116,12 @@ const RoomDisplay = () => {
       <div className="room-bottom-row">
         {rooms.slice(3, 5).map((room) => (
           <div key={room.id} className="room-tile" onClick={() => setSelectedRoom(room)}>
-            <img src={room.image} alt={room.name} className="room-image" />
+            <LazyLoadImage
+              className="room-image"
+              src={getImageUrl(room.image, 400)}
+              alt={room.name}
+              effect="blur"
+            />
             <div className="room-tall-overlay">
               <h3 className="room-name">{room.name}</h3>
               <span className="room-price">{room.price}</span>
@@ -131,7 +144,12 @@ const RoomDisplay = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-modal" onClick={() => setSelectedRoom(null)}>&times;</span>
             <div className="modal-room-name">{selectedRoom.name}</div>
-            <img src={selectedRoom.image} alt={selectedRoom.name} style={{ width: "100%" }} />
+            <LazyLoadImage
+              src={getImageUrl(selectedRoom.image, 800)}
+              alt={selectedRoom.name}
+              width="100%"
+              effect="blur"
+            />
             <div className="modal-room-price">{selectedRoom.price}</div>
             </div>
         </div>

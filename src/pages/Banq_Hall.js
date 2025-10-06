@@ -5,6 +5,9 @@ import { Container, Row, Col } from 'reactstrap';
 import { FaParking, FaConciergeBell, FaWifi, FaSwimmingPool, FaDumbbell, FaCocktail, FaTv, FaFire, FaMugHot } from "react-icons/fa";
 import CommonSection from "../components/shared/HeaderSection";
 import Footer from "../components/Footer";
+import { getImageUrl } from "../utils/imageKit";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import HallDetails from "../components/HallDetails";
 import HallGallery from "../components/gallery/HallGallery";
 import Subtitle from '../components/shared/Subtitle';
@@ -22,7 +25,7 @@ function Banq_Hall() {
         { icon: <FaSwimmingPool />, label: "Pool Access" },
         { icon: <FaDumbbell />, label: "Fitness Center" }
       ],
-      images: ['/img/Banq_Hall/IMG_7514.jpg', '/img/Banq_Hall/IMG_7517.jpg', '/img/Banq_Hall/IMG_7521.jpg', '/img/Banq_Hall/IMG_7513.jpg','/img/Banq_Hall/IMG_7537.jpg'],
+      images: ['Banq_Hall/IMG_7514.jpg', 'Banq_Hall/IMG_7517.jpg', 'Banq_Hall/IMG_7521.jpg', 'Banq_Hall/IMG_7513.jpg','Banq_Hall/IMG_7537.jpg'],
       flip: false,
     },
   ];
@@ -32,13 +35,17 @@ function Banq_Hall() {
       <Navbar />
       <CommonSection 
         title={"Our Hall"} 
-        backgroundImage={"/img/Banq_Hall/IMG_7524.jpg"}  
+        backgroundImage={getImageUrl("Banq_Hall/IMG_7524.jpg", 1200)} // optional width
       />
       
       {rooms.map((room, index) => (
-        <div key={index} className={room.flip ? "room-flip" : ""}>
-          <HallDetails {...room} />
-        </div>
+        <LazyLoadImage
+          key={i}
+          src={getImageUrl(img, 600)} // width 600px
+          alt={`${room.title} image ${i + 1}`}
+          effect="blur"
+          className="room-image"
+        />
       ))}
       
       <section className="Image-Section">

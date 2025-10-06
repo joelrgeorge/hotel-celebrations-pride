@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { FaParking, FaConciergeBell, FaWifi, FaSwimmingPool, FaDumbbell, FaCocktail, FaTv, FaFire } from "react-icons/fa";
 import CommonSection from "../components/shared/HeaderSection";
 import Footer from "../components/Footer";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import RoomDetails from "../components/RoomDetails";
 import ImageGallery from "../components/gallery/ImageGallery";
 import USPSection from "../components/USPSection";
@@ -24,7 +25,7 @@ const rooms = [
       { icon: <FaSwimmingPool />, label: "Pool Access" },
       { icon: <FaDumbbell />, label: "Fitness Center" }
     ],
-    images: ['/img/Room 1/IMG_7100.webp', '/img/Room 1/IMG_7098.webp', '/img/Room 1/IMG_7110.webp', '/img/Room 1/IMG_7115.webp', '/img/Room 1/IMG_7118.webp', '/img/Room 1/IMG_7119.webp', '/img/Room 1/IMG_7121.webp', '/img/Room 1/IMG_7130.webp', '/img/Room 1/IMG_7131.webp', '/img/Room 1/IMG_7135.webp', '/img/Room 1/IMG_7152.webp'],    
+    images: ['Room 1/IMG_7100.webp', 'Room 1/IMG_7098.webp', 'Room 1/IMG_7110.webp', 'Room 1/IMG_7115.webp', 'Room 1/IMG_7118.webp', 'Room 1/IMG_7119.webp', 'Room 1/IMG_7121.webp', 'Room 1/IMG_7130.webp', 'Room 1/IMG_7131.webp', 'Room 1/IMG_7135.webp', 'Room 1/IMG_7152.webp'],    
     flip: false,
   },
   {
@@ -38,14 +39,14 @@ const rooms = [
       { icon: <FaWifi />, label: "Free Wi-Fi" },
       { icon: <FaTv />, label: "Smart TV" }
     ],
-    images: ['/img/Room 2/IMG_7220.webp','/img/Room 2/IMG_7194.webp','/img/Room 2/IMG_7199.webp','/img/Room 2/IMG_7210.webp','/img/Room 2/IMG_7215.webp','/img/Room 2/IMG_7216.webp','/img/Room 2/IMG_7218.webp','/img/Room 2/IMG_7244.webp','/img/Room 2/IMG_7252.webp','/img/Room 2/IMG_7256.webp','/img/Room 2/IMG_7244.webp'],
+    images: ['Room 2/IMG_7220.webp','Room 2/IMG_7194.webp','Room 2/IMG_7199.webp','Room 2/IMG_7210.webp','Room 2/IMG_7215.webp','Room 2/IMG_7216.webp','Room 2/IMG_7218.webp','Room 2/IMG_7244.webp','Room 2/IMG_7252.webp','Room 2/IMG_7256.webp','Room 2/IMG_7244.webp'],
     flip: true,
   },
   {
     title: "Premium Room",
     overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
     price: "₹3200",
-    images: ['/img/Room 3/IMG_7313.webp','/img/Room 3/IMG_7317.webp','/img/Room 3/IMG_7284.webp','/img/Room 3/IMG_7285.webp','/img/Room 3/IMG_7366.webp','/img/Room 3/IMG_7287.webp','/img/Room 3/IMG_7291.webp','/img/Room 3/IMG_7293.webp','/img/Room 3/IMG_7296.webp','/img/Room 3/IMG_7383.webp','/img/Room 3/IMG_7390.webp'],
+    images: ['Room 3/IMG_7313.webp','Room 3/IMG_7317.webp','Room 3/IMG_7284.webp','Room 3/IMG_7285.webp','Room 3/IMG_7366.webp','Room 3/IMG_7287.webp','Room 3/IMG_7291.webp','Room 3/IMG_7293.webp','Room 3/IMG_7296.webp','Room 3/IMG_7383.webp','Room 3/IMG_7390.webp'],
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },
       { icon: <FaFire />, label: "Fireplace" },
@@ -58,7 +59,7 @@ const rooms = [
     title: "Executive Family Suite",
     overview: "Escape to the Mountain Retreat, offering stunning mountain views and a cozy ambiance perfect for a peaceful getaway.",
     price: "₹3800",
-    images: ['/img/Room 4/IMG_7404.webp','/img/Room 4/IMG_7405.webp','/img/Room 4/IMG_7408.webp','/img/Room 4/IMG_7422.webp','/img/Room 4/IMG_7398.webp','/img/Room 4/IMG_7411.webp','/img/Room 4/IMG_7442.webp','/img/Room 4/IMG_7392.webp','/img/Room 4/IMG_7416.webp','/img/Room 4/IMG_7430.webp','/img/Room 4/IMG_7436.webp'],
+    images: ['Room 4/IMG_7404.webp','Room 4/IMG_7405.webp','Room 4/IMG_7408.webp','Room 4/IMG_7422.webp','Room 4/IMG_7398.webp','Room 4/IMG_7411.webp','Room 4/IMG_7442.webp','Room 4/IMG_7392.webp','Room 4/IMG_7416.webp','Room 4/IMG_7430.webp','Room 4/IMG_7436.webp'],
     facilities: [
       { icon: <FaParking />, label: "Free Parking" },
       { icon: <FaFire />, label: "Fireplace" },
@@ -72,7 +73,7 @@ const rooms = [
   return (
     <div className="room-layout">
       <Navbar />
-      <CommonSection title="Our Rooms" backgroundImage="/img/a16.webp" />
+      <CommonSection title="Our Rooms" backgroundImage="a16.webp" />
 
       {rooms.map((room, index) => (
         <div key={index} className={room.flip ? "room-flip" : ""}>

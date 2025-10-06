@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 function Home() {
   const galleryImages = [
-    "/img/a1.webp", "/img/a2.webp", "/img/a3.webp", "/img/a4.webp", "/img/a5.webp", "/img/a6.webp", "/img/a7.webp", "/img/a8.webp", "/img/a9.webp", "/img/a10.webp", "/img/a11.webp"
+    "a1.webp", "a2.webp", "a3.webp", "/img/a4.webp", "a5.webp", "a6.webp", "a7.webp", "a8.webp", "a9.webp", "a10.webp", "a11.webp"
   ];
 
   return (

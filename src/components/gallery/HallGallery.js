@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import galleryImages03 from "../../../gallery/galleryImages03"; 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { getImageUrl } from "../../utils/imageKit";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "../../styles/gallerySection.css"; 
 
 const fixedHeights = ["200px", "250px", "300px", "350px", "400px"];
@@ -50,10 +53,11 @@ const HallGallery = () => {
         <Masonry gutter="1rem">
           {galleryImages03.map((item, index) => (
             <div key={index} className="masonry-item">
-              <img
+              <LazyLoadImage
                 className="masonry__img"
-                src={item}
+                src={getImageUrl(filename, 400)} // width 400px default
                 alt={`Gallery Image ${index + 1}`}
+                effect="blur"
                 onClick={() => handleImageClick(index)}
                 style={{ height: getFixedHeight(index), objectFit: "cover" }}
               />
