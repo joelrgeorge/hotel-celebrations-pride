@@ -4,7 +4,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../styles/RoomDetails.css';
 import RoomPricingCard from './RoomPricingCard';
-import { getImageUrl } from "../../utils/imageKit";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const RoomDetails = ({ images, title, overview, description, facilities, price }) => {
@@ -44,9 +43,8 @@ const RoomDetails = ({ images, title, overview, description, facilities, price }
                 {images.map((image, index) => (
                   <div key={index} className="image-slider">
                     <LazyLoadImage
-                      key={i}
-                      src={getImageUrl(img, 600)} // width 600px
-                      alt={`${room.title} image ${i + 1}`}
+                      src={image} // already CDN URL
+                      alt={`${title} image ${index + 1}`}
                       effect="blur"
                       className="room-image"
                     />

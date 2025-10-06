@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "../styles/ImageCarousel.css"; // Include the CSS for styling
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { getImageUrl } from "../utils/imageKit";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-// Ensure the modal is attached to the root element
 Modal.setAppElement("#root");
 
 const ImageCarousel = ({ images }) => {
@@ -10,18 +12,16 @@ const ImageCarousel = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // To handle the seamless sliding effect of images in the section
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); // Wraps around images
-    }, 2000); // Change image every 2 seconds
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, [images.length]);
 
   const openModal = (index) => {
-    console.log("Opening modal with index:", index); // Debugging
-    setSelectedImage(images[index]);
+    setSelectedImage(getImageUrl(images[index], 1200)); // Load high-res image in modal
     setIsModalOpen(true);
   };  
 
@@ -32,45 +32,42 @@ const ImageCarousel = ({ images }) => {
 
   return (
     <div className="image-carousel-container">
-      {/* Title above the carousel */}
-      <div className="title-container"> {/* Wrapper to center the title and subtitle */}
+      <div className="title-container">
         <p className="gallery-heading">Gallery</p>
-        <h2 className="section-subtitle">
-          Explore Our Stunning Gallery
-        </h2>
+        <h2 className="section-subtitle">Explore Our Stunning Gallery</h2>
       </div>
 
       <div className="image-carousel" style={{ transform: `translateX(-${currentIndex * 320}px)` }}>
-        {/* Duplicating the images to create the infinite loop effect */}
-        {[...images, ...images].map((image, index) => (
-          <img
+        {[...images, ...images].map((img, index) => (
+          <LazyLoadImage
             key={index}
-            src={image}
+            src={getImageUrl(img, 600)} // optimized width 600px
             alt={`carousel-${index}`}
             className="carousel-image"
-            onClick={() => openModal(index)}
+            effect="blur"
+            onClick={() => openModal(index % images.length)} // wrap index for modal
           />
         ))}
       </div>
 
-      {/* Modal for showing the selected image */}
       <Modal
         isOpen={isModalOpen}
-        onRequestClose={closeModal} // Handle close with your custom function
+        onRequestClose={closeModal}
         contentLabel="Image Modal"
         className="image-carousel-modal"
         overlayClassName="image-carousel-overlay"
       >
-        {/* Modal content */}
         <div className="slider-container">
           <div className="image-slider">
-            <img
-              src={selectedImage}
-              alt="Selected"
-              className="slider-image"
-            />
+            {selectedImage && (
+              <LazyLoadImage
+                src={selectedImage}
+                alt="Selected"
+                className="slider-image"
+                effect="blur"
+              />
+            )}
           </div>
-          {/* Close button inside modal */}
           <button onClick={closeModal} className="close-modal-btn" aria-label="Close modal"></button>
         </div>
       </Modal>

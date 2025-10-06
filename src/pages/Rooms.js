@@ -73,15 +73,21 @@ const rooms = [
   return (
     <div className="room-layout">
       <Navbar />
-      <CommonSection title="Our Rooms" backgroundImage="a16.webp" />
+        <CommonSection 
+        title="Our Rooms" 
+        backgroundImage={getImageUrl("a16.webp", 1200)}
+      />
 
-      {rooms.map((room, index) => (
-        <div key={index} className={room.flip ? "room-flip" : ""}>
-          <RoomDetails {...room} />
-        </div>
-      ))}
+    {rooms.map((room, index) => (
+      <div key={index} className={room.flip ? "room-flip" : ""}>
+        <RoomDetails
+          {...room}
+          images={room.images.map((img) => getImageUrl(img, 600))} // ✅ Convert to CDN URLs
+        />
+      </div>
+    ))}
 
-      <USPSection />
+    <USPSection />
       <section className="Image-Section">
         <Subtitle subtitle="Gallery" />
         <Container>

@@ -8,6 +8,7 @@ import CommonSection from "../components/shared/HeaderSection";
 import Review from "../components/Review";
 import ContactUs from "../components/ContactUs";
 import "./styles/contact.css";
+import { getImageUrl } from "../utils/imageKit";
 
 function Contact() {
   return (
@@ -15,7 +16,7 @@ function Contact() {
       <Navbar />
       <CommonSection 
       title={"Contact Us"} 
-      backgroundImage={"/img/a7.webp"}  // Specify the background image URL here
+      backgroundImage={getImageUrl("a7.webp", 1200)} // optional width
       />
       <section className="Contact-Section">
       <Subtitle subtitle={'Contact Form'} />

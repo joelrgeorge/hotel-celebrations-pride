@@ -1,6 +1,4 @@
 // Hero.js
-
-import React from "react";
 import BookingForm from "../components/BookingForm";
 import { Link } from "react-router-dom";
 import "../styles/hero.css";

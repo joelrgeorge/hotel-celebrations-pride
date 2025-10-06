@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/contact-us.css"; // Ensure the correct path to your CSS
 import Subtitle from "./shared/Subtitle";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";

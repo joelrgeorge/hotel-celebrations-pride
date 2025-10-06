@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/aboutSection.css"; // Import the updated CSS
-import { Container, Row, Col } from 'reactstrap';
-import heroImg from '../assets/img/HERO/hero-img01.JPG';
-import heroImg02 from '../assets/img/HERO/hero-img02.JPG';
-import heroVideo from '../assets/img/HERO/hero-video.mp4';
+import "../styles/aboutSection.css";
+import { Container, Row, Col } from "reactstrap";
+import { getImageUrl } from "../utils/imageKit";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const MainDisplay = () => {
   return (
@@ -17,33 +17,51 @@ const MainDisplay = () => {
           and exceptional service. Let us make your stay truly unforgettable.
         </p>
       </div>
+
       <div className="about-image">
         <Container>
           <Row className="about-image-row">
+
+            {/* Left Image */}
             <Col className="about-image-col">
               <div className="hero__img">
-                <img src={heroImg} alt="" />
+                <LazyLoadImage
+                  src={getImageUrl("HERO/hero-img-01.jpg", 800)} // width 800px
+                  alt="Hotel Room"
+                  effect="blur"
+                  className="hero-img"
+                />
               </div>
             </Col>
 
+            {/* Center Video */}
             <Col className="about-image-col">
               <div className="hero__img-box hero__video-box">
-                <video 
-                  src={heroVideo} 
-                  muted 
-                  autoPlay 
-                  loop 
+                <video
+                  src={getImageUrl("HERO/hall-tour.mp4")}   // CDN video
+                  muted
+                  autoPlay
+                  loop
                   playsInline
+                  preload="auto"                             // preloads video
+                  poster={getImageUrl("HERO/hall-tour-poster.jpg", 800)} // optimized poster
                   className="hero-video"
                 />
               </div>
             </Col>
 
+            {/* Right Image */}
             <Col className="about-image-col">
               <div className="hero__img-box">
-                <img src={heroImg02} alt="" />
+                <LazyLoadImage
+                  src={getImageUrl("HERO/hero-img-02.jpg", 800)} // width 800px
+                  alt="Hotel Lobby"
+                  effect="blur"
+                  className="hero-img"
+                />
               </div>
             </Col>
+
           </Row>
         </Container>
       </div>

@@ -1,22 +1,8 @@
-import React from "react";
-import './styles/rooms.css';
-import Navbar from "../components/Navbar";
-import { Container, Row, Col } from 'reactstrap';
-import { FaParking, FaConciergeBell, FaWifi, FaSwimmingPool, FaDumbbell, FaCocktail, FaTv, FaFire, FaMugHot } from "react-icons/fa";
-import CommonSection from "../components/shared/HeaderSection";
-import Footer from "../components/Footer";
-import { getImageUrl } from "../utils/imageKit";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import HallDetails from "../components/HallDetails";
-import HallGallery from "../components/gallery/HallGallery";
-import Subtitle from '../components/shared/Subtitle';
-
 function Banq_Hall() {
   const rooms = [
     {
       title: "Conference/Banquet Hall",
-      overview: "A haven of comfort and elegance, our Deluxe Room features modern décor, plush bedding, and stunning views. Perfect for unwinding in style.",
+      overview: "A haven of comfort and elegance...",
       price: "₹5000",
       facilities: [
         { icon: <FaParking />, label: "Free Parking" },
@@ -25,7 +11,13 @@ function Banq_Hall() {
         { icon: <FaSwimmingPool />, label: "Pool Access" },
         { icon: <FaDumbbell />, label: "Fitness Center" }
       ],
-      images: ['Banq_Hall/IMG_7514.jpg', 'Banq_Hall/IMG_7517.jpg', 'Banq_Hall/IMG_7521.jpg', 'Banq_Hall/IMG_7513.jpg','Banq_Hall/IMG_7537.jpg'],
+      images: [
+        "Banq_Hall/IMG_7514.jpg",
+        "Banq_Hall/IMG_7517.jpg",
+        "Banq_Hall/IMG_7521.jpg",
+        "Banq_Hall/IMG_7513.jpg",
+        "Banq_Hall/IMG_7537.jpg"
+      ],
       flip: false,
     },
   ];
@@ -35,26 +27,25 @@ function Banq_Hall() {
       <Navbar />
       <CommonSection 
         title={"Our Hall"} 
-        backgroundImage={getImageUrl("Banq_Hall/IMG_7524.jpg", 1200)} // optional width
+        backgroundImage={getImageUrl("Banq_Hall/IMG_7524.jpg", 1200)}
       />
-      
+
       {rooms.map((room, index) => (
-        <LazyLoadImage
-          key={i}
-          src={getImageUrl(img, 600)} // width 600px
-          alt={`${room.title} image ${i + 1}`}
-          effect="blur"
-          className="room-image"
-        />
+        <div key={index} className={room.flip ? "room-flip" : ""}>
+          <HallDetails
+            {...room}
+            images={room.images.map((img) => getImageUrl(img, 600))} // ✅ CDN URLs
+          />
+        </div>
       ))}
-      
+
       <section className="Image-Section">
         <Subtitle subtitle={'Our Hall'} />
         <Container>
           <h2 className="gallery__title">Check out our Hall Gallery</h2>
           <Row>
             <Col lg='12'>
-              <HallGallery />
+              <HallGallery /> {/* Already handles ImageKit + lazy load */}
             </Col>
           </Row>
         </Container>
@@ -63,5 +54,3 @@ function Banq_Hall() {
     </div>
   );
 }
-
-export default Banq_Hall;

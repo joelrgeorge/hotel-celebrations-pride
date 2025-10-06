@@ -41,7 +41,13 @@ const HallDetails = ({ images, title, overview, description, facilities, price }
               <Slider {...sliderSettings}>
                 {images.map((image, index) => (
                   <div key={index} className="image-slider">
-                    <img src={image} alt={`Room ${index + 1}`} className="slider-image" />
+                    <LazyLoadImage
+                      key={index}
+                      src={image}
+                      alt={`Room ${index + 1}`}
+                      effect="blur"
+                      className="slider-image"
+                    />
                   </div>
                 ))}
               </Slider>

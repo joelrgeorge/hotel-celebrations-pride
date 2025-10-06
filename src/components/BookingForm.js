@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../styles/bookingForm.css";
 
 const submitUrl = "/api/book-room";

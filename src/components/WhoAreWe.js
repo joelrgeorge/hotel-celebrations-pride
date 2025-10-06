@@ -1,4 +1,3 @@
-import React from 'react'; 
 import data from '../restAPI.json'; // Import the JSON data
 import "../styles/WhoAreWe.css";
 import ImageGallery02 from "./gallery/ImageGallery02";

@@ -1,4 +1,3 @@
-import React from 'react';
 import Slider from 'react-slick';
 import '../styles/testimonials.css';
 import user1 from '/public/img/users/user1.jpg';

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import '../styles/RoomPricingCard.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { getImageUrl } from "../utils/imageKit";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const RoomPricingCard = ({ room, onClose }) => {
   const [occupants, setOccupants] = useState(1);
@@ -70,7 +73,12 @@ const RoomPricingCard = ({ room, onClose }) => {
           <div className="room-preview">
             <h2>{room.title}</h2>
             {room.images && room.images.length > 0 && (
-              <img src={room.images[0]} alt={room.title} className="room-image" />
+              <LazyLoadImage
+                src={getImageUrl(room.images[0], 600)} // serve first image from CDN at 600px width
+                alt={room.title}
+                effect="blur"
+                className="room-image"
+              />
             )}
           </div>
         </div>
