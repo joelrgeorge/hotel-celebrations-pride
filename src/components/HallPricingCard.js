@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/RoomPricingCard.css';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { getImageUrl } from "../utils/imageKit";
+import { getImageUrl } from "../../imageKit";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const HallPricingCard = ({ room, onClose }) => {
