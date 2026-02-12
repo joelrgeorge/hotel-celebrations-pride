@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/roomDisplay.css";
-import { getImageUrl } from "../../imageKit";
+import { getImageUrl } from "../../ImageKit";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 

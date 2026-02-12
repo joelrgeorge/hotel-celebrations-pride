@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import "../styles/ImageCarousel.css"; // Include the CSS for styling
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { getImageUrl } from "../../imageKit";
+import { getImageUrl } from "../../ImageKit";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 Modal.setAppElement("#root");
