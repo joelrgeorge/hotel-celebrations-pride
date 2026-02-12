@@ -2,11 +2,6 @@
 
 .common__section {
     background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)),
-    style={{
-    background: `url(${getImageUrl("img/Banq_Hall/IMG_7524.jpg", 1600)}) no-repeat center center`,
-    backgroundSize: "cover"
-    }}
-    background-size: cover;
     height: 300px;
     display: flex;
     align-items: center;

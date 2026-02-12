@@ -3,12 +3,7 @@
 .hero-container {
   height: 75vh; /* Default height for larger screens */
   min-height: 400px; /* Ensure a minimum height to maintain decent visual appearance */
-  background: 
-  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), /* Gradient overlay */
-  style={{
-    background: `url(${getImageUrl("a4.webp", 1600)}) no-repeat center center/cover`
-  }}
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
