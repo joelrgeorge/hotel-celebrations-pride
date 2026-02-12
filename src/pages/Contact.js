@@ -8,7 +8,7 @@ import CommonSection from "../components/shared/HeaderSection";
 import Review from "../components/Review";
 import ContactUs from "../components/ContactUs";
 import "./styles/contact.css";
-import { getImageUrl } from "../utils/imageKit";
+import { getImageUrl } from "../../ImageKit";
 
 function Contact() {
   return (
